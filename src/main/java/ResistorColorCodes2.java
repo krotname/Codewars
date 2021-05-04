@@ -82,7 +82,3 @@ public class ResistorColorCodes2 {
     }
 }
 
-enum Colors {
-    BLACK, BROWN, RED, ORANGE, YELLOW, GREEN, BLUE, VIOLET, GRAY, WHITE, GOLD;
-}
-
