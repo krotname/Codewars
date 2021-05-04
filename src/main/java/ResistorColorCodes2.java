@@ -1,6 +1,3 @@
-import java.util.Arrays;
-import java.util.Locale;
-
 public class ResistorColorCodes2 {
     public static void main(String[] args) {
         System.out.println(encodeResistorColors("10 ohms")); // "brown black black gold"
@@ -23,13 +20,13 @@ public class ResistorColorCodes2 {
 
     public static String encodeResistorColors(String ohmsString) {
         if (ohmsString == null || ohmsString.isEmpty() || !ohmsString.endsWith(" ohms")) return "";
-        int encodeResistorOhms = encodeResistorOhms(ohmsString);
-        int[] encodeResistorOhmsArr = encodeResistorOhmsToArr(encodeResistorOhms);
-        return encodeResistorArrToColor(encodeResistorOhmsArr);
+        int resistorOhms = encodeResistorOhms(ohmsString);
+        int[] resistorOhmsArr = encodeResistorOhmsToArr(resistorOhms);
+        return encodeResistorArrToColor(resistorOhmsArr);
     }
 
     public static int encodeResistorOhms(String ohmsString) {
-        Double tempValue = 0.0;
+        double tempValue;
         String[] tempArray = ohmsString.split("\\s");
         if (tempArray[0].endsWith("k"))
             tempValue = Double.parseDouble(tempArray[0].trim().substring(0, tempArray[0].length() - 1)) * 1_000;
@@ -38,20 +35,50 @@ public class ResistorColorCodes2 {
         else tempValue = Double.parseDouble(tempArray[0].trim());
         return (int) Math.round(tempValue);
     }
+
     public static String encodeResistorArrToColor(int[] resistorOhms) {
-        return Colors.values()[resistorOhms[0]].toString().toLowerCase(Locale.ROOT) + " " + Colors.values()[resistorOhms[1]].toString().toLowerCase(Locale.ROOT) +
-                " " + Colors.values()[resistorOhms[2]].toString().toLowerCase(Locale.ROOT) + " " +  Colors.values()[10].toString().toLowerCase(Locale.ROOT);
+        return Colors(resistorOhms[0]) + " " + Colors(resistorOhms[1]) +
+                " " + Colors(resistorOhms[2]) + " " + Colors(10);
     }
+
     public static int[] encodeResistorOhmsToArr(int resistorOhms) {
         int[] encodeResistorOhmsArr = new int[3];
 
-        while (resistorOhms >= 100){
+        while (resistorOhms >= 100) {
             resistorOhms /= 10;
             encodeResistorOhmsArr[2]++;
         }
-        encodeResistorOhmsArr[1] = resistorOhms%10;
-        encodeResistorOhmsArr[0] = resistorOhms/10;
+        encodeResistorOhmsArr[1] = resistorOhms % 10;
+        encodeResistorOhmsArr[0] = resistorOhms / 10;
         return encodeResistorOhmsArr;
+    }
+
+    public static String Colors(int num) {
+        switch (num) {
+            case (0):
+                return "black";
+            case (1):
+                return "brown";
+            case (2):
+                return "red";
+            case (3):
+                return "orange";
+            case (4):
+                return "yellow";
+            case (5):
+                return "green";
+            case (6):
+                return "blue";
+            case (7):
+                return "violet";
+            case (8):
+                return "gray";
+            case (9):
+                return "white";
+            case (10):
+                return "gold";
+        }
+        return "";
     }
 }
 
