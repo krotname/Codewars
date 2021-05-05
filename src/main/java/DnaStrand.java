@@ -1,6 +1,4 @@
-package codewars;
-
-public class dnaStrand {
+public class DnaStrand {
     public static void main(String[] args) {
         System.out.println(makeComplement("AAAA"));
         System.out.println(makeComplement("ATTGC"));

@@ -1,6 +1,4 @@
-package codewars;
-
-public class like {
+public class Like {
     public static void main(String[] args) {
 
         System.out.println(whoLikesIt()); // "no one likes this"

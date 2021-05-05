@@ -1,6 +1,4 @@
-package codewars;
-
-public class persist {
+public class Persist {
     public static void main(String[] args) {
         System.out.println(persistence(39));
         System.out.println(persistence(999));

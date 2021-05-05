@@ -1,6 +1,4 @@
-package codewars;
-
-public class findOutlier {
+public class FindOutlier {
     public static void main(String[] args) {
         int[] exampleTest1 = {2,6,8,-10,3};
         int[] exampleTest2 = {206847684,1056521,7,17,1901,21104421,7,1,35521,1,7781};

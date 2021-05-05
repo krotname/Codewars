@@ -1,7 +1,4 @@
-package codewars;
-
-
-public class getXO {
+public class GetXO {
     public static void main(String[] args) {
 
         System.out.println(getXO("XxxooO"));

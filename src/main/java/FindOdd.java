@@ -1,5 +1,3 @@
-package codewars;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,8 +13,8 @@ public class FindOdd {
 
     public static int findIt(int[] a) {
         /*Given an array of integers, find the one that appears an odd number of times.
+        There will always be only one integer that appears an odd number of times.*/
 
-                There will always be only one integer that appears an odd number of times.*/
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : a
         ) {

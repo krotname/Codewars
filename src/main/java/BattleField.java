@@ -1,6 +1,4 @@
-package codewars;
-
-public class battleField {
+public class BattleField {
 
     private static int[][] battleField =
             {{1, 0, 0, 0, 0, 1, 1, 0, 0, 0},

@@ -1,10 +1,8 @@
-package codewars;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class pangramChecker {
+public class PangramChecker {
     public static void main(String[] args) {
         String pangram1 = "The quick brown fox jumps over the lazy dog.";
         System.out.println(check(pangram1));

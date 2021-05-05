@@ -1,6 +1,4 @@
-package codewars;
-
-public class opposite {
+public class Opposite {
 
     public static void main(String[] args) {
         System.out.println(opposite(1)); // -1

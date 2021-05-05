@@ -1,5 +1,3 @@
-package codewars;
-
 public class Multiplesof3or5 {
     public static void main(String[] args) {
         System.out.println(solution(10)); //23

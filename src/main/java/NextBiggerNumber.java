@@ -1,8 +1,6 @@
-package codewars;
-
 import java.util.Arrays;
 
-public class nextBiggerNumber {
+public class NextBiggerNumber {
 
     public static void main(String[] args) {
 
