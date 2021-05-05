@@ -7,27 +7,35 @@ public class HowManyNumbers {
         System.out.println(findAll(27, 3)); //1L, 999L, 999L
         System.out.println(findAll(84, 4));
         System.out.println(findAll(35, 6)); //123L, 116999L, 566666L
+        System.out.println(findAll(34, 8)); //440, 11113999, 44444455
+        System.out.println(findAll(25, 10)); //164, 11111299, 33333334
 
     }
+
     public static List<Long> findAll(final int sumDigits, final int numDigits) {
-        List<Long> result = new ArrayList<>();
-        List<Long> arr = new ArrayList<>();
-        long start = (int) (Math.pow(10,numDigits-1));
-        long finish = start * 10 -1;
-        for (long i = start; i < finish ; i++) {
-            if (sumDigits(i) == sumDigits && digitsIncreasingOrder(i)){
-                arr.add(i);
+
+        long firstValue = 0L;
+        long lastValue = 0L;
+        long countValue = 0L;
+        long start = (long) (Math.pow(10, numDigits - 1));
+        long finish = start * 10;
+        for (long i = start; i < finish; i++) {
+            if (sumDigits(i) == sumDigits && digitsIncreasingOrder(i)) {
+                countValue++;
+                lastValue = i;
+                if (firstValue == 0L) firstValue = i;
             }
         }
-        System.out.println(arr);
-        if (arr.size()>0){
-            result.add((long) arr.size());
-            result.add(arr.get(0));
-            result.add(arr.get(arr.size()-1));
-        }
 
+        List<Long> result = new ArrayList<>();
+        if (countValue > 0L) {
+            result.add(countValue);
+            result.add(firstValue);
+            result.add(lastValue);
+        }
         return result;
     }
+
     public static long sumDigits(long n) {
         long result = 0;
         while (n > 0) {
@@ -36,16 +44,16 @@ public class HowManyNumbers {
         }
         return result;
     }
-    public static boolean  digitsIncreasingOrder (long n) {
-        // todo revers сделать не по убыванию а по возрастанию
-        boolean result = true;
-        long temp = 0;
+
+    public static boolean digitsIncreasingOrder(long n) {
+        long temp = n % 10;
+        n /= 10;
         while (n > 0) {
-            if (n % 10 < temp) result = false;
+            if (n % 10 > temp) return false;
             temp = n % 10;
             n /= 10;
         }
-        return result;
+        return true;
     }
 
 }
