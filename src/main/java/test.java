@@ -1,7 +1,19 @@
+import java.math.BigInteger;
+
 public class test {
     public static void main(String[] args) {
-        System.out.println(HowManyNumbers.sumDigits(9919));
-        System.out.println(HowManyNumbers.digitsIncreasingOrder(28));
-        System.out.println(HowManyNumbers.digitsIncreasingOrder(82));
+
+            BigInteger big = new BigInteger("0");
+            BigInteger append = new BigInteger("1");
+            while (big.toString().length() < 20){
+                big = new BigInteger(big.toString() + append.toString());
+                char c = append.toString().toCharArray()[append.toString().length()-1];
+                int i = Integer.parseInt(String.valueOf(c))+1;
+                append = new BigInteger(append.toString() + i);
+            }
+            System.out.println(big);
+
+
     }
+
 }
