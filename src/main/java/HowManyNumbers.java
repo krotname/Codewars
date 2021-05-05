@@ -13,14 +13,15 @@ public class HowManyNumbers {
     }
 
     public static List<Long> findAll(final int sumDigits, final int numDigits) {
-
+        // просчитывает варианты numDigits`значных чисел в которых сумма чисел равна sumDigits и цифры идут по порядку
+        // и выводит массив количество найденых цифр, первое и последние
         long firstValue = 0L;
         long lastValue = 0L;
         long countValue = 0L;
         long start = (long) (Math.pow(10, numDigits - 1));
         long finish = start * 10;
         for (long i = start; i < finish; i++) {
-            if (sumDigits(i) == sumDigits && digitsIncreasingOrder(i)) {
+            if (digitsIncreasingOrder(i) &&  sumDigits(i) == sumDigits) {
                 countValue++;
                 lastValue = i;
                 if (firstValue == 0L) firstValue = i;
