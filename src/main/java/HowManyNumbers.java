@@ -27,7 +27,7 @@ public class HowManyNumbers {
             }
         }
 
-        List<Long> result = new ArrayList<>();
+        List<Long> result = new ArrayList<>(3);
         if (countValue > 0L) {
             result.add(countValue);
             result.add(firstValue);
