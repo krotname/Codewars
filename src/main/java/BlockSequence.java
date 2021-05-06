@@ -19,7 +19,7 @@ More examples in the test cases. */
         System.out.println(solve(3));
         System.out.println(solve(5));
         System.out.println(solve(10));
-        System.out.println(solve(14));
+        System.out.println(solve(32));
     }
     public static int solve(long n){
         BigInteger big = new BigInteger("1");
@@ -30,7 +30,7 @@ More examples in the test cases. */
             int i = Integer.parseInt(String.valueOf(c))+1;
             append = new BigInteger(append.toString() + i);
         }
-        System.out.println(big);
+       // System.out.println(big);
         return big.toString().length()-String.valueOf(n).length()+1;
     }
     public static boolean check (BigInteger b, long n){
