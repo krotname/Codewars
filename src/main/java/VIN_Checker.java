@@ -42,12 +42,13 @@ public class VIN_Checker {
 */
 
     public static void main(String[] args) {
+        System.out.println(checkVin("3VN6WLZCXYF160649")); // false
         System.out.println(checkVin("5YJ3E1EA7HF000337")); // true
         System.out.println(checkVin("5YJ3E1EAXHF000347")); // true
         System.out.println(checkVin("5VGYMVUX7JV764512")); // true
         System.out.println(checkVin("7WDMMTDV9TG739741")); // false
         System.out.println(checkVin("7JTRH08L5EJ234829")); // false
-
+        System.out.println(checkVin("7%^&H08L5EJ234829")); // false
     }
 
     public static boolean checkVin(String vin) {
@@ -76,6 +77,7 @@ public class VIN_Checker {
         letters.put('W', 6);
         letters.put('X', 7);
         letters.put('Y', 8);
+        letters.put('Z', 9);
         letters.put('1', 1);
         letters.put('2', 2);
         letters.put('3', 3);
@@ -87,24 +89,18 @@ public class VIN_Checker {
         letters.put('9', 9);
         letters.put('0', 0);
 
-        StringBuilder convertedToNumber = new StringBuilder();
-        char[] vinChars = vin.toCharArray();
+        ArrayList<Integer> convertedToNumber = new ArrayList<>();
+        char[] vinChars = vin.toUpperCase().toCharArray();
         for (Character c:vinChars
              ) {
-            convertedToNumber.append(letters.get(c));
+            if (!letters.containsKey(c)) return false;
+            convertedToNumber.add(letters.get(c));
         }
-
         List <Integer> multiplier =  Arrays.asList(8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2);
 
         ArrayList<Integer> product = new ArrayList<>();
-
-        char[] convertedToNumberchars = convertedToNumber.toString().toCharArray();
-
-        for (int i = 0; i < convertedToNumberchars.length; i++) {
-            int i1 = Integer.parseInt(String.valueOf(convertedToNumberchars[i]));
-            Integer integer = multiplier.get(i);
-            int x = integer * i1;
-            product.add(x);
+        for (int i = 0; i < 17; i++) {
+            product.add(convertedToNumber.get(i ) * multiplier.get(i));
         }
         int sumProduct = 0;
 
@@ -115,12 +111,6 @@ public class VIN_Checker {
         int sumProductMod = sumProduct%11;
 
         if (sumProductMod == 10 && vinChars[8] == 'X') return true;
-        int controlChar = 0;
-        try {
-            controlChar = Integer.parseInt(String.valueOf(vinChars[8]));
-        } catch (NumberFormatException e) {
-        }
-        return controlChar == sumProductMod;
-
+        return String.valueOf(sumProductMod).equalsIgnoreCase(String.valueOf(vinChars[8]));
     }
 }
