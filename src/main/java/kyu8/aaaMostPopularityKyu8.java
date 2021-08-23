@@ -27,4 +27,9 @@ public class aaaMostPopularityKyu8 {
         return x.replaceAll(" ", "");
     }
 
+    public static String numberToString(int num) {
+        return String.valueOf(num);
+    }
+
+
 }
