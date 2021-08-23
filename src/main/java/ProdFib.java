@@ -63,6 +63,7 @@ You can see examples for your language in "Sample Tests".
     }
 
     public static long getFibonacciValue(final long n) {
+        //https://ru.stackoverflow.com/questions/39229/Последовательности-чисел-Фибоначчи
         double p = (1 + Math.sqrt(5)) / 2;
         double q = 1 / p;
         return (long) ((Math.pow(p, n) + Math.pow(q, n)) / Math.sqrt(5));
