@@ -4,3 +4,4 @@
 *.xml
 *.class
 *.class
+target/classes/test.class
