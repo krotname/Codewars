@@ -6,3 +6,5 @@
 *.class
 target/classes/test.class
 target/classes/test.class
+*.class
+*.class
