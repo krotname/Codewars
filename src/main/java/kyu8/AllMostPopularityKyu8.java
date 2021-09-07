@@ -1,7 +1,11 @@
 package kyu8;
 
-public class aaaMostPopularityKyu8 {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class AllMostPopularityKyu8 {
     public static void main(String[] args) {
+        System.out.println(Arrays.toString(digitize(35231)));
         System.out.println(Liters(0.4));
         System.out.println(Liters(0.5));
         System.out.println(Liters(0.6));
@@ -10,6 +14,22 @@ public class aaaMostPopularityKyu8 {
         System.out.println(Liters(14.64));
         System.out.println(Liters(80));
         System.out.println(Liters(1600.20));
+    }
+
+    public static int[] digitize(long n) {
+        ArrayList<Integer> integers = new ArrayList<>();
+        while (n > 0) {
+            int l = (int) (n % 10);
+            integers.add(l);
+            n = n / 10;
+        }
+
+        int[] r = new int[integers.size()];
+        for (int i = 0; i < integers.size(); i++) {
+            r[i] = integers.get(i);
+        }
+
+        return r;
     }
 
     public static String boolToWord(boolean b) {
@@ -62,42 +82,45 @@ public class aaaMostPopularityKyu8 {
         }
         return count;
     }
-    public static int squareSum(int[] n)
-    {
+
+    public static int squareSum(int[] n) {
         if (n == null || n.length == 0) return 0;
         int sum = 0;
         for (int i : n
         ) {
-            sum+= i*i;
+            sum += i * i;
         }
         return sum;
     }
-    public static int century(int number) {
-        return (number-1)/100+1;
-    }
-    public static int Liters(double time)  {
 
-        return (int) ( time/2);
+    public static int century(int number) {
+        return (number - 1) / 100 + 1;
     }
+
+    public static int Liters(double time) {
+
+        return (int) (time / 2);
+    }
+
     public static boolean isDivisible(long n, long x, long y) {
-        if (n <=0 ||x <=0 ||y <=0 ) {
+        if (n <= 0 || x <= 0 || y <= 0) {
             return false;
         }
-        if (n %x == 0 && n %y == 0 ){
+        if (n % x == 0 && n % y == 0) {
             return true;
         }
         return false;
     }
-    public static Integer basicMath(String op, int v1, int v2)
-    {
+
+    public static Integer basicMath(String op, int v1, int v2) {
         if (op.equals("+")) {
-            return v1+v2;
-        }else if (op.equals("-")){
-            return v1-v2;
-        }else if (op.equals("*")){
-            return v1*v2;
-        }else if (op.equals("/") && v2 != 0){
-            return v1/v2;
+            return v1 + v2;
+        } else if (op.equals("-")) {
+            return v1 - v2;
+        } else if (op.equals("*")) {
+            return v1 * v2;
+        } else if (op.equals("/") && v2 != 0) {
+            return v1 / v2;
         }
 
         return 0;
