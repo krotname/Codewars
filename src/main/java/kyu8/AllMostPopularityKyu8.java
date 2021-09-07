@@ -6,6 +6,7 @@ import java.util.Arrays;
 public class AllMostPopularityKyu8 {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(digitize(35231)));
+        System.out.println(Past(0,1,1));
         System.out.println(Liters(0.4));
         System.out.println(Liters(0.5));
         System.out.println(Liters(0.6));
@@ -14,6 +15,11 @@ public class AllMostPopularityKyu8 {
         System.out.println(Liters(14.64));
         System.out.println(Liters(80));
         System.out.println(Liters(1600.20));
+    }
+
+    public static int Past(int h, int m, int s)
+    {
+        return s*1000+m*60*1000+h*60*60*1000;
     }
 
     public static int[] digitize(long n) {
