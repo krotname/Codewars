@@ -8,9 +8,23 @@ public class AllMostPopularityKyu8 {
         System.out.println(Arrays.toString(digitize(35231)));
         System.out.println(past(0, 1, 1));
         System.out.println(Liters(0.4));
-        System.out.println(abbrevName("patrick feeney"));
+        System.out.println(abbrevName("patrick fen"));
+        System.out.println(getAverage(new int[]{1, 2, 3}));
         System.out.println(Arrays.toString(countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
     }
+
+    public static int[] map(int[] arr) {
+        return Arrays.stream(arr).map(x -> x * 2).toArray();
+    }
+
+    public static int[] invert(int[] array) {
+        return Arrays.stream(array).map(x -> x * -1).toArray();
+    }
+
+    public static int getAverage(int[] marks) {
+        return (int) Arrays.stream(marks).average().orElse(0);
+    }
+
 
     public static int[] countPositivesSumNegatives(int[] input) {
         if (input == null || input.length == 0) return new int[0];
