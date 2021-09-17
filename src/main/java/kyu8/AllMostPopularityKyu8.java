@@ -10,7 +10,68 @@ public class AllMostPopularityKyu8 {
         System.out.println(Liters(0.4));
         System.out.println(abbrevName("patrick fen"));
         System.out.println(getAverage(new int[]{1, 2, 3}));
+        System.out.println(reverseWords("I like eating"));
+        System.out.println(fakeBin("45385593107843568"));
         System.out.println(Arrays.toString(countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
+        System.out.println(sum(new int[]{6, 2, 1, 8, 10}));
+        System.out.println(sum(new int[]{-1, -50, -100}));
+    }
+
+    public static int sum(int[] numbers) {
+        //сумма кроме самого большого и маленького 
+        if (numbers == null || numbers.length < 2 ) return 0;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        int sum = 0;
+        for (int n : numbers
+        ) {
+            if (n > max) {
+                max = n;
+            }
+            if (n < min) {
+                min = n;
+            }
+        }
+        boolean maxB = true, minB = true;
+        for (int n:numbers
+             ) {
+            if (maxB && n == max){
+                maxB = false;
+            }
+            else if (minB && n == min){
+                minB = false;
+            }else{
+                sum += n;
+            }
+        }
+        return sum;
+    }
+
+
+    public static String fakeBin(String numberString) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char c : numberString.toCharArray()) {
+            if (Character.getNumericValue(c) >= 5) {
+                stringBuilder.append("1");
+            } else if (Character.getNumericValue(c) < 5) {
+                stringBuilder.append("0");
+            }
+        }
+        return stringBuilder.toString();
+    }
+
+
+    public static int stringToNumber(String str) {
+        return Integer.parseInt(str);
+    }
+
+    public static String reverseWords(String str) {
+        String[] s = str.split(" ");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = s.length - 1; i >= 0; i--) {
+            stringBuilder.append(s[i]).append(" ");
+        }
+        return stringBuilder.toString().trim();
     }
 
     public static int[] map(int[] arr) {
