@@ -6,20 +6,49 @@ import java.util.Arrays;
 public class AllMostPopularityKyu8 {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(digitize(35231)));
-        System.out.println(past(0,1,1));
+        System.out.println(past(0, 1, 1));
         System.out.println(Liters(0.4));
-        System.out.println(Liters(0.5));
-        System.out.println(Liters(0.6));
-        System.out.println(Liters(2));
-        System.out.println(Liters(0.97));
-        System.out.println(Liters(14.64));
-        System.out.println(Liters(80));
-        System.out.println(Liters(1600.20));
+        System.out.println(abbrevName("patrick feeney"));
+        System.out.println(Arrays.toString(countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
     }
 
-    public static int past(int h, int m, int s)
-    {
-        return s*1000+m*60*1000+h*60*60*1000;
+    public static int[] countPositivesSumNegatives(int[] input) {
+        if (input == null || input.length == 0) return new int[0];
+        int countPositive = 0;
+        int summNegative = 0;
+        for (int i : input
+        ) {
+            if (i > 0) {
+                countPositive++;
+            } else {
+                summNegative -= i;
+            }
+        }
+        int[] result = new int[2];
+        result[0] = countPositive;
+        result[1] = summNegative*-1;
+        return result; //return an array with count of positives and sum of negatives
+    }
+
+
+    public static String findNeedle(Object[] haystack) {
+        if (haystack == null || haystack.length == 0) return "not found";
+        for (int i = 0; i < haystack.length; i++) {
+            if (haystack[i] != null && haystack[i].equals("needle")) {
+                return "found the needle at position " + i;
+            }
+        }
+        return "not found";
+    }
+
+
+    public static String abbrevName(String name) {
+        String[] s = name.split(" ");
+        return s[0].substring(0, 1).toUpperCase() + "." + s[1].substring(0, 1).toUpperCase();
+    }
+
+    public static int past(int h, int m, int s) {
+        return s * 1000 + m * 60 * 1000 + h * 60 * 60 * 1000;
     }
 
     public static int[] digitize(long n) {
