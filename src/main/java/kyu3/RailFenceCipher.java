@@ -27,7 +27,8 @@ Note that the example above excludes the punctuation and spaces just for simplic
 
 
     public static void main(String[] args) {
-        System.out.println(encode("Hello, World!", 4));
+        System.out.println(encode("Hello, World!", 3));
+        System.out.println(encode("123456789", 3));
         System.out.println(encode("WECRLTEERDSOEEFEAOCAIVDEN", 3));
         System.out.println(decode("Hoo!el,Wrdl l", 3));
     }
@@ -60,7 +61,7 @@ Note that the example above excludes the punctuation and spaces just for simplic
     }
 
     static String decode(String s, int n) {
-        // todo decode
+        //todo decode split 
         return "";
     }
 
