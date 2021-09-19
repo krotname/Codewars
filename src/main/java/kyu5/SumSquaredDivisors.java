@@ -1,9 +1,9 @@
 package kyu5;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class SumSquaredDivisors {
     //5 https://www.codewars.com/kata/55aa075506463dac6600010d/train/java
@@ -24,15 +24,17 @@ In Fortran - as in any other language - the returned string is not permitted to 
 
     public static void main(String[] args) {
         System.out.println(listSquared(1, 250)); // [[1, 1], [42, 2500], [246, 84100]]
+        System.out.println(listSquared(42, 250)); // [42, 2500], [246, 84100]]
+        System.out.println(listSquared(250, 500)); //
+        System.out.println(listSquared(250, 255)); //
     }
 
     public static String listSquared(long m, long n) {
-        Map<Long, Long> result = new HashMap<>();
+        Map<Long, Long> result = new TreeMap<>();
         for (long i = m; i < n; i++) {
             long sumSquare = sumSquareList(listDivisor(i));
             if (checkSquare(sumSquare)) {
                 result.putIfAbsent(i, sumSquare);
-                //System.out.println(i  +  "  - "+ sumSquare);
             }
         }
 
@@ -40,12 +42,15 @@ In Fortran - as in any other language - the returned string is not permitted to 
         stringBuilder.append("[");
         for (Map.Entry<Long, Long> entry : result.entrySet()
         ) {
-            //todo обыграть запятую
-            stringBuilder.append("[").append(entry.getKey()).append(",").append(entry.getValue()).append("],");
+            stringBuilder.append("[").append(entry.getKey()).append(", ").append(entry.getValue()).append("], ");
         }
-        stringBuilder.append("]");
+        String substring = "[";
+        if (stringBuilder.length() > 2) {
+            substring = stringBuilder.substring(0, stringBuilder.length() - 2);
+        }
+        substring = substring + "]";
 
-        return stringBuilder.toString();
+        return substring;
     }
 
     public static boolean checkSquare(long n) {
