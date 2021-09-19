@@ -1,9 +1,10 @@
-package unknown;
+package kyu4;
 
 import java.util.Arrays;
 
 public class NextBiggerNumber {
-
+    // 4 https://www.codewars.com/kata/55983863da40caa2c900004e
+    // not work
     public static void main(String[] args) {
         System.out.println(nextBiggerNumber(12)); // 21
         System.out.println(nextBiggerNumber(513)); // 531
