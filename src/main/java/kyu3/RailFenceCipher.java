@@ -1,7 +1,8 @@
 package kyu3;
 
-import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class RailFenceCipher {
 
@@ -34,7 +35,7 @@ Note that the example above excludes the punctuation and spaces just for simplic
     }
 
     static String encode(String s, int n) {
-        Map<Integer, StringBuilder> map = new HashMap<>();
+        Map<Integer, StringBuilder> map = new TreeMap<>();
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < n; i++) {
             map.put(i, new StringBuilder());
@@ -53,7 +54,6 @@ Note that the example above excludes the punctuation and spaces just for simplic
 
         for (Map.Entry<Integer, StringBuilder> e : map.entrySet()
         ) {
-            //System.out.println(e.getValue());
             result.append(e.getValue());
         }
 
@@ -61,8 +61,52 @@ Note that the example above excludes the punctuation and spaces just for simplic
     }
 
     static String decode(String s, int n) {
-        //todo decode split 
-        return "";
+        int[] size = new int[n];
+        Counter counter = new Counter(n - 1);
+        for (int i = 0; i < s.length(); i++) {
+            int tik = counter.tik();
+            size[tik]++;
+        }
+        Map<Integer, StringBuilder> map = new TreeMap<>();
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            StringBuilder stringBuilder = new StringBuilder();
+            if (i == 0) {
+                stringBuilder.append(s, 0, size[0]);
+            } else {
+                int start = sumArr(size, i);
+                int end = start + size[i];
+                stringBuilder.append(s, start, end);
+            }
+            map.put(i, stringBuilder);
+        }
+
+        Map<Integer, LinkedList<String>> map2 = new TreeMap<>();
+
+        for (Map.Entry<Integer, StringBuilder> e : map.entrySet()
+        ) {
+            LinkedList<String> strings = new LinkedList<>();
+            for (char c : e.getValue().toString().toCharArray()) {
+                strings.add(String.valueOf(c));
+            }
+            map2.put(e.getKey(), strings);
+        }
+
+        Counter counterRes = new Counter(n-1);
+        for (int i = 0; i < s.length(); i++) {
+            int tik = counterRes.tik();
+            result.append(map2.get(tik).poll()); //---
+        }
+
+        return result.toString();
+    }
+
+    private static int sumArr(int[] arr, int i) {
+        int result = 0;
+        for (int j = 0; j < i; j++) {
+            result += arr[j];
+        }
+        return result;
     }
 
     private static class Counter {
