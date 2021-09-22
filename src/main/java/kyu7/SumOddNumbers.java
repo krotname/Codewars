@@ -7,9 +7,11 @@ public class SumOddNumbers {
         System.out.println(rowSumOddNumbers(42));
     }
     public static int rowSumOddNumbers(int n) {
-        //todo подобрать формулу
-/*        n=n*n+(n-1);
-        return (n*(n+1))/4;*/
-        return 0;
+        int result = 0;
+        int r = n * (n + 1) / 2 * 2 - 1;
+        for (int i = 0; i < n; i++) {
+            result += r - i * 2;
+        }
+        return result;
     }
 }
