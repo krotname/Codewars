@@ -13,5 +13,6 @@ public class SumOddNumbers {
             result += r - i * 2;
         }
         return result;
+        // return n*n*n;
     }
 }
