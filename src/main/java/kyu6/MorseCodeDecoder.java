@@ -5,6 +5,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MorseCodeDecoder {
+
+    //7 https://www.codewars.com/kata/54b724efac3d5402db00065e
+    
     private static LinkedHashMap<String, String> alphabetToMorse = new LinkedHashMap<>();
 
     static Map<String, String> morseMap = new HashMap<>() {{
