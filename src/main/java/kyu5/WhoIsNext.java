@@ -10,9 +10,13 @@ public class WhoIsNext {
     public static void main(String[] args) {
         String[] names = new String[]{"Sheldon", "Leonard", "Penny", "Rajesh", "Howard"};
         System.out.println(WhoIsNext(names, 1)); // Sheldon
+        System.out.println(WhoIsNextOld(names, 1)); // Sheldon
         System.out.println(WhoIsNext(names, 6)); // Sheldon
+        System.out.println(WhoIsNextOld(names, 6)); // Sheldon
         System.out.println(WhoIsNext(names, 15)); //
+        System.out.println(WhoIsNextOld(names, 15)); //
         System.out.println(WhoIsNext(names, Integer.MAX_VALUE / 100)); //
+        System.out.println(WhoIsNextOld(names, Integer.MAX_VALUE / 100)); //
     }
 
     public static String WhoIsNext(String[] names, int n) {
