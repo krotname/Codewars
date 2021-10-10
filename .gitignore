@@ -1,11 +1,4 @@
-
-*.class
-*.class
+.idea
 *.xml
-*.class
-*.class
 target/classes/test.class
-target/classes/test.class
-*.class
-*.class
 *.class
