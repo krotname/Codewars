@@ -1,4 +1,6 @@
 .idea/
 *.xml
-target/classes/test.class
+target
 *.class
+*.iml
+out
