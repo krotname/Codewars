@@ -5,3 +5,4 @@ target
 *.iml
 out
 .idea/jarRepositories.xml
+.idea/sonarlint/issuestore/index.pb
