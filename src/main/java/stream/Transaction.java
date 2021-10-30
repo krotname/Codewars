@@ -22,4 +22,13 @@ public class Transaction{
     public int getValue() {
         return value;
     }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "trader=" + trader +
+                ", year=" + year +
+                ", value=" + value +
+                '}';
+    }
 }
