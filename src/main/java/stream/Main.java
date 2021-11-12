@@ -4,13 +4,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
         Trader Raule = new Trader("Raule", "Cambridge");
-        Trader Mario = new Trader("Mario", "Milane");
+        Trader Mario = new Trader("Mario", "Milan");
         Trader Alan = new Trader("Alan", "Cambridge");
         Trader Brian = new Trader("Brian", "Cambridge");
 
@@ -45,6 +44,7 @@ public class Main {
                 .map(Transaction::getTrader)
                 .filter(t -> t.getCity().equals("Cambridge"))
                 .sorted(Comparator.comparing(Trader::getName))
+                .distinct()
                 .forEach(System.out::println);
         System.out.println();
 
@@ -52,39 +52,37 @@ public class Main {
                 .map(t -> t.getTrader().getName())
                 .sorted(String::compareTo)
                 .distinct()
-                .reduce((o1, o2) -> o1.concat(" ").concat(o2))
-                .orElseThrow()
+                .collect(Collectors.joining(" "))
                 .trim();
         System.out.println(traders);
         System.out.println();
 
         boolean cambridge = transactionList.stream()
-                .anyMatch(t -> t.getTrader().getCity().equals("Milane"));
+                .anyMatch(t -> t.getTrader().getCity().equals("Milan"));
         System.out.println(cambridge);
         System.out.println();
 
-        Optional<Integer> cambridgeSum = transactionList.stream()
+        int cambridgeSum = transactionList.stream()
                 .filter(t -> t.getTrader().getCity().equals("Cambridge"))
-                .map(Transaction::getValue)
-                .reduce(Integer::sum);
+                .mapToInt(Transaction::getValue)
+                .sum();
 
-        System.out.println(cambridgeSum.orElseThrow());
+        System.out.println(cambridgeSum);
         System.out.println();
 
         int maxSum = transactionList.stream()
-                .map(Transaction::getValue)
+                .mapToInt(Transaction::getValue)
                 .reduce(Integer::max)
                 .orElseThrow();
 
         System.out.println(maxSum);
         System.out.println();
 
-        transactionList.stream()
-                .sorted(Comparator.comparing(Transaction::getValue))
-                .limit(1)
-                .forEach(System.out::println);
+        Transaction transaction = transactionList.stream()
+                .min(Comparator.comparing(Transaction::getValue))
+                .orElseThrow();
 
-        System.out.println();
+        System.out.println(transaction);
 
 
     }
