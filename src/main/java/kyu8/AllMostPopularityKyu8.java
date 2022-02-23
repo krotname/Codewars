@@ -19,7 +19,7 @@ public class AllMostPopularityKyu8 {
 
     public static int sum(int[] numbers) {
         //сумма кроме самого большого и маленького 
-        if (numbers == null || numbers.length < 2 ) return 0;
+        if (numbers == null || numbers.length < 2) return 0;
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
         int sum = 0;
@@ -33,14 +33,13 @@ public class AllMostPopularityKyu8 {
             }
         }
         boolean maxB = true, minB = true;
-        for (int n:numbers
-             ) {
-            if (maxB && n == max){
+        for (int n : numbers
+        ) {
+            if (maxB && n == max) {
                 maxB = false;
-            }
-            else if (minB && n == min){
+            } else if (minB && n == min) {
                 minB = false;
-            }else{
+            } else {
                 sum += n;
             }
         }
@@ -101,7 +100,7 @@ public class AllMostPopularityKyu8 {
         }
         int[] result = new int[2];
         result[0] = countPositive;
-        result[1] = summNegative*-1;
+        result[1] = summNegative * -1;
         return result; //return an array with count of positives and sum of negatives
     }
 
@@ -216,10 +215,7 @@ public class AllMostPopularityKyu8 {
         if (n <= 0 || x <= 0 || y <= 0) {
             return false;
         }
-        if (n % x == 0 && n % y == 0) {
-            return true;
-        }
-        return false;
+        return n % x == 0 && n % y == 0;
     }
 
     public static Integer basicMath(String op, int v1, int v2) {

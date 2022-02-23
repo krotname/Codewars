@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 public class TwoToOne {
     //7 https://www.codewars.com/kata/5656b6906de340bd1b0000ac/train/java
+
     public static void main(String[] args) {
         System.out.println(longest("aretheyhere", "yestheyarehere")); //aehrsty
     }

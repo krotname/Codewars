@@ -3,7 +3,9 @@ package kyu7;
 import java.util.HashSet;
 
 public class Isogram {
+
     //7 https://www.codewars.com/kata/54ba84be607a92aa900000f1/train/java
+
     public static void main(String[] args) {
         System.out.println(isIsogram("isIsogram")); //false
         System.out.println(isIsogram("Dermatoglyphics")); //true

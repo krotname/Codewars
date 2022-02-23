@@ -1,4 +1,4 @@
-package unknown;
+package other;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class HowManyNumbers {
         long start = (long) (Math.pow(10, numDigits - 1));
         long finish = start * 10;
         for (long i = start; i < finish; i++) {
-            if (digitsIncreasingOrder(i) &&  sumDigits(i) == sumDigits) {
+            if (digitsIncreasingOrder(i) && sumDigits(i) == sumDigits) {
                 countValue++;
                 lastValue = i;
                 if (firstValue == 0L) firstValue = i;

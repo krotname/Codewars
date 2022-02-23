@@ -2,6 +2,7 @@ package kyu7;
 
 public class FindShort {
     //7 https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9/train/java
+
     public static void main(String[] args) {
         System.out.println(findShort("bitcoin take over the world maybe who knows perhaps")); //3
         System.out.println(findShort("bitcoin ")); //7

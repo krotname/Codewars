@@ -10,7 +10,7 @@ public class SquareDigit {
     }
 
     public static int squareDigits(int n) {
-        if (n == 0 ) return 0;
+        if (n == 0) return 0;
         StringBuilder stringBuilder = new StringBuilder();
         while (n != 0) {
             int i = n % 10;

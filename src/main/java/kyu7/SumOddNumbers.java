@@ -6,6 +6,7 @@ public class SumOddNumbers {
         System.out.println(rowSumOddNumbers(2));
         System.out.println(rowSumOddNumbers(42));
     }
+
     public static int rowSumOddNumbers(int n) {
         int result = 0;
         int r = n * (n + 1) / 2 * 2 - 1;

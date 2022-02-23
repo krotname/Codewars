@@ -3,11 +3,14 @@ package kyu8;
 public class Positive {
 
     //8
-/*You get an array of numbers, return the sum of all of the positives ones.
 
-Example [1,-4,7,12] => 1 + 7 + 12 = 20
-
-Note: if there is nothing to sum, the sum is default to 0.*/
+    /**
+     * You get an array of numbers, return the sum of all of the positives ones.
+     * <p>
+     * Example [1,-4,7,12] => 1 + 7 + 12 = 20
+     * <p>
+     * Note: if there is nothing to sum, the sum is default to 0.
+     */
 
     public static void main(String[] args) {
         System.out.println((sum(new int[]{1, 2, 3, 4, 5}))); //15

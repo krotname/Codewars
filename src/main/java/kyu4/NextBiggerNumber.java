@@ -1,7 +1,5 @@
 package kyu4;
 
-import java.util.Arrays;
-
 public class NextBiggerNumber {
     // 4 https://www.codewars.com/kata/55983863da40caa2c900004e
     // not work
@@ -45,7 +43,7 @@ public class NextBiggerNumber {
             }
         }
 
-        rezult = longArrN[longArrN.length-1];
+        rezult = longArrN[longArrN.length - 1];
 
         return rezult;
     }

@@ -25,8 +25,9 @@ public class RecursionMax {
         }
         int min = Math.min(array.get(0), array.get(1));
         array.remove((Integer) min);
-        return  recursionMax(array);
+        return recursionMax(array);
     }
+
     public static Integer max(List<Integer> array) {
         if (array == null) {
             return -1;
@@ -38,9 +39,9 @@ public class RecursionMax {
             return array.get(0);
         }
         int max = Integer.MIN_VALUE;
-        for (int a:array
-             ) {
-            if (a > max){
+        for (int a : array
+        ) {
+            if (a > max) {
                 max = a;
             }
         }

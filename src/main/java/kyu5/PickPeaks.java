@@ -14,10 +14,11 @@ public class PickPeaks {
         System.out.println(peaks.get("peaks"));
     }
 
-    /*       /\     /--\
-     *   \  /  \   /    \  вверх vector true, а вниз false
-     *    \/    \_/
-     * */
+    /**
+     * /\     /--\
+     * \  /  \   /    \  вверх vector true, а вниз false
+     * \/    \_/
+     */
 
     public static Map<String, List<Integer>> getPeaks(int[] arr) {
         Map<String, List<Integer>> peaks = new LinkedHashMap<>();

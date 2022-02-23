@@ -53,7 +53,7 @@ public class FindEvenIndex {
                 break;
             }
         }
-        for (int i = arr.length-1; i > halfIndex; i--) {
+        for (int i = arr.length - 1; i > halfIndex; i--) {
             secondHalfSumm += arr[i];
         }
         if (firstHalfSumm == secondHalfSumm) return halfIndex;

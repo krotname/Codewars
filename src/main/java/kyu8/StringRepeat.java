@@ -1,10 +1,12 @@
 package kyu8;
 
 public class StringRepeat {
-//8*
-/*
-        Write a function called repeatStr which repeats the given string string exactly n times.
-*/
+    //8
+
+    /**
+     * Write a function called repeatStr which repeats the given string string exactly n times.
+     */
+
     public static void main(String[] args) {
 
         System.out.println(repeatStr(6, "I")); // "IIIIII"

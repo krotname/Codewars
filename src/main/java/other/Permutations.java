@@ -2,7 +2,7 @@ package other;
 
 public class Permutations {
     public static void main(String[] args) {
-        int[] pa = new int[] {1, 2, 3};
+        int[] pa = new int[]{1, 2, 3};
         prmt(pa, 0);
     }
 

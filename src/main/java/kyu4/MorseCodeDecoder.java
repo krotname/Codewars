@@ -9,8 +9,6 @@ public class MorseCodeDecoder {
     //6 https://www.codewars.com/kata/54b724efac3d5402db00065e
     //4 https://www.codewars.com/kata/54b72c16cd7f5154e9000457/train/java
 
-    private static LinkedHashMap<String, String> alphabetToMorse = new LinkedHashMap<>();
-
     static Map<String, String> morseMap = new HashMap<>() {{
         put("a", "b");
         put("c", "d");
@@ -71,6 +69,7 @@ public class MorseCodeDecoder {
         put("-..-", "X");
         put("", " ");
     }};
+    private static final LinkedHashMap<String, String> alphabetToMorse = new LinkedHashMap<>();
 
     static {
         alphabetToMorse.put("a", ".-");

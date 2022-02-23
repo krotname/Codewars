@@ -2,7 +2,9 @@ package kyu3;
 
 public class BattleField {
 
-    private static int[][] battleField =
+    // 3 https://www.codewars.com/kata/52bb6539a4cf1b12d90005b7
+
+    private static final int[][] battleField =
             {{1, 0, 0, 0, 0, 1, 1, 0, 0, 0},
                     {1, 0, 1, 0, 0, 0, 0, 0, 1, 0},
                     {1, 0, 1, 0, 1, 1, 1, 0, 1, 0},

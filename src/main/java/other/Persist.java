@@ -1,4 +1,4 @@
-package unknown;
+package other;
 
 public class Persist {
     public static void main(String[] args) {
@@ -6,6 +6,7 @@ public class Persist {
         System.out.println(persistence(999));
         System.out.println(persistence(4));
     }
+
     public static int persistence(long n) {
         int result = 0;
         while (n > 9) {
@@ -17,6 +18,6 @@ public class Persist {
             n = temp;
             result++;
         }
-        return result ;
+        return result;
     }
 }

@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 public class DescendingOrder {
     //7 https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/java
+
     public static void main(String[] args) {
         System.out.println(sortDesc(0));
         System.out.println(sortDesc(1));

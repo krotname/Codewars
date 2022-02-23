@@ -3,6 +3,7 @@ package kyu7;
 import java.util.Arrays;
 
 public class IsAnagram {
+
     public static void main(String[] args) {
         System.out.println(isAnagram("foefet", "toffee"));
         System.out.println(isAnagram("Buckethead", "DeathCubeK"));

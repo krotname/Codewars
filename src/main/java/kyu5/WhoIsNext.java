@@ -22,14 +22,13 @@ public class WhoIsNext {
     public static String WhoIsNext(String[] names, int n) {
         ArrayList<String> strings = new ArrayList<>(Arrays.asList(names));
         for (int i = 0; i < n; i++) {
-                strings.add(strings.get(i));
-                strings.add(strings.get(i));
+            strings.add(strings.get(i));
+            strings.add(strings.get(i));
         }
-        return strings.get(n-1);
+        return strings.get(n - 1);
     }
 
-    public static String WhoIsNextOld(String[] names, int n)
-    {
+    public static String WhoIsNextOld(String[] names, int n) {
         LinkedList<String> strings = new LinkedList<>(Arrays.asList(names));
 
         for (int i = 1; i < n; i++) {

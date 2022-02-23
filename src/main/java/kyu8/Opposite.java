@@ -9,8 +9,8 @@ public class Opposite {
         System.out.println(opposite(Integer.MAX_VALUE));
 
     }
-    public static int opposite(int number)
-    {
+
+    public static int opposite(int number) {
         return number * -1;
     }
 

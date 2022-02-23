@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LineNumbering {
+
     //7 https://www.codewars.com/kata/54bf85e3d5b56c7a05000cf9/train/java
 
     public static void main(String[] args) {

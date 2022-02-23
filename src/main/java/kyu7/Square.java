@@ -7,7 +7,8 @@ public class Square {
         System.out.println(isSquare(3));
 
     }
+
     public static boolean isSquare(int n) {
-        return Math.sqrt(n)%1 == 0;
+        return Math.sqrt(n) % 1 == 0;
     }
 }
