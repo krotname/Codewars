@@ -10,6 +10,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ListFiltering {
 
+    //7 https://www.codewars.com/kata/53dbd5315a3c69eed20002dd/train/java
+
     public static List filterList(final List list) {
         return list.stream()
                 .filter(o -> o instanceof Integer)
