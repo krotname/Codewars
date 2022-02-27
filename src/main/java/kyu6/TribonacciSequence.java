@@ -8,6 +8,8 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class TribonacciSequence {
 
+    //6 https://www.codewars.com/kata/556deca17c58da83c00002db
+    
     public double[] tribonacci(double[] s, int n) {
         if (n == 0) {
             return new double[0];
