@@ -1,11 +1,12 @@
 package kyu7;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 
 public class SmallEnough {
     //7 https://www.codewars.com/kata/57cc981a58da9e302a000214/train/java

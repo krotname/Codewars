@@ -1,10 +1,10 @@
 package kyu7;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class MaxMultiple {
     //7 https://www.codewars.com/kata/5aba780a6a176b029800041c/train/java

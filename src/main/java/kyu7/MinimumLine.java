@@ -1,11 +1,11 @@
 package kyu7;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class MinimumLine {
     // 7 https://www.codewars.com/kata/5ac6932b2f317b96980000ca/train/java
