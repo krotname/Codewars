@@ -7,6 +7,9 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 public class FindUniq {
+
+    //7 https://www.codewars.com/kata/585d7d5adb20cf33cb000235/train/java
+    
     public static double findUniq(double arr[]) {
         double m;
         if (arr[0] == arr[1]) {
