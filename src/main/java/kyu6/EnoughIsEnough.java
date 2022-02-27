@@ -9,6 +9,8 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class EnoughIsEnough {
 
+    //6 https://www.codewars.com/kata/554ca54ffa7d91b236000023
+
     public static int[] deleteNth(int[] elements, int maxOccurrences) {
         HashMap<Integer, Integer> count = new HashMap<>();
         return Arrays.stream(elements).filter(i -> {
