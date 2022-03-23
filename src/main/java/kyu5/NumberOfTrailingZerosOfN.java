@@ -25,7 +25,6 @@ public class NumberOfTrailingZerosOfN {
         for (int i = 1; i <= n; i++) {
             result = result.multiply(BigInteger.valueOf(i));
         }
-        System.out.println(result);
         return result.longValue();
     }
 
