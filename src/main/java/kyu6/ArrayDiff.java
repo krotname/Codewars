@@ -5,6 +5,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static org.junit.Assert.assertArrayEquals;
+
 public class ArrayDiff {
     //6 https://www.codewars.com/kata/523f5d21c841566fde000009
 
@@ -19,20 +21,27 @@ public class ArrayDiff {
      * Kata.arrayDiff(new int[] {1, 2, 2, 2, 3}, new int[] {2}) => new int[] {1, 3}
      */
     @Test
-    public void test() {
-        System.out.println(Arrays.toString(arrayDiff(new int[]{1, 2, 3, 4, 4, 5, 6, 7, 7, 7}, new int[]{7, 1})));
-        System.out.println(Arrays.toString(arrayDiff(new int[]{1, 2}, new int[]{1})));
-        System.out.println(Arrays.toString(arrayDiff(new int[]{1, 2, 2}, new int[]{1})));
+    public void arrayDiffTest() {
+        assertArrayEquals(arrayDiff(new int[]{1, 2, 3, 4, 4, 5, 6, 7, 7, 7}, new int[]{7, 1}), new int[]{2, 3, 4, 4, 5, 6});
+        assertArrayEquals(arrayDiff(new int[]{1, 2}, new int[]{1}), new int[]{2});
+        assertArrayEquals(arrayDiff(new int[]{1, 2, 2}, new int[]{1}), new int[]{2, 2});
+    }
+
+    @Test
+    public void arrayDiffImperativeTest() {
+        assertArrayEquals(arrayDiffImperative(new int[]{1, 2, 3, 4, 4, 5, 6, 7, 7, 7}, new int[]{7, 1}), new int[]{2, 3, 4, 4, 5, 6});
+        assertArrayEquals(arrayDiffImperative(new int[]{1, 2}, new int[]{1}), new int[]{2});
+        assertArrayEquals(arrayDiffImperative(new int[]{1, 2, 2}, new int[]{1}), new int[]{2, 2});
     }
 
     public static int[] arrayDiff(int[] a, int[] b) {
         return Arrays.stream(a)
                 .filter(valueA -> Arrays.stream(b)
-                        .anyMatch(valueB -> valueA == valueB))
+                        .noneMatch(valueB -> valueA == valueB))
                 .toArray();
     }
 
-    public static int[] arrayDiffOld(int[] a, int[] b) {
+    public static int[] arrayDiffImperative(int[] a, int[] b) {
         ArrayList<Integer> integers = new ArrayList<>();
         for (int i : a
         ) {
