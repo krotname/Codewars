@@ -1,5 +1,9 @@
 package kyu6;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 public class DigitalRoot {
     //6
 
@@ -10,15 +14,28 @@ public class DigitalRoot {
      * The input will be a non-negative integer.
      */
 
-    public static void main(String[] args) {
-
-        System.out.println(digital_root(16));
-        System.out.println(digital_root(456));
-        System.out.println(digital_root(493193));
-
+    @Test
+    public void digitalRootRecursiveStreamTest() {
+        assertEquals(7, digitalRootRecursiveStream(16));
+        assertEquals(6, digitalRootRecursiveStream(456));
+        assertEquals(2, digitalRootRecursiveStream(493193));
     }
 
-    public static int digital_root(int n) {
+    @Test
+    public void digitalRootTest() {
+        assertEquals(7, digitalRoot(16));
+        assertEquals(6, digitalRoot(456));
+        assertEquals(2, digitalRoot(493193));
+    }
+
+    public static int digitalRootRecursiveStream(int n) {
+        return n < 10 ? n : digitalRootRecursiveStream(String.valueOf(n)
+                .chars()
+                .map(i -> Integer.parseInt(String.valueOf((char) i)))
+                .sum());
+    }
+
+    public static int digitalRoot(int n) {
         if (n < 10) return n;
         int temp = n;
         int result;
