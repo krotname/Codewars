@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Function;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
@@ -30,6 +30,30 @@ public class DuplicateEncoder {
         assertEquals("))((", encode("(( @"));
         assertEquals("))))))))((())))()))(((((((((((", encode("asfdafbsrtgsdcvxcvbnmjh,klo;p["));
         assertEquals("))))())))", encode("   ()(   "));
+    }
+
+    @Test
+    public void encodeStreamTest() {
+        assertEquals("()()()", encodeStream("recede"));
+        assertEquals(")()())()(()()(", encodeStream("Prespecialized"));
+        assertEquals(")())())", encodeStream("Success"));
+        assertEquals("))((", encodeStream("(( @"));
+        assertEquals("))))))))((())))()))(((((((((((", encodeStream("asfdafbsrtgsdcvxcvbnmjh,klo;p["));
+        assertEquals("))))())))", encodeStream("   ()(   "));
+    }
+
+    static String encodeStream(String word) {
+        Map<Character, AtomicInteger> countChars = word.chars()
+                .mapToObj(i -> (char) i)
+                .collect(Collectors.toMap(
+                        Character::toLowerCase,
+                        c -> new AtomicInteger(1),
+                        (count1, count2) -> new AtomicInteger(2)));
+
+        return word.chars()
+                .mapToObj(i -> (char) i)
+                .map(c -> countChars.get(Character.toLowerCase(c)).intValue() == 2 ? ")" : "(")
+                .collect(Collectors.joining());
     }
 
     static String encode(String word) {
