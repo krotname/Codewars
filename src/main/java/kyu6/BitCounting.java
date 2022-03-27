@@ -13,7 +13,7 @@ public class BitCounting {
     }
 
     @Test
-    public void testGame() {
+    public void BitCountingTest() {
         assertEquals(5, BitCounting.countBits(1234));
         assertEquals(1, BitCounting.countBits(4));
         assertEquals(3, BitCounting.countBits(7));
