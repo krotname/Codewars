@@ -1,5 +1,12 @@
 package kyu6;
 
+import org.junit.Test;
+
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertEquals;
+
 public class CountingDuplicates {
 
     //6
@@ -18,8 +25,24 @@ public class CountingDuplicates {
      * "ABBA" -> 2 # 'A' and 'B' each occur twice
      */
 
+    @Test
+    public void test() {
+        assertEquals(1, duplicateCount("indivisibility"));
+        assertEquals(1, duplicateCountOld("indivisibility"));
+    }
 
     public static int duplicateCount(String text) {
+        return (int) text.chars()
+                .mapToObj(i -> (char) i)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue() > 1)
+                .count();
+
+    }
+
+    public static int duplicateCountOld(String text) {
         int result = 0;
         long[] ascii = new long[127];
 
@@ -36,8 +59,4 @@ public class CountingDuplicates {
         return result;
     }
 
-    public static void main(String[] args) {
-        System.out.println(duplicateCount("indivisibility")); // 1
-
-    }
 }
