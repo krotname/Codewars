@@ -1,7 +1,13 @@
 package kyu6;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertEquals;
 
 public class DuplicateEncoder {
     //6
@@ -15,13 +21,15 @@ public class DuplicateEncoder {
      * "Success"  =>  ")())())"
      * "(( @"     =>  "))(("
      */
-    public static void main(String[] args) {
-        System.out.println(encode("Prespecialized")); // )()())()(()()(
-        System.out.println(encode("recede"));
-        System.out.println(encode("Success"));
-        System.out.println(encode("(( @"));
-        System.out.println(encode("asfdafbsrtgsdcvxcvbnmjh,klo;p["));
-        System.out.println(encode("   ()(   ")); // ))))())))
+
+    @Test
+    public void encodeTest() {
+        assertEquals(")()())()(()()(", encode("Prespecialized"));
+        assertEquals("()()()", encode("recede"));
+        assertEquals(")())())", encode("Success"));
+        assertEquals("))((", encode("(( @"));
+        assertEquals("))))))))((())))()))(((((((((((", encode("asfdafbsrtgsdcvxcvbnmjh,klo;p["));
+        assertEquals("))))())))", encode("   ()(   "));
     }
 
     static String encode(String word) {
