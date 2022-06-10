@@ -11,6 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class CamelCase {
 
     //6 https://www.codewars.com/kata/5208f99aee097e6552000148/train/java
+    //6 https://www.codewars.com/kata/587731fda577b3d1b0001196/train/java
 
     public static String fromCamelCase(String input) {
         if (input == null || input.isEmpty()) return "";
