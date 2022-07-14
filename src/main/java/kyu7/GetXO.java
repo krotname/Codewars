@@ -1,6 +1,9 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 public class GetXO {
+
     //7
 
     /**
@@ -15,8 +18,8 @@ public class GetXO {
      * XO("zzoo") => false
      */
 
-    public static void main(String[] args) {
-
+    @Test
+    public void test() {
         System.out.println(getXO("XxxooO"));
     }
 

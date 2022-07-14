@@ -1,10 +1,14 @@
 package kyu8;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AllMostPopularityKyu8 {
-    public static void main(String[] args) {
+
+    @Test
+    public void test() {
         System.out.println(Arrays.toString(digitize(35231)));
         System.out.println(past(0, 1, 1));
         System.out.println(Liters(0.4));

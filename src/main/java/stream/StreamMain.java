@@ -1,5 +1,7 @@
 package stream;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -7,7 +9,8 @@ import java.util.stream.Collectors;
 
 public class StreamMain {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         Trader Raule = new Trader("Raule", "Cambridge");
         Trader Mario = new Trader("Mario", "Milan");
         Trader Alan = new Trader("Alan", "Cambridge");

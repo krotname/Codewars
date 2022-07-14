@@ -1,8 +1,11 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 public class CountTheDigit {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(nbDig(11011, 2)); // 9481
         System.out.println(nbDig(5750, 0)); // 4700
         System.out.println(nbDig(10, 0)); // 3

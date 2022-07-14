@@ -2,7 +2,7 @@ package kyu6;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class StringSplit {
 
@@ -19,9 +19,9 @@ public class StringSplit {
 
     @Test
     public void test() {
-        System.out.println(Arrays.toString(solution("abcdef")));
-        System.out.println(Arrays.toString(solution("LovePizza")));
-        System.out.println(Arrays.toString(solution("HelloWorld")));
+        assertArrayEquals(new String[]{"ab", "cd", "ef"}, solution("abcdef"));
+        assertArrayEquals(new String[]{"Lo", "ve", "Pi", "zz", "a_"}, solution("LovePizza"));
+        assertArrayEquals(new String[]{"He", "ll", "oW", "or", "ld"}, solution("HelloWorld"));
     }
 
     public static String[] solution(String s) {

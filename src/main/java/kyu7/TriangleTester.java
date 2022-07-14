@@ -1,10 +1,17 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class TriangleTester {
+
     //7 https://www.codewars.com/kata/56606694ec01347ce800001b/train/java
-    public static void main(String[] args) {
-        System.out.println(isTriangle(-5, -6, -2));
-        System.out.println(isTriangle(5, 6, 2));
+
+    @Test
+    public void publicTests() {
+        assertTrue(TriangleTester.isTriangle(1, 2, 2));
+        assertFalse(TriangleTester.isTriangle(7, 2, 2));
     }
 
     public static boolean isTriangle(int a, int b, int c) {

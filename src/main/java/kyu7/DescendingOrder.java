@@ -1,12 +1,15 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
 public class DescendingOrder {
     //7 https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/java
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(sortDesc(0));
         System.out.println(sortDesc(1));
         System.out.println(sortDesc(42145)); //54421

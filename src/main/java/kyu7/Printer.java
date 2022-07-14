@@ -1,13 +1,19 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Printer {
     //7 https://www.codewars.com/kata/56541980fa08ab47a0000040/train/java
 
-    public static void main(String[] args) {
-        System.out.println(printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")); // 3/56
+    @Test
+    public void test() {
+        String s="aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz";
+        assertEquals("3/56", Printer.printerError(s));
     }
 
     public static String printerError(String s) {

@@ -7,15 +7,8 @@ import java.util.stream.IntStream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MaxMultiple {
-    //7 https://www.codewars.com/kata/5aba780a6a176b029800041c/train/java
 
-    public static int maxMultiple(int divisor, int bound) {
-        return IntStream.iterate(bound, i -> i - 1)
-                .limit(bound)
-                .filter(n -> n % divisor == 0)
-                .findFirst()
-                .orElse(0);
-    }
+    //7 https://www.codewars.com/kata/5aba780a6a176b029800041c/train/java
 
     @Test
     public void smallPositives() {
@@ -31,8 +24,15 @@ public class MaxMultiple {
         test("The largest multiple of 7 between 0 and 100 is 98.", 98, MaxMultiple.maxMultiple(7, 100));
     }
 
+    public static int maxMultiple(int divisor, int bound) {
+        return IntStream.iterate(bound, i -> i - 1)
+                .limit(bound)
+                .filter(n -> n % divisor == 0)
+                .findFirst()
+                .orElse(0);
+    }
+
     private void test(String message, int expected, int actual) {
         assertEquals(expected, actual);
     }
-
 }

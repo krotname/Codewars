@@ -8,6 +8,14 @@ public class TenMinWalk {
 
     //6 https://www.codewars.com/kata/54da539698b8a2ad76000228/train/java
 
+    @Test
+    public void Test() {
+        assertEquals(true, TenMinWalk.isValid(new char[]{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
+        assertEquals(false, TenMinWalk.isValid(new char[]{'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e'}));
+        assertEquals(false, TenMinWalk.isValid(new char[]{'w'}));
+        assertEquals(false, TenMinWalk.isValid(new char[]{'n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
+    }
+
     public static boolean isValid(char[] walk) {
         int ns = 0;
         int ew = 0;
@@ -22,11 +30,5 @@ public class TenMinWalk {
         return ns == 0 && ew == 0 && t == 10;
     }
 
-    @Test
-    public void Test() {
-        assertEquals(true, TenMinWalk.isValid(new char[]{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
-        assertEquals(false, TenMinWalk.isValid(new char[]{'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e'}));
-        assertEquals(false, TenMinWalk.isValid(new char[]{'w'}));
-        assertEquals(false, TenMinWalk.isValid(new char[]{'n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
-    }
+
 }

@@ -1,8 +1,11 @@
 package leetcode;
 
+import org.junit.jupiter.api.Test;
+
 public class ReverseInt {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         ReverseInt reverseInt = new ReverseInt();
         System.out.println(reverseInt.reverse(123));
         System.out.println(reverseInt.reverse(-123));

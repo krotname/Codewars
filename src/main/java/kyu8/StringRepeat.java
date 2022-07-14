@@ -1,5 +1,7 @@
 package kyu8;
 
+import org.junit.jupiter.api.Test;
+
 public class StringRepeat {
     //8
 
@@ -7,8 +9,8 @@ public class StringRepeat {
      * Write a function called repeatStr which repeats the given string string exactly n times.
      */
 
-    public static void main(String[] args) {
-
+    @Test
+    public void test() {
         System.out.println(repeatStr(6, "I")); // "IIIIII"
         System.out.println(repeatStr(5, "Hello")); // "HelloHelloHelloHelloHello"
     }

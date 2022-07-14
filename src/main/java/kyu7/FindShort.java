@@ -1,9 +1,12 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 public class FindShort {
     //7 https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9/train/java
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(findShort("bitcoin take over the world maybe who knows perhaps")); //3
         System.out.println(findShort("bitcoin ")); //7
     }

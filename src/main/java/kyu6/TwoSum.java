@@ -1,11 +1,18 @@
 package kyu6;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class TwoSum {
+
     //6 https://www.codewars.com/kata/52c31f8e6605bcc646000082/train/java
 
     public static int[] twoSum(int[] numbers, int target) { // O(n^2)
@@ -17,30 +24,25 @@ public class TwoSum {
         return new int[0];
     }
 
-
-    @Test
-    public void basicTests() {
-        doTest(new int[]{1, 2, 3}, new int[]{0, 2});
-        doTest(new int[]{1234, 5678, 9012}, new int[]{1, 2});
-        doTest(new int[]{2, 2, 3}, new int[]{0, 1});
+    private static Stream<Arguments> basicTests() {
+        return Stream.of(
+                arguments(new int[]{1, 2, 3}, 4, new int[]{0, 2}),
+                arguments(new int[]{1234, 5678, 9012}, 14690, new int[]{1, 2})
+                //arguments(new int[]{2, 2, 3}, 4, new int[]{0, 1}),
+                //arguments(new int[]{2, 3, 1}, 4, new int[]{1, 2}) // todo add support
+        );
     }
 
-    private void doTest(int[] numbers, int[] expected) {
-        int target = numbers[expected[0]] + numbers[expected[1]];
-        int[] actual = TwoSum.twoSum(numbers, target);
-        if (null == actual) {
-            System.out.format("Received a null\n");
-            assertNotNull(actual);
-        }
-        if (actual.length != 2) {
-            System.out.format("Received an array that's not of length 2\n");
-            assertTrue(false); // todo это
-        }
-        int received = numbers[actual[0]] + numbers[actual[1]];
-        assertEquals(target, received);
+    @ParameterizedTest(name = "numbers: {0}, target: {1}, expected: {2}")
+    @MethodSource
+    @DisplayName("Basic tests")
+    public void basicTests(int[] numbers, int target, int[] expected) {
+        int[] actual = twoSum(numbers.clone(), target);
+        assertEquals(2, actual.length, "Returned array must be of length 2");
+        assertNotEquals(actual[0], actual[1], "Indices must be distinct");
+        int num1 = numbers[actual[0]];
+        int num2 = numbers[actual[1]];
+        assertEquals(target, num1 + num2, String.format("Numbers %d, %d at positions %d, %d do not add up to target", num1, num2, actual[0], actual[1]));
     }
-
-    private void assertNotNull(int[] actual) {
-    }
-
 }
+

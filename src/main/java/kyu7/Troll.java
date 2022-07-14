@@ -1,5 +1,7 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,7 +23,8 @@ public class Troll {
     private static final Character[] VOWEL = {'a', 'e', 'i', 'o', 'u'};
     private static final List<Character> VOWEL_LIST = Arrays.asList(VOWEL);
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(disemvowel("LOL"));
         System.out.println(disemvowel("This website is for losers LOL!"));
 

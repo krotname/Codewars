@@ -1,5 +1,7 @@
 package kyu8;
 
+import org.junit.jupiter.api.Test;
+
 public class RemoveChars {
     //8
 
@@ -8,7 +10,8 @@ public class RemoveChars {
      * You're given one parameter, the original string. You don't have to worry with strings with less than two characters.
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(remove("country")); //ountr
     }
 

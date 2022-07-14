@@ -1,14 +1,23 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class Maskify {
+
     //7 https://www.codewars.com/kata/5412509bd436bd33920011bc/train/java
 
-    public static void main(String[] args) {
-        System.out.println(maskify("4556364607935616"));
-        System.out.println(maskify("455636460"));
-        System.out.println(maskify("45555"));
-        System.out.println(maskify("4555"));
-        System.out.println(maskify("455"));
+    @Test
+    public void testSolution() {
+        assertEquals("############5616", Maskify.maskify("4556364607935616"));
+        assertEquals("#######5616",      Maskify.maskify(     "64607935616"));
+        assertEquals("1",                Maskify.maskify(               "1"));
+        assertEquals("",                 Maskify.maskify(                ""));
+
+        // "What was the name of your first pet?"
+        assertEquals("##ippy",                                    Maskify.maskify("Skippy")                                  );
+        assertEquals("####################################man!",  Maskify.maskify("Nananananananananananananananana Batman!"));
     }
 
     public static String maskify(String str) {

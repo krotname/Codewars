@@ -1,5 +1,7 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 public class DnaStrand {
     //7
 
@@ -15,7 +17,8 @@ public class DnaStrand {
      * Example: (input: output)
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(makeComplement("AAAA"));
         System.out.println(makeComplement("ATTGC"));
         System.out.println(makeComplement("GTAT"));

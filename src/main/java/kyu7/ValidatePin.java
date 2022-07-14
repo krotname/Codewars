@@ -1,17 +1,44 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.regex.Pattern;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ValidatePin {
     // 7 https://www.codewars.com/kata/55f8a9c06c018a0d6e000132/train/java
 
-    public static void main(String[] args) {
-        System.out.println(validatePin("1111"));
-        System.out.println(validatePin("11111"));
-        System.out.println(validatePin("111111"));
+    @Test
+    public void validPins() {
+        assertTrue(validatePin("1234"));
+        assertTrue(validatePin("0000"));
+        assertTrue( validatePin("1111"));
+        assertTrue( validatePin("123456"));
+        assertTrue( validatePin("098765"));
+        assertTrue( validatePin("000000"));
+        assertTrue( validatePin("090909"));
+    }
+
+    @Test
+    public void nonDigitCharacters() {
+        assertFalse(validatePin("a234"));
+        assertFalse(validatePin(".234"));
+    }
+
+    @Test
+    public void invalidLengths() {
+        assertFalse(validatePin("1"));
+        assertFalse(validatePin("12"));
+        assertFalse(validatePin("123"));
+        assertFalse(validatePin("12345"));
+        assertFalse(validatePin("1234567"));
+        assertFalse(validatePin("-1234"));
+        assertFalse(validatePin("1.234"));
+        assertFalse(validatePin("00000000"));
     }
 
     public static boolean validatePin(String pin) {
-        return Pattern.compile("[0-9]{4}|[0-9]{6}").matcher(pin).matches();
+        return Pattern.compile("[\\d]{4}|[\\d]{6}").matcher(pin).matches();
     }
 }

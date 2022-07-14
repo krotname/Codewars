@@ -1,5 +1,7 @@
 package kyu8;
 
+import org.junit.jupiter.api.Test;
+
 public class Positive {
 
     //8
@@ -12,7 +14,8 @@ public class Positive {
      * Note: if there is nothing to sum, the sum is default to 0.
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println((sum(new int[]{1, 2, 3, 4, 5}))); //15
         System.out.println((sum(new int[]{1, -2, 3, 4, 5}))); //13
         System.out.println((sum(new int[]{}))); //0

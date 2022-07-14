@@ -1,10 +1,13 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 
 public class IsAnagram {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(isAnagram("foefet", "toffee"));
         System.out.println(isAnagram("Buckethead", "DeathCubeK"));
     }

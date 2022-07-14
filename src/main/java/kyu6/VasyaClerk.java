@@ -2,7 +2,10 @@ package kyu6;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class VasyaClerk {
+
     //6 https://www.codewars.com/kata/555615a77ebc7c2c8a0000b8/train/java
 
     /**
@@ -17,8 +20,8 @@ public class VasyaClerk {
 
     @Test
     public void test() {
-        System.out.println(Tickets(new int[]{25, 25, 50})); // YES
-        System.out.println(Tickets(new int[]{25, 100})); // NO
+        assertEquals("YES", Tickets(new int[]{25, 25, 50}));
+        assertEquals("NO", Tickets(new int[]{25, 100}));
     }
 
     public static String Tickets(int[] peopleInLine) {
@@ -26,13 +29,12 @@ public class VasyaClerk {
 
         int sum25 = 0;
         int sum50 = 0;
-        int sum100 = 0;
 
-        for (int i = 0; i < peopleInLine.length; i++) {
-            if (peopleInLine[i] == 25) {
+        for (int j : peopleInLine) {
+            if (j == 25) {
                 sum25++;
             }
-            if (peopleInLine[i] == 50) {
+            if (j == 50) {
                 if (sum25 >= 1) {
                     sum25--;
                     sum50++;
@@ -40,14 +42,12 @@ public class VasyaClerk {
                     return "NO";
                 }
             }
-            if (peopleInLine[i] == 100) {
+            if (j == 100) {
                 if ((sum25 >= 1 && sum50 >= 1)) {
                     sum25--;
                     sum50--;
-                    sum100++;
                 } else if ((sum25 >= 3)) {
                     sum25 -= 3;
-                    sum100++;
                 } else {
                     return "NO";
                 }

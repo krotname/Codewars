@@ -1,8 +1,11 @@
 package kyu7;
 
-public class ReverseWords {
-    public static void main(String[] args) {
+import org.junit.jupiter.api.Test;
 
+public class ReverseWords {
+
+    @Test
+    public void test() {
         System.out.println(reverseWords("The quick brown fox jumps over the lazy dog."));
         System.out.println(reverseWords("   "));
     }

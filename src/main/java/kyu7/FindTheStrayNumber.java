@@ -1,10 +1,13 @@
 package kyu7;
 
 
+import org.junit.jupiter.api.Test;
+
 public class FindTheStrayNumber {
     //7 https://www.codewars.com/kata/57f609022f4d534f05000024
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(stray(new int[]{1, 1, 2}));
         System.out.println(stray(new int[]{17, 17, 3, 17, 17, 17, 17}));
     }

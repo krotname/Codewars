@@ -1,5 +1,7 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +9,8 @@ import java.util.List;
 public class BinaryArrayToNumber {
     //7 https://www.codewars.com/kata/578553c3a1b8d5c40300037c
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(ConvertBinaryArrayToInt(Arrays.asList(1, 1, 1, 1)));
         System.out.println(ConvertBinaryArrayToInt(Arrays.asList(1, 0, 1, 1)));
     }

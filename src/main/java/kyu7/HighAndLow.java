@@ -1,5 +1,7 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,7 +11,8 @@ import java.util.stream.Collectors;
 public class HighAndLow {
     //7 https://www.codewars.com/kata/554b4ac871d6813a03000035/train/java
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4")); // "42 -9"
         System.out.println(highAndLow2("8 3 -5 42 -1 0 0 -9 4 7 4 -4")); // "42 -9"
     }

@@ -2,7 +2,10 @@ package kyu6;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class toCamelCase {
+
     //6 https://www.codewars.com/kata/517abf86da9663f1d2000003/train/java
 
     /**
@@ -13,8 +16,8 @@ public class toCamelCase {
 
     @Test
     public void test() {
-        System.out.println(toCamelCase("the_Stealth_Warrior"));
-        System.out.println(toCamelCase("the-stealth-warrior"));
+        assertEquals("theStealthWarrior", toCamelCase("the_Stealth_Warrior"));
+        assertEquals("theStealthWarrior", toCamelCase("the-stealth-warrior"));
     }
 
     static String toCamelCase(String s) {

@@ -4,7 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
-public class VIN_Checker {
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class VINChecker {
+
     //6
 
     /**
@@ -47,59 +51,64 @@ public class VIN_Checker {
 
     @Test
     public void test() {
-        System.out.println(checkVin("3VN6WLZCXYF160649")); // false
-        System.out.println(checkVin("5YJ3E1EA7HF000337")); // true
-        System.out.println(checkVin("5YJ3E1EAXHF000347")); // true
-        System.out.println(checkVin("5VGYMVUX7JV764512")); // true
-        System.out.println(checkVin("7WDMMTDV9TG739741")); // false
-        System.out.println(checkVin("7JTRH08L5EJ234829")); // false
-        System.out.println(checkVin("7%^&H08L5EJ234829")); // false
+        assertTrue(checkVin("5YJ3E1EA7HF000337"));
+        assertTrue(checkVin("5YJ3E1EAXHF000347"));
+        assertTrue(checkVin("5VGYMVUX7JV764512"));
+        assertTrue(checkVin("3VN6WLZCXYF160649"));
+        assertFalse(checkVin("7WDMMTDV9TG739741"));
+        assertFalse(checkVin("7JTRH08L5EJ234829"));
+        assertFalse(checkVin("7%^&H08L5EJ234829"));
+    }
+
+    private static final Map<Character, Integer> LETTERS = new HashMap<>();
+
+    static {
+        LETTERS.put('A', 1);
+        LETTERS.put('B', 2);
+        LETTERS.put('C', 3);
+        LETTERS.put('D', 4);
+        LETTERS.put('E', 5);
+        LETTERS.put('F', 6);
+        LETTERS.put('G', 7);
+        LETTERS.put('H', 8);
+        LETTERS.put('J', 1);
+        LETTERS.put('K', 2);
+        LETTERS.put('L', 3);
+        LETTERS.put('M', 4);
+        LETTERS.put('N', 5);
+        LETTERS.put('P', 7);
+        LETTERS.put('R', 9);
+        LETTERS.put('S', 2);
+        LETTERS.put('T', 3);
+        LETTERS.put('U', 4);
+        LETTERS.put('V', 5);
+        LETTERS.put('W', 6);
+        LETTERS.put('X', 7);
+        LETTERS.put('Y', 8);
+        LETTERS.put('Z', 9);
+        LETTERS.put('1', 1);
+        LETTERS.put('2', 2);
+        LETTERS.put('3', 3);
+        LETTERS.put('4', 4);
+        LETTERS.put('5', 5);
+        LETTERS.put('6', 6);
+        LETTERS.put('7', 7);
+        LETTERS.put('8', 8);
+        LETTERS.put('9', 9);
+        LETTERS.put('0', 0);
     }
 
     public static boolean checkVin(String vin) {
-        if (vin == null || vin.isEmpty() || vin.toUpperCase().contains("I") || vin.toUpperCase().contains("O")
+        if (vin == null || vin.toUpperCase().contains("I") || vin.toUpperCase().contains("O")
                 || vin.toUpperCase().contains("Q") || vin.length() != 17) return false;
-        Map<Character, Integer> letters = new HashMap<>();
-        letters.put('A', 1);
-        letters.put('B', 2);
-        letters.put('C', 3);
-        letters.put('D', 4);
-        letters.put('E', 5);
-        letters.put('F', 6);
-        letters.put('G', 7);
-        letters.put('H', 8);
-        letters.put('J', 1);
-        letters.put('K', 2);
-        letters.put('L', 3);
-        letters.put('M', 4);
-        letters.put('N', 5);
-        letters.put('P', 7);
-        letters.put('R', 9);
-        letters.put('S', 2);
-        letters.put('T', 3);
-        letters.put('U', 4);
-        letters.put('V', 5);
-        letters.put('W', 6);
-        letters.put('X', 7);
-        letters.put('Y', 8);
-        letters.put('Z', 9);
-        letters.put('1', 1);
-        letters.put('2', 2);
-        letters.put('3', 3);
-        letters.put('4', 4);
-        letters.put('5', 5);
-        letters.put('6', 6);
-        letters.put('7', 7);
-        letters.put('8', 8);
-        letters.put('9', 9);
-        letters.put('0', 0);
+
 
         ArrayList<Integer> convertedToNumber = new ArrayList<>();
         char[] vinChars = vin.toUpperCase().toCharArray();
         for (Character c : vinChars
         ) {
-            if (!letters.containsKey(c)) return false;
-            convertedToNumber.add(letters.get(c));
+            if (!LETTERS.containsKey(c)) return false;
+            convertedToNumber.add(LETTERS.get(c));
         }
         List<Integer> multiplier = Arrays.asList(8, 7, 6, 5, 4, 3, 2, 10, 0, 9, 8, 7, 6, 5, 4, 3, 2);
 

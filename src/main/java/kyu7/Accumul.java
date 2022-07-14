@@ -1,5 +1,7 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 public class Accumul {
 
     //7
@@ -32,7 +34,8 @@ public class Accumul {
         return result.substring(0, result.length() - 1);
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(accum("ZpglnRxqenU"));
     }
 }

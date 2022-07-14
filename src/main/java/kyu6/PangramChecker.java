@@ -6,7 +6,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class PangramChecker {
+
     //6
 
     /**
@@ -14,24 +18,23 @@ public class PangramChecker {
      * <p>
      * Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
      */
+
     @Test
     public void test() {
-        String pangram1 = "The quick brown fox jumps over the lazy dog.";
-        System.out.println(check(pangram1));
-
-        String pangram2 = "You shall not pass!";
-        System.out.println(check(pangram2));
+        assertTrue(check("The quick brown fox jumps over the lazy dog."));
+        assertFalse(check("You shall not pass!"));
     }
 
+    private static final Set<Character> ALPHABET = new HashSet<>(Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'));
+
     public static boolean check(String sentence) {
-        Set<Character> alphabet = new HashSet<>(Arrays.asList('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'));
         Set<Character> sentenceBetSet = new HashSet<>(26);
         for (char ch : sentence.toCharArray()
         ) {
-            if (alphabet.contains(Character.toLowerCase(ch))) {
+            if (ALPHABET.contains(Character.toLowerCase(ch))) {
                 sentenceBetSet.add(Character.toLowerCase(ch));
             }
-            if (sentenceBetSet.size() == 26) return true;
+            if (sentenceBetSet.size() == ALPHABET.size()) return true;
         }
         return false;
     }

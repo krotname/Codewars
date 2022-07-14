@@ -7,10 +7,41 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class SimpleEncryption {
 
+    private static final String THIS_IS_A_TEST = "This is a test!";
+
     //6 https://www.codewars.com/SimpleEncryption/57814d79a56c88e3e0000786/train/java
+
+    @Test
+    public void testEncrypt() {
+        assertEquals(THIS_IS_A_TEST, SimpleEncryption.encrypt(THIS_IS_A_TEST, 0));
+        assertEquals("hsi  etTi sats!", SimpleEncryption.encrypt(THIS_IS_A_TEST, 1));
+        assertEquals("s eT ashi tist!", SimpleEncryption.encrypt(THIS_IS_A_TEST, 2));
+        assertEquals(" Tah itse sits!", SimpleEncryption.encrypt(THIS_IS_A_TEST, 3));
+        assertEquals(THIS_IS_A_TEST, SimpleEncryption.encrypt(THIS_IS_A_TEST, 4));
+        assertEquals(THIS_IS_A_TEST, SimpleEncryption.encrypt(THIS_IS_A_TEST, -1));
+    }
+
+    @Test
+    public void testDecrypt() {
+        assertEquals(THIS_IS_A_TEST, SimpleEncryption.decrypt(THIS_IS_A_TEST, 0));
+        assertEquals(THIS_IS_A_TEST, SimpleEncryption.decrypt("hsi  etTi sats!", 1));
+        assertEquals(THIS_IS_A_TEST, SimpleEncryption.decrypt("s eT ashi tist!", 2));
+        assertEquals(THIS_IS_A_TEST, SimpleEncryption.decrypt(" Tah itse sits!", 3));
+        assertEquals(THIS_IS_A_TEST, SimpleEncryption.decrypt(THIS_IS_A_TEST, 4));
+        assertEquals(THIS_IS_A_TEST, SimpleEncryption.decrypt(THIS_IS_A_TEST, -1));
+    }
+
+    @Test
+    public void testNullOrEmpty() {
+        assertEquals("", SimpleEncryption.encrypt("", 0));
+        assertEquals("", SimpleEncryption.decrypt("", 0));
+        assertNull(SimpleEncryption.encrypt(null, 0));
+        assertNull(SimpleEncryption.decrypt(null, 0));
+    }
 
     public static String encrypt(final String text, final int n) {
         if (text == null || text.isEmpty() || n < 1) return text;
@@ -47,34 +78,4 @@ public class SimpleEncryption {
         start = new StringBuilder(String.valueOf(current));
         return decrypt(start.toString(), n - 1);
     }
-
-    @Test
-    public void testEncrypt() {
-        assertEquals("This is a test!", SimpleEncryption.encrypt("This is a test!", 0));
-        assertEquals("hsi  etTi sats!", SimpleEncryption.encrypt("This is a test!", 1));
-        assertEquals("s eT ashi tist!", SimpleEncryption.encrypt("This is a test!", 2));
-        assertEquals(" Tah itse sits!", SimpleEncryption.encrypt("This is a test!", 3));
-        assertEquals("This is a test!", SimpleEncryption.encrypt("This is a test!", 4));
-        assertEquals("This is a test!", SimpleEncryption.encrypt("This is a test!", -1));
-    }
-
-    @Test
-    public void testDecrypt() {
-        assertEquals("This is a test!", SimpleEncryption.decrypt("This is a test!", 0));
-        assertEquals("This is a test!", SimpleEncryption.decrypt("hsi  etTi sats!", 1));
-        assertEquals("This is a test!", SimpleEncryption.decrypt("s eT ashi tist!", 2));
-        assertEquals("This is a test!", SimpleEncryption.decrypt(" Tah itse sits!", 3));
-        assertEquals("This is a test!", SimpleEncryption.decrypt("This is a test!", 4));
-        assertEquals("This is a test!", SimpleEncryption.decrypt("This is a test!", -1));
-    }
-
-    @Test
-    public void testNullOrEmpty() {
-        assertEquals("", SimpleEncryption.encrypt("", 0));
-        assertEquals("", SimpleEncryption.decrypt("", 0));
-        assertEquals(null, SimpleEncryption.encrypt(null, 0));
-        assertEquals(null, SimpleEncryption.decrypt(null, 0));
-    }
-
-
 }

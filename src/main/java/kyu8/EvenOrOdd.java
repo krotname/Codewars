@@ -1,14 +1,17 @@
 package kyu8;
 
+import org.junit.jupiter.api.Test;
+
 public class EvenOrOdd {
     //8
-    public static void main(String[] args) {
 
-        System.out.println(even_or_odd(6));
-        System.out.println(even_or_odd(7));
+    @Test
+    public void test() {
+        System.out.println(evenOrOdd(6));
+        System.out.println(evenOrOdd(7));
     }
 
-    public static String even_or_odd(int number) {
+    public static String evenOrOdd(int number) {
         return number % 2 == 0 ? "Even" : "Odd";
     }
 }

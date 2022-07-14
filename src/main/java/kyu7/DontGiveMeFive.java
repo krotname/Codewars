@@ -1,9 +1,12 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 public class DontGiveMeFive {
     //7 https://www.codewars.com/kata/5813d19765d81c592200001a/solutions/java
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(dontGiveMeFive(1, 9)); //8
         System.out.println(dontGiveMeFive(4, 17)); //12
     }

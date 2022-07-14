@@ -1,8 +1,11 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 public class NumberFun {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(findNextSquare(121));
         System.out.println(findNextSquare(625));
         System.out.println(findNextSquare(114));
