@@ -1,8 +1,8 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TenMinWalk {
 
@@ -19,14 +19,20 @@ public class TenMinWalk {
             if (c == 'w') ew--;
             t++;
         }
-        return ns == 0 && ew == 0 && t ==10;
+        return ns == 0 && ew == 0 && t == 10;
     }
 
     @Test
     public void Test() {
-        assertEquals(true, TenMinWalk.isValid(new char[]{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
-        assertEquals(false, TenMinWalk.isValid(new char[]{'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e'}));
-        assertEquals(false, TenMinWalk.isValid(new char[]{'w'}));
-        assertEquals(false, TenMinWalk.isValid(new char[]{'n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
+        assertEquals(true,
+                TenMinWalk.isValid(new char[]{'n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
+        assertEquals(false,
+                TenMinWalk.isValid(new char[]{'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e'}));
+        assertEquals(false,
+                TenMinWalk.isValid(new char[]{'w'}));
+        assertEquals(false,
+                TenMinWalk.isValid(new char[]{'n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's'}));
     }
+
+
 }

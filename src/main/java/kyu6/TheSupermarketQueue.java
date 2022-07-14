@@ -1,11 +1,11 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //6 https://www.codewars.com/kata/57b06f90e298a7b53d000a86/train/java
 
@@ -37,8 +37,8 @@ public class TheSupermarketQueue {
 
         while (true) {
             int stopCount = 0;
-            for (int i = 0; i < workList.length; i++) {
-                if (workList[i] == -1) {
+            for (int j : workList) {
+                if (j == -1) {
                     stopCount++;
                 }
             }
@@ -63,27 +63,10 @@ public class TheSupermarketQueue {
 
     @Test
     public void testNormalCondition() {
-        assertEquals(9, TheSupermarketQueue.solveSuperMarketQueue(new int[]{2, 2, 3, 3, 4, 4}, 2));
+        assertEquals(9, solveSuperMarketQueue(new int[]{2, 2, 3, 3, 4, 4}, 2));
+        assertEquals(0, solveSuperMarketQueue(new int[]{}, 1));
+        assertEquals(15, solveSuperMarketQueue(new int[]{1, 2, 3, 4, 5}, 1));
+        assertEquals(5, solveSuperMarketQueue(new int[]{1, 2, 3, 4, 5}, 100));
+        assertEquals(19, solveSuperMarketQueue(new int[]{5, 7, 4, 5, 6, 5, 3, 1, 3, 1, 2, 1, 5, 5}, 3));
     }
-
-    @Test
-    public void testEmptyArray() {
-        assertEquals(0, TheSupermarketQueue.solveSuperMarketQueue(new int[]{}, 1));
-    }
-
-    @Test
-    public void testSingleTillManyCustomers() {
-        assertEquals(15, TheSupermarketQueue.solveSuperMarketQueue(new int[]{1, 2, 3, 4, 5}, 1));
-    }
-
-    @Test
-    public void testSingleTillManyCustomers100() {
-        assertEquals(5, TheSupermarketQueue.solveSuperMarketQueue(new int[]{1, 2, 3, 4, 5}, 100));
-    }
-
-    @Test
-    public void testSingleTillManyCustomers3() {
-        assertEquals(19, TheSupermarketQueue.solveSuperMarketQueue(new int[]{5, 7, 4, 5, 6, 5, 3, 1, 3, 1, 2, 1, 5, 5}, 3));
-    }
-
 }

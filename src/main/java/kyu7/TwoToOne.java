@@ -1,13 +1,14 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.TreeSet;
 
-public class TwoToOne {
-    //7 https://www.codewars.com/kata/5656b6906de340bd1b0000ac/train/java
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    public static void main(String[] args) {
-        System.out.println(longest("aretheyhere", "yestheyarehere")); //aehrsty
-    }
+public class TwoToOne {
+
+    //7 https://www.codewars.com/kata/5656b6906de340bd1b0000ac/train/java
 
     public static String longest(String s1, String s2) {
         TreeSet<Character> characters = new TreeSet<>();
@@ -22,5 +23,12 @@ public class TwoToOne {
             sb.append(character);
         }
         return sb.toString();
+    }
+
+    @Test
+    public void test() {
+        assertEquals("aehrsty", TwoToOne.longest("aretheyhere", "yestheyarehere"));
+        assertEquals("abcdefghilnoprstu", TwoToOne.longest("loopingisfunbutdangerous", "lessdangerousthancoding"));
+        assertEquals("acefghilmnoprstuy", TwoToOne.longest("inmanylanguages", "theresapairoffunctions"));
     }
 }

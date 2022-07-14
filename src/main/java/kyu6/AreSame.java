@@ -1,18 +1,26 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-//6 https://www.codewars.com/kata/550498447451fbbd7600041c/train/java
 
 public class AreSame {
 
+    //6 https://www.codewars.com/kata/550498447451fbbd7600041c/train/java
+
     public static boolean comp(int[] a, int[] b) {
-        return a != null && b != null && Arrays.equals(Arrays.stream(a).map(i -> i * i).sorted().toArray(), Arrays.stream(b).sorted().toArray());
+        return a != null && b != null && Arrays.equals(
+                Arrays.stream(a)
+                        .map(i -> i * i)
+                        .sorted()
+                        .toArray(),
+                Arrays.stream(b)
+                        .sorted()
+                        .toArray());
     }
 
     @Test

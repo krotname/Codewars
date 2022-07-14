@@ -1,6 +1,6 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class SortTheOdd {
 
@@ -21,26 +21,26 @@ public class SortTheOdd {
         for (int i = 0; i < array.length; i += 2) {
             odd.add(array[i]);
         }
-        List<Integer> sortedOdd = odd.stream().sorted().collect(Collectors.toList());
+        List<Integer> sortedOdd = odd.stream().sorted().toList();
 
         for (int i = 0; i < array.length; i += 2) {
-            System.out.println((int) (i / 2.0 + 0.5) + " ++");
             array[i] = sortedOdd.get((int) (i / 2.0 + 0.5));
         }
-        System.out.println(Arrays.toString(array));
         return array;
     }
 
     public static int[] sortArrayStream(int[] array) {
-        LinkedList<Integer> oddSorted = Arrays.stream(array)
-                .filter(x -> x % 2 != 0)
+        LinkedList<Integer> oddSorted = IntStream
+                .range(0, array.length)
+                .filter(x -> x % 2 == 0)
+                .map(x -> array[x])
                 .sorted()
                 .boxed()
                 .collect(Collectors.toCollection(LinkedList::new));
 
         IntStream.range(0, array.length).forEach(
                 x -> {
-                    if (array[x] % 2 != 0) {
+                    if (x % 2 == 0) {
                         array[x] = oddSorted.poll();
                     }
                 });
@@ -49,19 +49,16 @@ public class SortTheOdd {
     }
 
     @Test
-    public void exampleTest1() {
-        assertArrayEquals(new int[]{1, 3, 2, 8, 5, 4}, SortTheOdd.sortArrayStream(new int[]{5, 3, 2, 8, 1, 4}));
-    }
-
-
-    @Test
-    public void exampleTest2() {
-        assertArrayEquals(new int[]{1, 3, 5, 8, 0}, SortTheOdd.sortArrayStream(new int[]{5, 3, 1, 8, 0}));
+    public void exampleTestStream() {
+        assertArrayEquals(new int[]{0, 3, 1, 8, 5}, sortArrayStream(new int[]{5, 3, 1, 8, 0}));
+        assertArrayEquals(new int[]{1, 3, 2, 8, 5, 4}, sortArrayStream(new int[]{5, 3, 2, 8, 1, 4}));
+        assertArrayEquals(new int[]{}, sortArrayStream(new int[]{}));
     }
 
     @Test
-    public void exampleTest3() {
-        assertArrayEquals(new int[]{}, SortTheOdd.sortArrayStream(new int[]{}));
+    public void exampleTest() {
+        assertArrayEquals(new int[]{0, 3, 1, 8, 5}, sortArray(new int[]{5, 3, 1, 8, 0}));
+        assertArrayEquals(new int[]{1, 3, 2, 8, 5, 4}, sortArray(new int[]{5, 3, 2, 8, 1, 4}));
+        assertArrayEquals(new int[]{}, sortArray(new int[]{}));
     }
-
 }

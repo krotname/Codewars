@@ -1,14 +1,14 @@
 package kyu7;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-
-//6 https://www.codewars.com/kata/5648b12ce68d9daa6b000099/solutions/java
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Metro {
+
+    //6 https://www.codewars.com/kata/5648b12ce68d9daa6b000099/solutions/java
 
     public static int countPassengers(ArrayList<int[]> stops) {
         return stops.stream()
@@ -17,13 +17,12 @@ public class Metro {
                 .orElseThrow();
     }
 
-
     @Test
     public void test1() {
-        ArrayList<int[]> list = new ArrayList<int[]>();
-        list.add(new int[] {10,0});
-        list.add(new int[] {3,5});
-        list.add(new int[] {2,5});
+        ArrayList<int[]> list = new ArrayList<>();
+        list.add(new int[]{10, 0});
+        list.add(new int[]{3, 5});
+        list.add(new int[]{2, 5});
         assertEquals(5, countPassengers(list));
     }
 }

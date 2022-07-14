@@ -1,10 +1,10 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DigPow {
 
@@ -19,17 +19,9 @@ public class DigPow {
     }
 
     @Test
-    public void Test1() {
+    public void test() {
         assertEquals(1, DigPow.digPow(89, 1));
-    }
-
-    @Test
-    public void Test2() {
         assertEquals(-1, DigPow.digPow(92, 1));
-    }
-
-    @Test
-    public void Test3() {
         assertEquals(51, DigPow.digPow(46288, 3));
     }
 }

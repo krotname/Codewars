@@ -1,16 +1,31 @@
 package kyu5;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class OrderWeight {
+
     //5 https://www.codewars.com/kata/55c6126177c9441a570000cc/train/java
 
+    public static String orderWeight(String string) {
+        String[] s = string.trim().split("\\s");
+        Arrays.sort(s, new WeightComparator());
+        return Arrays.stream(s)
+                .map(String::valueOf)
+                .collect(Collectors.joining(" "));
+    }
+
     /**
-     * My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with the weights of members is published and each month he is the last on the list which means he is the heaviest.
+     * My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with
+     * the weights of members is published and each month he is the last on the list which means he is the heaviest.
      * <p>
-     * I am the one who establishes the list so I told him: "Don't worry any more, I will modify the order of the list". It was decided to attribute a "weight" to numbers. The weight of a number will be from now on the sum of its digits.
+     * I am the one who establishes the list so I told him: "Don't worry any more, I will modify the order of the list".
+     * It was decided to attribute a "weight" to numbers. The weight of a number will be from now on the sum of its digits.
      * <p>
      * For example 99 will have "weight" 18, 100 will have "weight" 1 so in the list 100 will come before 99.
      * <p>
@@ -27,30 +42,29 @@ public class OrderWeight {
      * All numbers in the list are positive numbers and the list can be empty.
      * <p>
      * Notes
-     * it may happen that the input string have leading, trailing whitespaces and more than a unique whitespace between two consecutive numbers
+     * it may happen that the input string have leading, trailing whitespaces and more than a unique whitespace
+     * between two consecutive numbers
      * For C: The result is freed.
      */
 
-    public static void main(String[] args) {
-        System.out.println(WeightComarator.weight("44444444"));
-        System.out.println(WeightComarator.weight("9999"));
-
-        System.out.println(orderWeight("103 123 4444 99 2000")); // 2000 103 123 4444 99
-        System.out.println(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123")); // 11 11 2000 10003 22 123 1234000 44444444 9999
+    @Test
+    public void testWeightComparator() {
+        assertEquals(32, WeightComparator.weight("44444444"));
+        assertEquals(36, WeightComparator.weight("9999"));
     }
 
-    public static String orderWeight(String strng) {
-        String[] s = strng.trim().split("\\s");
-        Arrays.sort(s, new WeightComarator());
-        return Arrays.stream(s)
-                .map(String::valueOf)
-                .collect(Collectors.joining(" "));
+    @Test
+    public void testOrderWeight() {
+        assertEquals("2000 103 123 4444 99",
+                orderWeight("103 123 4444 99 2000"));
+        assertEquals("11 11 2000 10003 22 123 1234000 44444444 9999",
+                orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
     }
 
-    private static class WeightComarator implements Comparator<String> {
-        public static int weight(String strng) {
+    private static class WeightComparator implements Comparator<String> {
+        public static int weight(String string) {
             int r = 0;
-            for (char c : strng.toCharArray()) {
+            for (char c : string.toCharArray()) {
                 r += Integer.parseInt(String.valueOf(c));
             }
             return r;

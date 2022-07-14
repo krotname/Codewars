@@ -1,13 +1,12 @@
 package kyu7;
 
-public class GetMiddle {
-    //7 https://www.codewars.com/kata/56747fd5cb988479af000028/train/java
+import org.junit.jupiter.api.Test;
 
-    public static void main(String[] args) {
-        System.out.println(getMiddle("test"));//es
-        System.out.println(getMiddle("middle"));//dd
-        System.out.println(getMiddle("midle"));//d
-    }
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class GetMiddle {
+
+    //7 https://www.codewars.com/kata/56747fd5cb988479af000028/train/java
 
     public static String getMiddle(String word) {
         int i = word.length() / 2;
@@ -16,5 +15,12 @@ public class GetMiddle {
         } else {
             return word.substring(i, i + 1);
         }
+    }
+
+    @Test
+    public void test() {
+        assertEquals("es", getMiddle("test"));
+        assertEquals("dd", getMiddle("middle"));
+        assertEquals("d", getMiddle("midle"));
     }
 }

@@ -1,19 +1,21 @@
 package other;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+// Разворачивает каждое слово в предложении
 
 public class SpinWords {
 
-    public static String spinWords(String sentence) {
+    public String spinWords(String sentence) {
         String[] arrWords = sentence.split("\\s");
         StringBuilder resultSb = new StringBuilder();
         for (String curentWord : arrWords
         ) {
             if (curentWord.length() >= 5) {
-                StringBuilder curentSb = new StringBuilder(curentWord);
-                resultSb.append(curentSb.reverse());
+                StringBuilder currentSb = new StringBuilder(curentWord);
+                resultSb.append(currentSb.reverse());
             } else {
                 resultSb.append(curentWord);
             }
@@ -25,6 +27,6 @@ public class SpinWords {
     @Test
     public void test() {
         assertEquals(spinWords("Welcome"), "emocleW");
-        System.out.println(spinWords("Hey fellow warriors")); // Hey wollef sroirraw
+        assertEquals(spinWords("Hey fellow warriors"), "Hey wollef sroirraw");
     }
 }

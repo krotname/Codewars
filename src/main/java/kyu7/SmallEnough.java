@@ -1,12 +1,11 @@
 package kyu7;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SmallEnough {
     //7 https://www.codewars.com/kata/57cc981a58da9e302a000214/train/java
@@ -17,8 +16,8 @@ public class SmallEnough {
 
     @Test
     public void basicTests() {
-        assertTrue(SmallEnough.smallEnough(new int[]{66, 101}, 200));
         assertFalse(SmallEnough.smallEnough(new int[]{78, 117, 110, 99, 104, 117, 107, 115}, 100));
+        assertTrue(SmallEnough.smallEnough(new int[]{66, 101}, 200));
         assertTrue(SmallEnough.smallEnough(new int[]{101, 45, 75, 105, 99, 107}, 107));
         assertTrue(SmallEnough.smallEnough(new int[]{80, 117, 115, 104, 45, 85, 112, 115}, 120));
     }

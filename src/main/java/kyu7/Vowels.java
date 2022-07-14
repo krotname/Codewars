@@ -1,12 +1,15 @@
 package kyu7;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class Vowels {
-    //**7
+
+    //7
 
     /**
      * Return the number (count) of vowels in the given string.
@@ -33,7 +36,7 @@ public class Vowels {
 
     @Test
     public void test() {
-        System.out.println(getCount("abracadabra"));
+        assertEquals(5, getCount("abracadabra"));
     }
 
 }

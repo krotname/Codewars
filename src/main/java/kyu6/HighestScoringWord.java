@@ -1,22 +1,25 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HighestScoringWord {
 
     //6 https://www.codewars.com/HighestScoringWord/57eb8fcdf670e99d9b000272/train/java
 
+    private static final int ASCII_INT = 96;
+
     public static String high(String s) {
         return Arrays.stream(s.split("\\s"))
-                .max(Comparator.comparingInt(word -> word.chars().map(c -> Character.toLowerCase(c) - 96).sum()))
+                .max(Comparator.comparingInt(word -> word.chars()
+                        .map(c -> Character.toLowerCase(c) - ASCII_INT)
+                        .sum()))
                 .orElseThrow();
     }
-
 
     @Test
     public void sampleTests() {

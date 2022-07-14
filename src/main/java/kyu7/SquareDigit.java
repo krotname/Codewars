@@ -1,13 +1,12 @@
 package kyu7;
 
-public class SquareDigit {
-    //7 https://www.codewars.com/kata/546e2562b03326a88e000020/train/java
+import org.junit.jupiter.api.Test;
 
-    public static void main(String[] args) {
-        System.out.println(squareDigits(9119)); //811181
-        System.out.println(squareDigits(0)); //0
-        System.out.println(squareDigits(-1));
-    }
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class SquareDigit {
+
+    //7 https://www.codewars.com/kata/546e2562b03326a88e000020/train/java
 
     public static int squareDigits(int n) {
         if (n == 0) return 0;
@@ -18,5 +17,12 @@ public class SquareDigit {
             stringBuilder.insert(0, i * i);
         }
         return Integer.parseInt(stringBuilder.toString());
+    }
+
+    @Test
+    public void test() {
+        assertEquals(811181, squareDigits(9119));
+        assertEquals(0, squareDigits(0));
+        assertEquals(1, squareDigits(-1));
     }
 }

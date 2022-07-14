@@ -1,12 +1,13 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//6 https://www.codewars.com/kata/5842df8ccbd22792a4000245/train/java
 
 public class NumberInExpandedForm {
+
+    //6 https://www.codewars.com/kata/5842df8ccbd22792a4000245/train/java
 
     public static String expandedForm(int num) {
         StringBuilder result = new StringBuilder();
@@ -16,7 +17,7 @@ public class NumberInExpandedForm {
                 result.append(chars[i]).append("0".repeat(Math.max(0, chars.length - (i + 1)))).append(" + ");
             }
         }
-        return result.substring(0,result.length()-3);
+        return result.substring(0, result.length() - 3);
     }
 
     @Test
@@ -26,5 +27,4 @@ public class NumberInExpandedForm {
         assertEquals("10 + 2", expandedForm(12));
         assertEquals("40 + 2", expandedForm(42));
     }
-
 }

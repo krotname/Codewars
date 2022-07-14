@@ -1,7 +1,11 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Troll {
     //6
@@ -9,7 +13,8 @@ public class Troll {
     /**
      * Trolls are attacking your comment section!
      * <p>
-     * A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+     * A common way to deal with this situation is to remove all of the vowels from the trolls' comments,
+     * neutralizing the threat.
      * <p>
      * Your task is to write a function that takes a string and return a new string with all vowels removed.
      * <p>
@@ -18,24 +23,24 @@ public class Troll {
      * Note: for this kata y isn't considered a vowel
      */
 
-    private static final Character[] vowel = {'a', 'e', 'i', 'o', 'u'};
-    private static final List<Character> vowelList = Arrays.asList(vowel);
+    private static final Character[] VOWEL = {'a', 'e', 'i', 'o', 'u'};
+    private static final List<Character> VOWEL_LIST = Arrays.asList(VOWEL);
 
-    public static void main(String[] args) {
-        System.out.println(disemvowel("LOL"));
-        System.out.println(disemvowel("This website is for losers LOL!"));
-
-    }
-
-    public static String disemvowel(String s) {
+    public static String disembowel(String s) {
 
         StringBuilder result = new StringBuilder();
         for (char c : s.toCharArray()
         ) {
-            if (!vowelList.contains(Character.toLowerCase(c))) {
+            if (!VOWEL_LIST.contains(Character.toLowerCase(c))) {
                 result.append(c);
             }
         }
         return result.toString();
+    }
+
+    @Test
+    public void test() {
+        assertEquals("LL", disembowel("LOL"));
+        assertEquals("Ths wbst s fr lsrs LL!", disembowel("This website is for losers LOL!"));
     }
 }

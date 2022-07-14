@@ -1,19 +1,18 @@
 package kyu7;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class NumbersInOrder {
     //7 https://www.codewars.com/kata/56b7f2f3f18876033f000307/train/java
 
     public static boolean isAscOrder(int[] arr) {
-        return IntStream.range(0, arr.length-1)
-                .allMatch(i -> arr[i+1] >= arr[i]);
+        return IntStream.range(0, arr.length - 1)
+                .allMatch(i -> arr[i + 1] >= arr[i]);
     }
 
     @Test

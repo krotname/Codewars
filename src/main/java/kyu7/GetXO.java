@@ -1,24 +1,13 @@
 package kyu7;
 
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class GetXO {
+
     //7
-
-    /**
-     * Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
-     * <p>
-     * Examples input/output:
-     * <p>
-     * XO("ooxx") => true
-     * XO("xooxx") => false
-     * XO("ooxXm") => true
-     * XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
-     * XO("zzoo") => false
-     */
-
-    public static void main(String[] args) {
-
-        System.out.println(getXO("XxxooO"));
-    }
 
     public static boolean getXO(String str) {
 
@@ -35,5 +24,24 @@ public class GetXO {
             if (element == target.toLowerCase().toCharArray()[0]) result++;
         }
         return result;
+    }
+
+    /**
+     * Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean
+     * and be case insensitive. The string can contain any char.
+     * <p>
+     * Examples input/output:
+     * <p>
+     * XO("ooxx") => true
+     * XO("xooxx") => false
+     * XO("ooxXm") => true
+     * XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+     * XO("zzoo") => false
+     */
+
+    @Test
+    public void test() {
+        assertTrue(getXO("XxxooO"));
+        assertFalse(getXO("XolO"));
     }
 }

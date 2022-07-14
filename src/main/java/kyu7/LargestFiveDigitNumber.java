@@ -1,17 +1,17 @@
 package kyu7;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Comparator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LargestFiveDigitNumber {
-    //7 https://www.codewars.com/kata/51675d17e0c1bed195000001/train/java
 
+    //7 https://www.codewars.com/kata/51675d17e0c1bed195000001/train/java
 
     private static final int SEQUENCE = 5;
 
@@ -24,7 +24,7 @@ public class LargestFiveDigitNumber {
             int current;
             StringBuilder currentSB = new StringBuilder();
             for (int j = 0; j < SEQUENCE; j++) {
-                currentSB.append(split[i+j]);
+                currentSB.append(split[i + j]);
             }
             current = Integer.parseInt(currentSB.toString());
 
@@ -57,6 +57,4 @@ public class LargestFiveDigitNumber {
         assertEquals(67890, LargestFiveDigitNumber.solve("1234567890"));
         assertEquals(74765, LargestFiveDigitNumber.solve("731674765"));
     }
-
-
 }
