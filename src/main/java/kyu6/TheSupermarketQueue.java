@@ -37,8 +37,8 @@ public class TheSupermarketQueue {
 
         while (true) {
             int stopCount = 0;
-            for (int i = 0; i < workList.length; i++) {
-                if (workList[i] == -1) {
+            for (int j : workList) {
+                if (j == -1) {
                     stopCount++;
                 }
             }

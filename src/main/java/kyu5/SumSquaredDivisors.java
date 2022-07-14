@@ -1,11 +1,16 @@
 package kyu5;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import static org.junit.Assert.assertEquals;
+
 public class SumSquaredDivisors {
+
     //5 https://www.codewars.com/kata/55aa075506463dac6600010d/train/java
 
     /**
@@ -25,11 +30,12 @@ public class SumSquaredDivisors {
      * In Fortran - as in any other language - the returned string is not permitted to contain any redundant trailing whitespace: you can use dynamically allocated character strings.
      */
 
-    public static void main(String[] args) {
-        System.out.println(listSquared(1, 250)); // [[1, 1], [42, 2500], [246, 84100]]
-        System.out.println(listSquared(42, 250)); // [42, 2500], [246, 84100]]
-        System.out.println(listSquared(250, 500)); //
-        System.out.println(listSquared(250, 255)); //
+    @Test
+    public void test() {
+        assertEquals("[[1, 1], [42, 2500], [246, 84100]]", listSquared(1, 250));
+        assertEquals("[[42, 2500], [246, 84100]]", listSquared(42, 250));
+        assertEquals("[[287, 84100]]", listSquared(250, 500));
+        assertEquals("[]", listSquared(250, 255));
     }
 
     public static String listSquared(long m, long n) {
@@ -56,11 +62,11 @@ public class SumSquaredDivisors {
         return substring;
     }
 
-    public static boolean checkSquare(long n) {
+    private static boolean checkSquare(long n) {
         return Math.sqrt(n) % 1 == 0.0;
     }
 
-    public static List<Long> listDivisor(long n) {
+    private static List<Long> listDivisor(long n) {
         List<Long> l = new ArrayList<>();
         for (long i = 1; i <= n; i++) {
             if ((n % i) == 0) {
@@ -70,7 +76,7 @@ public class SumSquaredDivisors {
         return l;
     }
 
-    public static long sumSquareList(List<Long> list) {
+    private static long sumSquareList(List<Long> list) {
         long result = 0;
         for (long i : list) {
             result += i * i;

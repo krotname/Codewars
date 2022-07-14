@@ -2,17 +2,21 @@ package other;
 
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.OptionalInt;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
 // Задача с учебного собеседования на курсе OTUS
+// Ищем первый дубликат в массиве чисел
 
 public class OtusInterview {
 
-    public static final String NOT_FOUND = "Массив не содержит дубликатов";
+    private static final String NOT_FOUND = "Массив не содержит дубликатов";
 
-    public static OptionalInt findFirstDuplicate(int[] arr) {
+    public OptionalInt findFirstDuplicate(int[] arr) {
 
         Set<Integer> uniqueElements = new HashSet<>(arr.length, 1.0f);
 

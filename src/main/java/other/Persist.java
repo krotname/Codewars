@@ -1,13 +1,12 @@
 package other;
 
-public class Persist {
-    public static void main(String[] args) {
-        System.out.println(persistence(39));
-        System.out.println(persistence(999));
-        System.out.println(persistence(4));
-    }
+// Выводит результат умножения цифр положительного числа в циклепока не останется однозначное число
 
-    public static int persistence(long n) {
+import org.junit.Test;
+
+public class Persist {
+
+    public int persistence(long n) {
         int result = 0;
         while (n > 9) {
             char[] s = String.valueOf(n).toCharArray();
@@ -19,5 +18,13 @@ public class Persist {
             result++;
         }
         return result;
+    }
+
+    @Test
+    public void test() {
+
+        System.out.println(persistence(39));
+        System.out.println(persistence(999));    // because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2
+        System.out.println(persistence(4));
     }
 }

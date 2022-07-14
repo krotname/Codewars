@@ -9,8 +9,8 @@ import static org.junit.Assert.assertEquals;
 public class FindMissingLetter {
 
     //6 https://www.codewars.com/kata/5839edaa6754d6fec10000a2/solutions/java
-    
-    private static ArrayList<Character> alphabet = new ArrayList<>();
+
+    private static final ArrayList<Character> alphabet = new ArrayList<>();
 
     {
         for (char a = 'a'; a <= 'z'; a++) {

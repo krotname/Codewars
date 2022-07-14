@@ -1,8 +1,12 @@
 package kyu3;
 
+import org.junit.Test;
+
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
+
+import static org.junit.Assert.assertEquals;
 
 public class RailFenceCipher {
 
@@ -30,11 +34,18 @@ public class RailFenceCipher {
      */
 
 
-    public static void main(String[] args) {
-        System.out.println(encode("Hello, World!", 3));
-        System.out.println(encode("123456789", 3));
-        System.out.println(encode("WECRLTEERDSOEEFEAOCAIVDEN", 3));
-        System.out.println(decode("Hoo!el,Wrdl l", 3));
+    @Test
+    public void testEncode() {
+        assertEquals("Hoo!el,Wrdl l", encode("Hello, World!", 3));
+        assertEquals("159246837", encode("123456789", 3));
+        assertEquals("135792468", encode("123456789", 2));
+        assertEquals("WLREAINERTEDOEEOAVECESFCD", encode("WECRLTEERDSOEEFEAOCAIVDEN", 3));
+    }
+
+    @Test
+    public void testDecode() {
+        assertEquals("Hello, World!", decode("Hoo!el,Wrdl l", 3));
+        assertEquals("123456789", decode("159246837", 3));
     }
 
     static String encode(String s, int n) {
@@ -45,8 +56,6 @@ public class RailFenceCipher {
         }
         char[] chars = s.toCharArray();
         Counter counter = new Counter(n - 1);
-
-        int i1 = s.length() / n;
 
         for (int i = 0; i < s.length(); i++) {
             int tik = counter.tik();

@@ -12,36 +12,6 @@ import static org.junit.Assert.assertEquals;
 public class DuplicateEncoder {
     //6
 
-    /**
-     * The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
-     * <p>
-     * Examples
-     * "din"      =>  "((("
-     * "recede"   =>  "()()()"
-     * "Success"  =>  ")())())"
-     * "(( @"     =>  "))(("
-     */
-
-    @Test
-    public void encodeTest() {
-        assertEquals(")()())()(()()(", encode("Prespecialized"));
-        assertEquals("()()()", encode("recede"));
-        assertEquals(")())())", encode("Success"));
-        assertEquals("))((", encode("(( @"));
-        assertEquals("))))))))((())))()))(((((((((((", encode("asfdafbsrtgsdcvxcvbnmjh,klo;p["));
-        assertEquals("))))())))", encode("   ()(   "));
-    }
-
-    @Test
-    public void encodeStreamTest() {
-        assertEquals("()()()", encodeStream("recede"));
-        assertEquals(")()())()(()()(", encodeStream("Prespecialized"));
-        assertEquals(")())())", encodeStream("Success"));
-        assertEquals("))((", encodeStream("(( @"));
-        assertEquals("))))))))((())))()))(((((((((((", encodeStream("asfdafbsrtgsdcvxcvbnmjh,klo;p["));
-        assertEquals("))))())))", encodeStream("   ()(   "));
-    }
-
     static String encodeStream(String word) {
         Map<Character, AtomicInteger> countChars = word.chars()
                 .mapToObj(i -> (char) i)
@@ -73,5 +43,35 @@ public class DuplicateEncoder {
             }
         }
         return result.toString();
+    }
+
+    /**
+     * The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+     * <p>
+     * Examples
+     * "din"      =>  "((("
+     * "recede"   =>  "()()()"
+     * "Success"  =>  ")())())"
+     * "(( @"     =>  "))(("
+     */
+
+    @Test
+    public void encodeTest() {
+        assertEquals(")()())()(()()(", encode("Prespecialized"));
+        assertEquals("()()()", encode("recede"));
+        assertEquals(")())())", encode("Success"));
+        assertEquals("))((", encode("(( @"));
+        assertEquals("))))))))((())))()))(((((((((((", encode("asfdafbsrtgsdcvxcvbnmjh,klo;p["));
+        assertEquals("))))())))", encode("   ()(   "));
+    }
+
+    @Test
+    public void encodeStreamTest() {
+        assertEquals("()()()", encodeStream("recede"));
+        assertEquals(")()())()(()()(", encodeStream("Prespecialized"));
+        assertEquals(")())())", encodeStream("Success"));
+        assertEquals("))((", encodeStream("(( @"));
+        assertEquals("))))))))((())))()))(((((((((((", encodeStream("asfdafbsrtgsdcvxcvbnmjh,klo;p["));
+        assertEquals("))))())))", encodeStream("   ()(   "));
     }
 }

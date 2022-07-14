@@ -1,5 +1,7 @@
 package kyu6;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +14,8 @@ public class PangramChecker {
      * <p>
      * Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
      */
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         String pangram1 = "The quick brown fox jumps over the lazy dog.";
         System.out.println(check(pangram1));
 

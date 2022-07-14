@@ -1,5 +1,7 @@
 package kyu6;
 
+import org.junit.Test;
+
 public class FindOutlier {
     //6
 
@@ -12,7 +14,8 @@ public class FindOutlier {
      * Now, add them. If sum is 0 or 1, then we are chasing odds. If sum is 2 or 3, then we are chasing evens.
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         int[] exampleTest1 = {2, 6, 8, -10, 3};
         int[] exampleTest2 = {206847684, 1056521, 7, 17, 1901, 21104421, 7, 1, 35521, 1, 7781};
         int[] exampleTest3 = {Integer.MAX_VALUE, 0, 1};

@@ -24,7 +24,7 @@ public class LargestFiveDigitNumber {
             int current;
             StringBuilder currentSB = new StringBuilder();
             for (int j = 0; j < SEQUENCE; j++) {
-                currentSB.append(split[i+j]);
+                currentSB.append(split[i + j]);
             }
             current = Integer.parseInt(currentSB.toString());
 

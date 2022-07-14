@@ -1,5 +1,10 @@
 package kyu5;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 public class ValidParentheses {
 
     //5
@@ -18,18 +23,23 @@ public class ValidParentheses {
      * Along with opening (() and closing ()) parenthesis, input may contain any valid ASCII characters. Furthermore, the input string may be empty and/or not contain any parentheses at all. Do not treat other forms of brackets as parentheses (e.g. [], {}, <>).
      */
 
-    public static void main(String[] args) {
-        System.out.println(validParentheses("()V))(K(L])su^(B"));// false
-        System.out.println(validParentheses("s)R)>)/((({Fr((()K4)i)ef8XR"));// false
-        System.out.println(validParentheses("Iz)Lwy(j"));// false
-        System.out.println(validParentheses(")(()))"));// false
-        System.out.println(validParentheses("("));// false
-        System.out.println(validParentheses("((((())))))")); // false
-        System.out.println(validParentheses("((((((())))))")); // false
-        System.out.println(validParentheses("(())((34()())())"));// true
-        System.out.println(validParentheses("()")); // true
-        System.out.println(validParentheses("((((()))))")); // true
-        System.out.println(validParentheses("(())((()))")); // true
+    @Test
+    public void testFalse() {
+        assertFalse(validParentheses("()V))(K(L])su^(B"));
+        assertFalse(validParentheses("s)R)>)/((({Fr((()K4)i)ef8XR"));
+        assertFalse(validParentheses("Iz)Lwy(j"));
+        assertFalse(validParentheses(")(()))"));
+        assertFalse(validParentheses("("));
+        assertFalse(validParentheses("((((())))))"));
+        assertFalse(validParentheses("((((((())))))"));
+    }
+
+    @Test
+    public void testTrue() {
+        assertTrue(validParentheses("(())((34()())())"));// true
+        assertTrue(validParentheses("()")); // true
+        assertTrue(validParentheses("((((()))))")); // true
+        assertTrue(validParentheses("(())((()))")); // true
     }
 
     private static boolean validParentheses(String parens) {

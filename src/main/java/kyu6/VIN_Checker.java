@@ -1,5 +1,7 @@
 package kyu6;
 
+import org.junit.Test;
+
 import java.util.*;
 
 public class VIN_Checker {
@@ -43,7 +45,8 @@ public class VIN_Checker {
      * Input validation is part of the Kata, VINs with lenghts different than 17 characters or containing invalid characters should return False as well.
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(checkVin("3VN6WLZCXYF160649")); // false
         System.out.println(checkVin("5YJ3E1EA7HF000337")); // true
         System.out.println(checkVin("5YJ3E1EAXHF000347")); // true

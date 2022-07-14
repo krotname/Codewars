@@ -1,8 +1,11 @@
 package kyu5;
 
-import java.util.Arrays;
+import org.junit.Test;
 
-public class ProdFib {
+import static org.junit.Assert.assertArrayEquals;
+
+public class ProductFib {
+
     //5
 
     /**
@@ -49,10 +52,10 @@ public class ProdFib {
      * You can see examples for your language in "Sample Tests"
      */
 
-    public static void main(String[] args) {
-
-        System.out.println(Arrays.toString(productFib(4895)));
-        System.out.println(Arrays.toString(productFib(5895)));
+    @Test
+    public void test() {
+        assertArrayEquals(new long[]{55, 89, 1}, productFib(4895));
+        assertArrayEquals(new long[]{89, 144, 0}, productFib(5895));
     }
 
     public static long[] productFib(long prod) {
@@ -61,13 +64,11 @@ public class ProdFib {
             n = getFibonacciValue(i) * getFibonacciValue(i + 1);
             i++;
         }
-        long[] result = {getFibonacciValue(i - 1), getFibonacciValue(i), n == prod ? 1 : 0};
-
-        return result;
+        return new long[]{getFibonacciValue(i - 1), getFibonacciValue(i), n == prod ? 1 : 0};
     }
 
     public static long getFibonacciValue(final long n) {
-        //https://ru.stackoverflow.com/questions/39229/Последовательности-чисел-Фибоначчи
+        // https://ru.stackoverflow.com/questions/39229/Последовательности-чисел-Фибоначчи
         double p = (1 + Math.sqrt(5)) / 2;
         double q = 1 / p;
         return (long) ((Math.pow(p, n) + Math.pow(q, n)) / Math.sqrt(5));

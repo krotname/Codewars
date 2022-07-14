@@ -1,9 +1,14 @@
 package kyu5;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 
+import static org.junit.Assert.assertEquals;
+
 public class MaximumSubarraySum {
-//5
+
+    //5
 
     /**
      * The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
@@ -13,14 +18,15 @@ public class MaximumSubarraySum {
      * Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.
      */
 
-    public static void main(String[] args) {
-        System.out.println(sequence(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4})); // should be 6: {4, -1, 2, 1}
-        System.out.println(sequence(new int[]{2, -3, 3}));
-        System.out.println(sequence(new int[]{-1, -5, -9, -88})); // should be 0
-        System.out.println(sequence(new int[]{4, -1, 2, 1}));
-        System.out.println(sequence(new int[]{-2, 1, -3, 5, -1, 2, 1, -5, 4}));
-        System.out.println(sequence(new int[]{333, -11, -3, 5, -1, 2, 1, -5, 4}));
-        System.out.println(sequence(new int[]{3, 1, -3, 5, -1, 2, 1, -55, 555}));
+    @Test
+    public void test() {
+        assertEquals(6, sequence(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}));
+        assertEquals(3, sequence(new int[]{2, -3, 3}));
+        assertEquals(0, sequence(new int[]{-1, -5, -9, -88}));
+        assertEquals(6, sequence(new int[]{4, -1, 2, 1}));
+        assertEquals(7, sequence(new int[]{-2, 1, -3, 5, -1, 2, 1, -5, 4}));
+        assertEquals(333, sequence(new int[]{333, -11, -3, 5, -1, 2, 1, -5, 4}));
+        assertEquals(555, sequence(new int[]{3, 1, -3, 5, -1, 2, 1, -55, 555}));
     }
 
     public static int sequence(int[] arr) {
@@ -37,7 +43,7 @@ public class MaximumSubarraySum {
         return maximumSubarraySum;
     }
 
-    public static int arraySum(int[] arr) {
+    private static int arraySum(int[] arr) {
         int result = 0;
         for (int i : arr
         ) {

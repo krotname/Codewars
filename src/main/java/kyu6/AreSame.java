@@ -7,13 +7,9 @@ import java.util.Arrays;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-//6 https://www.codewars.com/kata/550498447451fbbd7600041c/train/java
-
 public class AreSame {
 
-    public static boolean comp(int[] a, int[] b) {
-        return a != null && b != null && Arrays.equals(Arrays.stream(a).map(i -> i * i).sorted().toArray(), Arrays.stream(b).sorted().toArray());
-    }
+    //6 https://www.codewars.com/kata/550498447451fbbd7600041c/train/java
 
     @Test
     public void test1() {
@@ -34,5 +30,9 @@ public class AreSame {
         int[] a = new int[]{0, -14, 191, 161, 19, 144, 195, 1};
         int[] b = null;
         assertFalse(AreSame.comp(a, b));
+    }
+
+    public static boolean comp(int[] a, int[] b) {
+        return a != null && b != null && Arrays.equals(Arrays.stream(a).map(i -> i * i).sorted().toArray(), Arrays.stream(b).sorted().toArray());
     }
 }

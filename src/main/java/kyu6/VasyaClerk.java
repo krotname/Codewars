@@ -1,5 +1,7 @@
 package kyu6;
 
+import org.junit.Test;
+
 public class VasyaClerk {
     //6 https://www.codewars.com/kata/555615a77ebc7c2c8a0000b8/train/java
 
@@ -12,7 +14,9 @@ public class VasyaClerk {
      * <p>
      * Return YES, if Vasya can sell a ticket to every person and give change with the bills he has at hand at that moment. Otherwise return NO.
      */
-    public static void main(String[] args) {
+
+    @Test
+    public void test() {
         System.out.println(Tickets(new int[]{25, 25, 50})); // YES
         System.out.println(Tickets(new int[]{25, 100})); // NO
     }

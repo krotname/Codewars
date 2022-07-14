@@ -19,7 +19,7 @@ public class TenMinWalk {
             if (c == 'w') ew--;
             t++;
         }
-        return ns == 0 && ew == 0 && t ==10;
+        return ns == 0 && ew == 0 && t == 10;
     }
 
     @Test

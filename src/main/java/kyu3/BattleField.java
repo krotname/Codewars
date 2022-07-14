@@ -1,5 +1,10 @@
 package kyu3;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 public class BattleField {
 
     // 3 https://www.codewars.com/kata/52bb6539a4cf1b12d90005b7
@@ -16,9 +21,26 @@ public class BattleField {
                     {0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
+    private static final int[][] badBattleField =
+            {{1, 0, 0, 0, 0, 1, 1, 0, 0, 0},
+                    {1, 0, 1, 0, 0, 0, 0, 0, 1, 0},
+                    {1, 0, 1, 0, 1, 1, 1, 0, 1, 0},
+                    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                    {1, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                    {1, 0, 0, 0, 1, 1, 1, 0, 0, 0},
+                    {1, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+                    {1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                    {0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
-    public static void main(String[] args) {
-        System.out.println(fieldValidator(battleField));
+    @Test
+    public void testGood() {
+        assertTrue(fieldValidator(battleField));
+    }
+
+    @Test
+    public void testBad() {
+        assertFalse(fieldValidator(badBattleField));
     }
 
     public static boolean fieldValidator(int[][] field) {

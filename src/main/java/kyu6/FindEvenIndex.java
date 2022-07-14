@@ -1,9 +1,12 @@
 package kyu6;
 
+import org.junit.Test;
+
 import java.util.stream.IntStream;
 
 public class FindEvenIndex {
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(findEvenIndex(new int[]{1, 2, 3, 4, 3, 2, 1})); // 3
         System.out.println(findEvenIndex(new int[]{1, 100, 50, -51, 1, 1})); //1
         System.out.println(findEvenIndex(new int[]{1, 2, 3, 4, 5, 6})); // -1

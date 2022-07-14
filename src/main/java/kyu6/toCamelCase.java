@@ -1,5 +1,7 @@
 package kyu6;
 
+import org.junit.Test;
+
 public class toCamelCase {
     //6 https://www.codewars.com/kata/517abf86da9663f1d2000003/train/java
 
@@ -9,7 +11,8 @@ public class toCamelCase {
      * (known as Upper Camel Case, also often referred to as Pascal case).
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(toCamelCase("the_Stealth_Warrior"));
         System.out.println(toCamelCase("the-stealth-warrior"));
     }

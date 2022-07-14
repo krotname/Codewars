@@ -1,10 +1,17 @@
 package kyu5;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+
 public class DirReduction {
+
     //5
 
     /**
@@ -43,11 +50,16 @@ public class DirReduction {
      * The Rust version takes a slice of enum Direction {North, East, West, South}.
      */
 
-    public static void main(String[] args) {
+    private static final String SOUTH = "SOUTH";
+    private static final String EAST = "EAST";
+    private static final String WEST = "WEST";
+    private static final String NORTH = "NORTH";
 
-        System.out.println(Arrays.toString(dirReduc(new String[]{"SOUTH", "SOUTH", "EAST"})));
-        System.out.println(Arrays.toString(dirReduc(new String[]{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"})));
-        System.out.println(Arrays.toString(dirReduc(new String[]{"NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH"})));
+    @Test
+    public void test() {
+        assertArrayEquals(new String[]{SOUTH, SOUTH, EAST}, dirReduc(new String[]{SOUTH, SOUTH, EAST}));
+        assertArrayEquals(new String[]{WEST}, dirReduc(new String[]{NORTH, SOUTH, SOUTH, EAST, WEST, NORTH, WEST}));
+        assertArrayEquals(new String[]{}, dirReduc(new String[]{NORTH, SOUTH, SOUTH, EAST, WEST, NORTH}));
     }
 
 
@@ -55,16 +67,13 @@ public class DirReduction {
         boolean edit = false;
         ArrayList<String> s = new ArrayList<>();
         List<String> arrayList = new ArrayList<>();
-        for (String t : arr
-        ) {
-            arrayList.add(t);
-        }
+        Collections.addAll(arrayList, arr);
         arrayList.add("");
         for (int i = 0; i < arrayList.size() - 1; i++) {
-            if (arrayList.get(i).equalsIgnoreCase("NORTH") && arrayList.get(i + 1).equalsIgnoreCase("SOUTH") ||
-                    arrayList.get(i).equalsIgnoreCase("SOUTH") && arrayList.get(i + 1).equalsIgnoreCase("NORTH") ||
-                    arrayList.get(i).equalsIgnoreCase("EAST") && arrayList.get(i + 1).equalsIgnoreCase("WEST") ||
-                    arrayList.get(i).equalsIgnoreCase("WEST") && arrayList.get(i + 1).equalsIgnoreCase("EAST")) {
+            if (arrayList.get(i).equalsIgnoreCase(NORTH) && arrayList.get(i + 1).equalsIgnoreCase(SOUTH) ||
+                    arrayList.get(i).equalsIgnoreCase(SOUTH) && arrayList.get(i + 1).equalsIgnoreCase(NORTH) ||
+                    arrayList.get(i).equalsIgnoreCase(EAST) && arrayList.get(i + 1).equalsIgnoreCase(WEST) ||
+                    arrayList.get(i).equalsIgnoreCase(WEST) && arrayList.get(i + 1).equalsIgnoreCase(EAST)) {
                 i++;
                 edit = true;
             } else {

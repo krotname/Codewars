@@ -1,22 +1,12 @@
 package other;
 
-public class Permutations {
-    public static void main(String[] args) {
-        int[] pa = new int[]{1, 2, 3};
-        prmt(pa, 0);
-    }
+import org.junit.Test;
 
-    private static void prmt(int[] pa, int i) {
-        if (i == pa.length - 1) {
-            arraout(pa);
-        } else {
-            for (int j = i; j < pa.length; j++) {
-                aswap(pa, i, j);
-                prmt(pa, i + 1);
-                aswap(pa, i, j);
-            }
-        }
-    }
+// Выводит в консоль все возможные перестановки из массива
+// Размещение без повторений (3,3)
+// Упорядоченная выборка, элементам в которой повторяться запрещенно
+
+public class Permutations {
 
     private static void aswap(int[] pa, int i, int j) {
         int k = pa[i];
@@ -36,5 +26,23 @@ public class Permutations {
         s += "]";
 
         System.out.println(s);
+    }
+
+    public void prmt(int[] pa, int i) {
+        if (i == pa.length - 1) {
+            arraout(pa);
+        } else {
+            for (int j = i; j < pa.length; j++) {
+                aswap(pa, i, j);
+                prmt(pa, i + 1);
+                aswap(pa, i, j);
+            }
+        }
+    }
+
+    @Test
+    public void test() {
+        int[] pa = new int[]{1, 2, 3};
+        prmt(pa, 0);
     }
 }

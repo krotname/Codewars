@@ -10,6 +10,13 @@ public class NumberOfTrailingZerosOfN {
 
     //5 https://www.codewars.com/kata/52f787eb172a8b4ae1000a34/train/java
 
+    @Test
+    public void testZeros() {
+        assertEquals(NumberOfTrailingZerosOfN.zeros(0), 0);
+        assertEquals(NumberOfTrailingZerosOfN.zeros(6), 1);
+        assertEquals(NumberOfTrailingZerosOfN.zeros(14), 2);
+    }
+
     public static int zeros(int n) {
         return zeroOfTrailing(factorial(n));
     }
@@ -29,12 +36,5 @@ public class NumberOfTrailingZerosOfN {
             result = result.multiply(BigInteger.valueOf(i));
         }
         return result.longValue();
-    }
-
-    @Test
-    public void testZeros() {
-        assertEquals(NumberOfTrailingZerosOfN.zeros(0), 0);
-        assertEquals(NumberOfTrailingZerosOfN.zeros(6), 1);
-        assertEquals(NumberOfTrailingZerosOfN.zeros(14), 2);
     }
 }

@@ -1,22 +1,33 @@
 package kyu5;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
+import static org.junit.Assert.assertEquals;
+
 public class WhoIsNext {
+
     //6 https://www.codewars.com/kata/551dd1f424b7a4cdae0001f0/train/java
-    // не работает, таймаут
-    public static void main(String[] args) {
-        String[] names = new String[]{"Sheldon", "Leonard", "Penny", "Rajesh", "Howard"};
-        System.out.println(WhoIsNext(names, 1)); // Sheldon
-        System.out.println(WhoIsNextOld(names, 1)); // Sheldon
-        System.out.println(WhoIsNext(names, 6)); // Sheldon
-        System.out.println(WhoIsNextOld(names, 6)); // Sheldon
-        System.out.println(WhoIsNext(names, 15)); //
-        System.out.println(WhoIsNextOld(names, 15)); //
-        System.out.println(WhoIsNext(names, Integer.MAX_VALUE / 100)); //
-        System.out.println(WhoIsNextOld(names, Integer.MAX_VALUE / 100)); //
+
+    private static final String[] testNames = new String[]{"Sheldon", "Leonard", "Penny", "Rajesh", "Howard"};
+
+    @Test
+    public void test() {
+        assertEquals("Sheldon", WhoIsNext(testNames, 1));
+        assertEquals("Sheldon", WhoIsNext(testNames, 6));
+        assertEquals("Howard", WhoIsNext(testNames, 15));
+        assertEquals("Sheldon", WhoIsNext(testNames, Integer.MAX_VALUE / 100));
+    }
+
+    @Test
+    public void testLinkedList() {
+        assertEquals("Sheldon", WhoIsNextLinkedList(testNames, 1));
+        assertEquals("Sheldon", WhoIsNextLinkedList(testNames, 6));
+        assertEquals("Howard", WhoIsNextLinkedList(testNames, 15));
+        // to slow assertEquals("Sheldon", WhoIsNextLinkedList(testNames, Integer.MAX_VALUE / 100));
     }
 
     public static String WhoIsNext(String[] names, int n) {
@@ -28,7 +39,7 @@ public class WhoIsNext {
         return strings.get(n - 1);
     }
 
-    public static String WhoIsNextOld(String[] names, int n) {
+    public static String WhoIsNextLinkedList(String[] names, int n) {
         LinkedList<String> strings = new LinkedList<>(Arrays.asList(names));
 
         for (int i = 1; i < n; i++) {

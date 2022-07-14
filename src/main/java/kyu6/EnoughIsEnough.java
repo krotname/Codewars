@@ -14,7 +14,7 @@ public class EnoughIsEnough {
     public static int[] deleteNth(int[] elements, int maxOccurrences) {
         HashMap<Integer, Integer> count = new HashMap<>();
         return Arrays.stream(elements).filter(i -> {
-           // return count.merge(i, 1, (u, h) -> u+h) <= maxOccurrences; // счётчик через HashMap
+            // return count.merge(i, 1, (u, h) -> u+h) <= maxOccurrences; // счётчик через HashMap
             count.computeIfPresent(i, (key, value) -> ++value);
             count.putIfAbsent(i, 1);
             return count.get(i) <= maxOccurrences;
@@ -22,7 +22,7 @@ public class EnoughIsEnough {
     }
 
     @Test
-    public void show(){
+    public void show() {
         System.out.println(Arrays.toString(EnoughIsEnough.deleteNth(new int[]{20, 37, 20, 21}, 1)));
     }
 

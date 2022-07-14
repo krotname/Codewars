@@ -1,5 +1,9 @@
 package kyu5;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 public class ResistorColorCodes2 {
     //5
 
@@ -45,27 +49,28 @@ public class ResistorColorCodes2 {
      * "2M ohms"        "red black green gold"
      */
 
-    public static void main(String[] args) {
-        System.out.println(encodeResistorColors("10 ohms")); // "brown black black gold"
-        System.out.println(encodeResistorColors("47 ohms")); // "yellow violet black gold"
-        System.out.println(encodeResistorColors("100 ohms")); // "brown black brown gold"
-        System.out.println(encodeResistorColors("220 ohms")); // "red red brown gold"
-        System.out.println(encodeResistorColors("330 ohms")); // "orange orange brown gold"
-        System.out.println(encodeResistorColors("470 ohms")); // "yellow violet brown gold"
-        System.out.println(encodeResistorColors("680 ohms")); // "blue gray brown gold"
-        System.out.println(encodeResistorColors("1k ohms")); // "brown black red gold"
-        System.out.println(encodeResistorColors("4.7k ohms")); // "yellow violet red gold"
-        System.out.println(encodeResistorColors("10k ohms")); // "brown black orange gold"
-        System.out.println(encodeResistorColors("22k ohms")); // "red red orange gold"
-        System.out.println(encodeResistorColors("47k ohms")); // "yellow violet orange gold"
-        System.out.println(encodeResistorColors("100k ohms")); // "brown black yellow gold"
-        System.out.println(encodeResistorColors("330k ohms")); // "orange orange yellow gold"
-        System.out.println(encodeResistorColors("1M ohms")); // "brown black green gold"
-        System.out.println(encodeResistorColors("2M ohms")); // "red black green gold"
+    @Test
+    public void test() {
+        assertEquals("brown black black gold", encodeResistorColors("10 ohms"));
+        assertEquals("yellow violet black gold", encodeResistorColors("47 ohms"));
+        assertEquals("brown black brown gold", encodeResistorColors("100 ohms"));
+        assertEquals("red red brown gold", encodeResistorColors("220 ohms"));
+        assertEquals("orange orange brown gold", encodeResistorColors("330 ohms"));
+        assertEquals("yellow violet brown gold", encodeResistorColors("470 ohms"));
+        assertEquals("blue gray brown gold", encodeResistorColors("680 ohms"));
+        assertEquals("brown black red gold", encodeResistorColors("1k ohms"));
+        assertEquals("yellow violet red gold", encodeResistorColors("4.7k ohms"));
+        assertEquals("brown black orange gold", encodeResistorColors("10k ohms"));
+        assertEquals("red red orange gold", encodeResistorColors("22k ohms"));
+        assertEquals("yellow violet orange gold", encodeResistorColors("47k ohms"));
+        assertEquals("brown black yellow gold", encodeResistorColors("100k ohms"));
+        assertEquals("orange orange yellow gold", encodeResistorColors("330k ohms"));
+        assertEquals("brown black green gold", encodeResistorColors("1M ohms"));
+        assertEquals("red black green gold", encodeResistorColors("2M ohms"));
     }
 
     public static String encodeResistorColors(String ohmsString) {
-        if (ohmsString == null || ohmsString.isEmpty() || !ohmsString.endsWith(" ohms")) return "";
+        if (ohmsString == null || !ohmsString.endsWith(" ohms")) return "";
         int resistorOhms = encodeResistorOhms(ohmsString);
         int[] resistorOhmsArr = encodeResistorOhmsToArr(resistorOhms);
         return encodeResistorArrToColor(resistorOhmsArr);

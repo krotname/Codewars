@@ -12,15 +12,15 @@ import static org.junit.Assert.assertTrue;
 public class Prime {
 
     public static boolean isPrime(int num) {
-        return num > 0 && BigInteger.valueOf(num).isProbablePrime((int) Math.log(num)+1);
+        return num > 0 && BigInteger.valueOf(num).isProbablePrime((int) Math.log(num) + 1);
     }
 
     @Test
     public void testBasic() {
         assertFalse("0  is not prime", Prime.isPrime(0));
         assertFalse("1  is not prime", Prime.isPrime(1));
-        assertTrue ("2  is prime",     Prime.isPrime(2));
-        assertTrue ("73 is prime",     Prime.isPrime(73));
+        assertTrue("2  is prime", Prime.isPrime(2));
+        assertTrue("73 is prime", Prime.isPrime(73));
         assertFalse("75 is not prime", Prime.isPrime(75));
         assertFalse("-1 is not prime", Prime.isPrime(-1));
     }

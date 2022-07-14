@@ -4,9 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
+// Разворачивает каждое слово в предложении
+
 public class SpinWords {
 
-    public static String spinWords(String sentence) {
+    public String spinWords(String sentence) {
         String[] arrWords = sentence.split("\\s");
         StringBuilder resultSb = new StringBuilder();
         for (String curentWord : arrWords
@@ -25,6 +27,6 @@ public class SpinWords {
     @Test
     public void test() {
         assertEquals(spinWords("Welcome"), "emocleW");
-        System.out.println(spinWords("Hey fellow warriors")); // Hey wollef sroirraw
+        assertEquals(spinWords("Hey fellow warriors"), "Hey wollef sroirraw");
     }
 }

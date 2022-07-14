@@ -1,5 +1,7 @@
 package kyu6;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 
 public class StringSplit {
@@ -15,7 +17,8 @@ public class StringSplit {
      * StringSplit.solution("abcdef") // should return {"ab", "cd", "ef"}
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(Arrays.toString(solution("abcdef")));
         System.out.println(Arrays.toString(solution("LovePizza")));
         System.out.println(Arrays.toString(solution("HelloWorld")));

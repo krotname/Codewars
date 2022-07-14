@@ -9,7 +9,10 @@ import static org.junit.Assert.assertArrayEquals;
 public class TribonacciSequence {
 
     //6 https://www.codewars.com/kata/556deca17c58da83c00002db
-    
+
+    private final double precision = 1e-10;
+    private TribonacciSequence variabonacci;
+
     public double[] tribonacci(double[] s, int n) {
         if (n == 0) {
             return new double[0];
@@ -35,9 +38,6 @@ public class TribonacciSequence {
         return doubles;
     }
 
-
-    private TribonacciSequence variabonacci;
-
     @Before
     public void setUp() throws Exception {
         variabonacci = new TribonacciSequence();
@@ -47,8 +47,6 @@ public class TribonacciSequence {
     public void tearDown() throws Exception {
         variabonacci = null;
     }
-
-    private double precision = 1e-10;
 
     @Test
     public void sampleTests() {

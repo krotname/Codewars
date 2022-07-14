@@ -1,6 +1,11 @@
 package kyu4;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 public class TimeFormatter {
+
     // 4 https://www.codewars.com/kata/52742f58faf5485cae000b9a/train/java
 
     /**
@@ -37,18 +42,18 @@ public class TimeFormatter {
     private static int currentYears;
     private static int currentCount;
 
-    public static void main(String[] args) {
-        System.out.println(formatDuration(0));
-        System.out.println(formatDuration(1));
-        System.out.println(formatDuration(44));
-        System.out.println(formatDuration(60));
-        System.out.println(formatDuration(3200));
-        System.out.println(formatDuration(1201));
-        System.out.println(formatDuration(12001));
-        System.out.println(formatDuration(31596000));
-        System.out.println(formatDuration(1596000));
-        System.out.println(formatDuration(132030240));
-        System.out.println(formatDuration(132030240));
+    @Test
+    public void test() {
+        assertEquals("now", formatDuration(0));
+        assertEquals("1 second", formatDuration(1));
+        assertEquals("44 seconds", formatDuration(44));
+        assertEquals("1 minute", formatDuration(60));
+        assertEquals("53 minutes and 20 seconds", formatDuration(3200));
+        assertEquals("20 minutes and 1 second", formatDuration(1201));
+        assertEquals("3 hours, 20 minutes and 1 second", formatDuration(12001));
+        assertEquals("18 days, 11 hours and 20 minutes", formatDuration(1596000));
+        assertEquals("1 year, 16 hours and 40 minutes", formatDuration(31596000));
+        assertEquals("4 years, 3 hours and 4 minutes", formatDuration(132030240));
     }
 
     public static String formatDuration(int seconds) {

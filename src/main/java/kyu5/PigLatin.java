@@ -1,5 +1,9 @@
 package kyu5;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 public class PigLatin {
 
     //5
@@ -12,13 +16,11 @@ public class PigLatin {
      * pigIt('Hello world !');     // elloHay orldway !
      */
 
-    public static void main(String[] args) {
-
-        System.out.println(PigLatin.pigIt("Pig latin is cool")); // igPay atinlay siay oolcay
-        System.out.println(PigLatin.pigIt("This is my string")); // hisTay siay ymay tringsay
-        System.out.println(PigLatin.pigIt("Hello world !")); // // elloHay orldway !3
-        //<O[ay emporatay oay ]oresmay !>
-        //O[ emporatay o] oresmay !
+    @Test
+    public void test() {
+        assertEquals("igPay atinlay siay oolcay", PigLatin.pigIt("Pig latin is cool"));
+        assertEquals("hisTay siay ymay tringsay", PigLatin.pigIt("This is my string"));
+        assertEquals("elloHay orldway !", PigLatin.pigIt("Hello world !"));
     }
 
     public static String pigIt(String str) {

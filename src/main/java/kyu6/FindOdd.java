@@ -1,5 +1,7 @@
 package kyu6;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +19,8 @@ public class FindOdd {
      * [1,2,2,3,3,3,4,3,3,3,2,2,1] shold return 4, because it appears 1 time (which is odd).
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(5 + " " + FindOdd.findIt(new int[]{20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5}));
         System.out.println(-1 + " " + FindOdd.findIt(new int[]{1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5}));
         System.out.println(5 + " " + FindOdd.findIt(new int[]{20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5}));

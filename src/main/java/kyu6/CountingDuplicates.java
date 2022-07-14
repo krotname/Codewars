@@ -29,7 +29,7 @@ public class CountingDuplicates {
     public void test() {
         assertEquals(1, duplicateCount("indivisibility"));
         assertEquals(1, duplicateCountOld("indivisibility"));
-    }
+    } // todo рефакторинг отсюда
 
     public static int duplicateCount(String text) {
         return (int) text.chars()

@@ -1,9 +1,12 @@
 package kyu4;
 
+import org.junit.Test;
+
 import java.math.BigInteger;
 
+import static org.junit.Assert.assertEquals;
+
 public class BlockSequence {
-    //4 - not work
 
     /**
      * https://www.codewars.com/kata/5e1ab1b9fe268c0033680e5f
@@ -21,13 +24,12 @@ public class BlockSequence {
      * More examples in the test cases.
      */
 
-    public static void main(String[] args) {
-
-        System.out.println(solve(1));
-        System.out.println(solve(3));
-        System.out.println(solve(5));
-        System.out.println(solve(10));
-        System.out.println(solve(32));
+    @Test
+    public void test() {
+        assertEquals(1, solve(1));
+        assertEquals(7, solve(3));
+        assertEquals(16, solve(5));
+        assertEquals(56, solve(10));
     }
 
     public static int solve(long n) {
@@ -39,7 +41,6 @@ public class BlockSequence {
             int i = Integer.parseInt(String.valueOf(c)) + 1;
             append = new BigInteger(append.toString() + i);
         }
-        // System.out.println(big);
         return big.toString().length() - String.valueOf(n).length() + 1;
     }
 

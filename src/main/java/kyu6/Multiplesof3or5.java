@@ -1,5 +1,7 @@
 package kyu6;
 
+import org.junit.Test;
+
 public class Multiplesof3or5 {
 
     //6
@@ -12,7 +14,8 @@ public class Multiplesof3or5 {
      * Note: If the number is a multiple of both 3 and 5, only count it once.
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(solution(10)); //23
         System.out.println(solution(100)); //2318
     }

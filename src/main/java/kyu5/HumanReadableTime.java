@@ -1,6 +1,11 @@
 package kyu5;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 public class HumanReadableTime {
+
     //5 https://www.codewars.com/kata/52685f7382004e774f0001f7/train/java
 
     /**
@@ -14,16 +19,17 @@ public class HumanReadableTime {
      * You can find some examples in the test fixtures.
      */
 
-    public static void main(String[] args) {
-        System.out.println(HumanReadableTime.makeReadable(359999));
-        System.out.println(HumanReadableTime.makeReadable(86399));
-        System.out.println(HumanReadableTime.makeReadable(5));
-        System.out.println(HumanReadableTime.makeReadable(0));
+    @Test
+    public void test() {
+        assertEquals("99:59:59", HumanReadableTime.makeReadable(359999));
+        assertEquals("23:59:59", HumanReadableTime.makeReadable(86399));
+        assertEquals("00:00:05", HumanReadableTime.makeReadable(5));
+        assertEquals("00:00:00", HumanReadableTime.makeReadable(0));
     }
 
     public static String makeReadable(int seconds) {
         if (seconds > 359999) {
-            return "error: very long";
+            throw new IllegalArgumentException("very long arguments");
         }
         int HH = 0;
         int MM = 0;
@@ -40,7 +46,7 @@ public class HumanReadableTime {
         return addZero(HH) + ":" + addZero(MM) + ":" + addZero(SS);
     }
 
-    public static String addZero(int i) {
+    private static String addZero(int i) {
         if (i > 9 || i < 0) {
             return "" + i;
         } else {

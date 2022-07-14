@@ -17,13 +17,11 @@ public class EncryptThis {
         System.out.println(Arrays.toString(split));
         for (String s : split) {
             String res = "";
-            if (s.length() == 1){
+            if (s.length() == 1) {
                 res = String.valueOf((int) s.toCharArray()[0]);
-            }
-            else if (s.length() == 2){
+            } else if (s.length() == 2) {
                 res = String.valueOf((int) s.toCharArray()[0]) + s.charAt(1);
-            }
-            else {
+            } else {
                 int s1 = s.substring(0, 1).toCharArray()[0];
                 String s2 = s.substring(1, 2);
                 String sLast = s.substring(s.length() - 1);

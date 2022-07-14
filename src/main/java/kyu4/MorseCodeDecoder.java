@@ -1,13 +1,19 @@
 package kyu4;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
+
 public class MorseCodeDecoder {
 
+    //4 https://www.codewars.com/kata/54b72c16cd7f5154e9000457
     //6 https://www.codewars.com/kata/54b724efac3d5402db00065e
-    //4 https://www.codewars.com/kata/54b72c16cd7f5154e9000457/train/java
+
+    private static final LinkedHashMap<String, String> alphabetToMorse = new LinkedHashMap<>();
 
     static Map<String, String> morseMap = new HashMap<>() {{
         put("a", "b");
@@ -69,7 +75,6 @@ public class MorseCodeDecoder {
         put("-..-", "X");
         put("", " ");
     }};
-    private static final LinkedHashMap<String, String> alphabetToMorse = new LinkedHashMap<>();
 
     static {
         alphabetToMorse.put("a", ".-");
@@ -111,15 +116,36 @@ public class MorseCodeDecoder {
         alphabetToMorse.put(" ", "   ");
     }
 
-    public static void main(String[] args) {
-        System.out.println(decodeMorse(".... . -.--   .--- ..- -.. ."));
-        System.out.println(decodeMorse(".... . -.--   .--- ..- -.. ."));
-        System.out.println(encode("SOS THE QUICK BROWN FO JUMPS OVER THE LAZY DOG"));
-        System.out.println(decodeMorse("... --- ...     - .... .     --.- ..- .. -.-. -.-     -... .-. --- .-- -.     ..-. ---     .--- ..- -- .--. ...     --- ...- . .-.     - .... .     .-.. .- --.. -.--     -.. --- --."));
-        System.out.println(decodeBits("1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011"));
-        System.out.println(decodeMorse(decodeBits("11011")));
-        System.out.println(decodeBits("111111011111111"));
-        System.out.println(decodeMorse(decodeBits("1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011")));
+    @Test
+    public void testDecodeMorse() {
+        assertEquals("HEY JUDE",
+                decodeMorse(".... . -.--   .--- ..- -.. ."));
+        assertEquals("SOS THE QUICK BROWN FO JUMPS OVER THE LAZY DOG",
+                decodeMorse("... --- ...     - .... .     --.- ..- .. -.-. -.-     -... .-. --- .-- -.     ..-. ---     .--- ..- -- .--. ...     --- ...- . .-.     - .... .     .-.. .- --.. -.--     -.. --- --."));
+    }
+
+    @Test
+    public void testEncode() {
+        assertEquals("... --- ...     - .... .     --.- ..- .. -.-. -.-     -... .-. --- .-- -.     ..-. ---     .--- ..- -- .--. ...     --- ...- . .-.     - .... .     .-.. .- --.. -.--     -.. --- --.",
+                encode("SOS THE QUICK BROWN FO JUMPS OVER THE LAZY DOG"));
+        assertEquals("... --- ...",
+                encode("SOS"));
+    }
+
+    @Test
+    public void testDecodeBits() {
+        assertEquals("----..",
+                decodeBits("111111011111111"));
+        assertEquals(".... . -.--   .--- ..- -.. .",
+                decodeBits("1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011"));
+    }
+
+    @Test
+    public void testComplex() {
+        assertEquals("H",
+                decodeMorse(decodeBits("11011")));
+        assertEquals("HEY JUDE",
+                decodeMorse(decodeBits("1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011")));
     }
 
     public static String decodeMorse(String morseCode) {

@@ -1,5 +1,7 @@
 package kyu4;
 
+import org.junit.Test;
+
 import java.util.HashSet;
 
 public class Interval {
@@ -40,7 +42,8 @@ public class Interval {
      * });  // [1,8] => 7
      */
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         System.out.println(sumIntervals(new int[][]{{1, 4}, {7, 10}, {3, 5}})); //7
         System.out.println(sumIntervals(new int[][]{{1, 2}, {6, 10}, {11, 15}})); //9
         System.out.println(sumIntervals(new int[][]{{4, 8}, {9, 10}, {15, 21}})); //11

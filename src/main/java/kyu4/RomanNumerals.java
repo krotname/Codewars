@@ -1,11 +1,16 @@
 package kyu4;
 
+import org.junit.Test;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
+
 public class RomanNumerals {
-    //4
-    //https://www.codewars.com/kata/51b66044bce5799a7f000003/train/java
+
+    //4 https://www.codewars.com/kata/51b66044bce5799a7f000003/train/java
+
     /**
      * Create a RomanNumerals class that can convert a roman numeral to and from an integer value. It should follow the API demonstrated in the examples below. Multiple roman numeral values will be tested for each helper method.
      * <p>
@@ -35,24 +40,28 @@ public class RomanNumerals {
         MAP_FROM.put('M', 1000);
     }
 
-    public static void main(String[] args) {
-        System.out.println(toRoman(40));
-        System.out.println(toRoman(1990));
-        System.out.println(toRoman(2906));
-        System.out.println(toRoman(4));
-        System.out.println(toRoman(404));
-        System.out.println(toRoman(4004));
-        System.out.println(toRoman(2009));
-        System.out.println(toRoman(2));
-        System.out.println(toRoman(99));
-        System.out.println();
-        System.out.println(fromRoman("II"));
-        System.out.println(fromRoman("MCMXC"));
-        System.out.println(fromRoman("MMVIII"));
-        System.out.println(fromRoman("VI"));
-        System.out.println(fromRoman("IV"));
-        System.out.println(fromRoman("MMCMVI"));
-        System.out.println(fromRoman("MMCMDVI"));
+    @Test
+    public void testToRoman() {
+        assertEquals("XL", toRoman(40));
+        assertEquals("MCMXC", toRoman(1990));
+        assertEquals("MMCMVI", toRoman(2906));
+        assertEquals("IV", toRoman(4));
+        assertEquals("CDIV", toRoman(404));
+        assertEquals("MMMMIV", toRoman(4004));
+        assertEquals("MMIX", toRoman(2009));
+        assertEquals("II", toRoman(2));
+        assertEquals("XCIX", toRoman(99));
+    }
+
+    @Test
+    public void testFromRoman() {
+        assertEquals(2, fromRoman("II"));
+        assertEquals(1990, fromRoman("MCMXC"));
+        assertEquals(2008, fromRoman("MMVIII"));
+        assertEquals(6, fromRoman("VI"));
+        assertEquals(4, fromRoman("IV"));
+        assertEquals(2906, fromRoman("MMCMVI"));
+        assertEquals(3406, fromRoman("MMCMDVI"));
     }
 
     public static String toRoman(int n) {

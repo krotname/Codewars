@@ -16,7 +16,7 @@ public class NumberInExpandedForm {
                 result.append(chars[i]).append("0".repeat(Math.max(0, chars.length - (i + 1)))).append(" + ");
             }
         }
-        return result.substring(0,result.length()-3);
+        return result.substring(0, result.length() - 3);
     }
 
     @Test

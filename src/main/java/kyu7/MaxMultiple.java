@@ -10,7 +10,7 @@ public class MaxMultiple {
     //7 https://www.codewars.com/kata/5aba780a6a176b029800041c/train/java
 
     public static int maxMultiple(int divisor, int bound) {
-        return IntStream.iterate(bound, i -> i-1)
+        return IntStream.iterate(bound, i -> i - 1)
                 .limit(bound)
                 .filter(n -> n % divisor == 0)
                 .findFirst()
@@ -30,6 +30,7 @@ public class MaxMultiple {
         test("The largest multiple of 37 between 0 and 200 is 185.", 185, MaxMultiple.maxMultiple(37, 200));
         test("The largest multiple of 7 between 0 and 100 is 98.", 98, MaxMultiple.maxMultiple(7, 100));
     }
+
     private void test(String message, int expected, int actual) {
         assertEquals(expected, actual);
     }

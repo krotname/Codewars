@@ -1,16 +1,28 @@
 package grokking_algorithms;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 public class RecursionMax {
-    public static void main(String[] args) {
-        ArrayList<Integer> integers1 = new ArrayList<>(Arrays.asList(19, 2, 4, 5, 4));
-        System.out.println(recursionMax(integers1));
+
+    private static final ArrayList<Integer> TEST_INTEGERS = new ArrayList<>(Arrays.asList(19, 2, 4, 5, 4));
+
+    @Test
+    public void testMax() {
+        assertEquals(19, max(TEST_INTEGERS));
     }
 
-    public static Integer recursionMax(List<Integer> array) {
+    @Test
+    public void testRecursionMax() {
+        assertEquals(19, recursionMax(TEST_INTEGERS));
+    }
+
+    public static int recursionMax(List<Integer> array) {
         if (array == null) {
             return -1;
         }
@@ -28,7 +40,7 @@ public class RecursionMax {
         return recursionMax(array);
     }
 
-    public static Integer max(List<Integer> array) {
+    public static int max(List<Integer> array) {
         if (array == null) {
             return -1;
         }
