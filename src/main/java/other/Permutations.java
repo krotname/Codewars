@@ -1,6 +1,6 @@
 package other;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 // Выводит в консоль все возможные перестановки из массива
 // Размещение без повторений (3,3)

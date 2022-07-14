@@ -1,10 +1,10 @@
 package kyu7;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //6 https://www.codewars.com/kata/5648b12ce68d9daa6b000099/solutions/java
 

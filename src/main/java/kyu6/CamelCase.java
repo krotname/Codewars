@@ -1,12 +1,12 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CamelCase {
 
@@ -18,9 +18,9 @@ public class CamelCase {
 
     @Test
     public void testsFromCamelCase() {
-        assertEquals("Incorrect", "camel Casing", fromCamelCase("camelCasing"));
-        assertEquals("Incorrect", "camel Casing Test", fromCamelCase("camelCasingTest"));
-        assertEquals("Incorrect", "camelcasingtest", fromCamelCase("camelcasingtest"));
+        assertEquals("camel Casing", fromCamelCase("camelCasing"));
+        assertEquals("camel Casing Test", fromCamelCase("camelCasingTest"));
+        assertEquals("camelcasingtest", fromCamelCase("camelcasingtest"));
     }
 
     @Test

@@ -1,8 +1,8 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //6 https://www.codewars.com/kata/5842df8ccbd22792a4000245/train/java
 

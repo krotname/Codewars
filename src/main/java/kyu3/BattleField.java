@@ -1,15 +1,16 @@
 package kyu3;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class BattleField {
 
     // 3 https://www.codewars.com/kata/52bb6539a4cf1b12d90005b7
 
-    private static final int[][] battleField =
+    private static final int[][] BATTLE_FIELD =
             {{1, 0, 0, 0, 0, 1, 1, 0, 0, 0},
                     {1, 0, 1, 0, 0, 0, 0, 0, 1, 0},
                     {1, 0, 1, 0, 1, 1, 1, 0, 1, 0},
@@ -21,7 +22,7 @@ public class BattleField {
                     {0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
-    private static final int[][] badBattleField =
+    private static final int[][] BAD_BATTLE_FIELD =
             {{1, 0, 0, 0, 0, 1, 1, 0, 0, 0},
                     {1, 0, 1, 0, 0, 0, 0, 0, 1, 0},
                     {1, 0, 1, 0, 1, 1, 1, 0, 1, 0},
@@ -35,12 +36,12 @@ public class BattleField {
 
     @Test
     public void testGood() {
-        assertTrue(fieldValidator(battleField));
+        assertTrue(fieldValidator(BATTLE_FIELD));
     }
 
     @Test
     public void testBad() {
-        assertFalse(fieldValidator(badBattleField));
+        assertFalse(fieldValidator(BAD_BATTLE_FIELD));
     }
 
     public static boolean fieldValidator(int[][] field) {

@@ -1,6 +1,6 @@
 package other;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,7 @@ public class HowManyNumbers {
     }
 
     @Test
-    public void test() {
+    public void testHowManyNumbers() {
         System.out.println(findAll(10, 3)); //8L, 118L, 334L
         System.out.println(findAll(27, 3)); //1L, 999L, 999L
         System.out.println(findAll(84, 4));

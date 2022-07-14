@@ -1,22 +1,36 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class FindEvenIndex {
+
     @Test
-    public void test() {
-        System.out.println(findEvenIndex(new int[]{1, 2, 3, 4, 3, 2, 1})); // 3
-        System.out.println(findEvenIndex(new int[]{1, 100, 50, -51, 1, 1})); //1
-        System.out.println(findEvenIndex(new int[]{1, 2, 3, 4, 5, 6})); // -1
-        System.out.println(findEvenIndex(new int[]{20, 10, 30, 10, 10, 15, 35})); //3
-        System.out.println(findEvenIndex(new int[]{-8505, -5130, 1926, -9026})); // -1
-        System.out.println(findEvenIndex(new int[]{2824, 1774, -1490, -9084, -9696, 23094})); // 1
-        System.out.println(findEvenIndex(new int[]{4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4})); //6
+    public void testV2() {
+        assertEquals(3, findEvenIndexV2(new int[]{1, 2, 3, 4, 3, 2, 1}));
+        assertEquals(1, findEvenIndexV2(new int[]{1, 100, 50, -51, 1, 1}));
+        assertEquals(-1, findEvenIndexV2(new int[]{1, 2, 3, 4, 5, 6}));
+        assertEquals(3, findEvenIndexV2(new int[]{20, 10, 30, 10, 10, 15, 35}));
+        assertEquals(-1, findEvenIndexV2(new int[]{-8505, -5130, 1926, -9026}));
+        assertEquals(1, findEvenIndexV2(new int[]{2824, 1774, -1490, -9084, -9696, 23094}));
+        assertEquals(6, findEvenIndexV2(new int[]{4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4}));
     }
 
-    public static int findEvenIndex(int[] arr) {
+    @Test
+    public void testV1() {
+        assertEquals(3, findEvenIndexV1(new int[]{1, 2, 3, 4, 3, 2, 1}));
+        assertEquals(1, findEvenIndexV1(new int[]{1, 100, 50, -51, 1, 1}));
+        assertEquals(-1, findEvenIndexV1(new int[]{1, 2, 3, 4, 5, 6}));
+        assertEquals(3, findEvenIndexV1(new int[]{20, 10, 30, 10, 10, 15, 35}));
+        assertEquals(-1, findEvenIndexV1(new int[]{-8505, -5130, 1926, -9026}));
+        assertEquals(1, findEvenIndexV1(new int[]{2824, 1774, -1490, -9084, -9696, 23094}));
+        assertEquals(6, findEvenIndexV1(new int[]{4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4}));
+    }
+
+    public static int findEvenIndexV2(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             if (findHalf1(arr, i) == findHalf2(arr, i)) {
                 return i;
@@ -42,7 +56,7 @@ public class FindEvenIndex {
 
     }
 
-    public static int findEvenIndexOld(int[] arr) {
+    public static int findEvenIndexV1(int[] arr) {
 
         int sumArr = IntStream.of(arr).sum();
         int firstHalfSumm = 0;

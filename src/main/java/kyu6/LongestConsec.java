@@ -2,12 +2,12 @@ package kyu6;
 
 //6 https://www.codewars.com/kata/56a5d994ac971f1ac500003e/train/java
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LongestConsec {
 

@@ -1,6 +1,8 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FindOutlier {
     //6
@@ -16,27 +18,19 @@ public class FindOutlier {
 
     @Test
     public void test() {
-        int[] exampleTest1 = {2, 6, 8, -10, 3};
-        int[] exampleTest2 = {206847684, 1056521, 7, 17, 1901, 21104421, 7, 1, 35521, 1, 7781};
-        int[] exampleTest3 = {Integer.MAX_VALUE, 0, 1};
-        int[] exampleTest4 = {2, 4, 0, 100, 4, 11, 2602, 36};
-        int[] exampleTest5 = {160, 3, 1719, 19, 11, 13, -21};
-        System.out.println(find(exampleTest1)); //3
-        System.out.println(find(exampleTest2)); // 206847684
-        System.out.println(find(exampleTest3)); // 0
-        System.out.println(find(exampleTest4)); // 11
-        System.out.println(find(exampleTest5)); // 160
+        assertEquals(3, find(new int[]{2, 6, 8, -10, 3}));
+        assertEquals(206847684, find(new int[]{206847684, 1056521, 7, 17, 1901, 21104421, 7, 1, 35521, 1, 7781}));
+        assertEquals(0, find(new int[]{Integer.MAX_VALUE, 0, 1}));
+        assertEquals(11, find(new int[]{2, 4, 0, 100, 4, 11, 2602, 36}));
+        assertEquals(160, find(new int[]{160, 3, 1719, 19, 11, 13, -21}));
     }
 
-    static int find(int[] integers) {
+    public static int find(int[] integers) {
 
         if (integers == null || integers.length < 3) {
             throw new IllegalArgumentException();
         }
         boolean evenNumber = integers[0] % 2 == 0 && integers[1] % 2 == 0;
-        if (integers[0] % 2 != 0 && integers[1] % 2 != 0) {
-            evenNumber = false;
-        }
         if ((integers[0] % 2 != 0 && integers[1] % 2 == 0 && integers[2] % 2 != 0)) {
             return integers[1];
         }

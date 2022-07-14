@@ -18,8 +18,8 @@ public class Troll {
      * Note: for this kata y isn't considered a vowel
      */
 
-    private static final Character[] vowel = {'a', 'e', 'i', 'o', 'u'};
-    private static final List<Character> vowelList = Arrays.asList(vowel);
+    private static final Character[] VOWEL = {'a', 'e', 'i', 'o', 'u'};
+    private static final List<Character> VOWEL_LIST = Arrays.asList(VOWEL);
 
     public static void main(String[] args) {
         System.out.println(disemvowel("LOL"));
@@ -32,7 +32,7 @@ public class Troll {
         StringBuilder result = new StringBuilder();
         for (char c : s.toCharArray()
         ) {
-            if (!vowelList.contains(Character.toLowerCase(c))) {
+            if (!VOWEL_LIST.contains(Character.toLowerCase(c))) {
                 result.append(c);
             }
         }

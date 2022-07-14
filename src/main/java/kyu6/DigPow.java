@@ -1,12 +1,19 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DigPow {
+
+    @Test
+    public void test() {
+        assertEquals(1, DigPow.digPow(89, 1));
+        assertEquals(-1, DigPow.digPow(92, 1));
+        assertEquals(51, DigPow.digPow(46288, 3));
+    }
 
     public static long digPow(int n, int p) {
         AtomicInteger pa = new AtomicInteger(p);
@@ -16,20 +23,5 @@ public class DigPow {
                 .map(i -> (int) Math.pow(i, pa.getAndIncrement()))
                 .sum();
         return sum % n == 0 ? sum / n : -1;
-    }
-
-    @Test
-    public void Test1() {
-        assertEquals(1, DigPow.digPow(89, 1));
-    }
-
-    @Test
-    public void Test2() {
-        assertEquals(-1, DigPow.digPow(92, 1));
-    }
-
-    @Test
-    public void Test3() {
-        assertEquals(51, DigPow.digPow(46288, 3));
     }
 }

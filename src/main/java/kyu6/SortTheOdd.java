@@ -1,6 +1,6 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class SortTheOdd {
 
@@ -21,7 +21,7 @@ public class SortTheOdd {
         for (int i = 0; i < array.length; i += 2) {
             odd.add(array[i]);
         }
-        List<Integer> sortedOdd = odd.stream().sorted().collect(Collectors.toList());
+        List<Integer> sortedOdd = odd.stream().sorted().toList();
 
         for (int i = 0; i < array.length; i += 2) {
             System.out.println((int) (i / 2.0 + 0.5) + " ++");

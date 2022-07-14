@@ -1,9 +1,9 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TwoSum {
     //6 https://www.codewars.com/kata/52c31f8e6605bcc646000082/train/java
@@ -34,7 +34,7 @@ public class TwoSum {
         }
         if (actual.length != 2) {
             System.out.format("Received an array that's not of length 2\n");
-            assertTrue(false);
+            assertTrue(false); // todo это
         }
         int received = numbers[actual[0]] + numbers[actual[1]];
         assertEquals(target, received);

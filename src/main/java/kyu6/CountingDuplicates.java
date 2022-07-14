@@ -1,11 +1,11 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CountingDuplicates {
 
@@ -26,12 +26,18 @@ public class CountingDuplicates {
      */
 
     @Test
+    public void testStream() {
+        assertEquals(1, duplicateCountStream("indivisibility"));
+        assertEquals(2, duplicateCountStream("Indivisibilities"));
+    }
+
+    @Test
     public void test() {
         assertEquals(1, duplicateCount("indivisibility"));
-        assertEquals(1, duplicateCountOld("indivisibility"));
-    } // todo рефакторинг отсюда
+        assertEquals(2, duplicateCount("Indivisibilities"));
+    }
 
-    public static int duplicateCount(String text) {
+    public static int duplicateCountStream(String text) {
         return (int) text.chars()
                 .mapToObj(i -> (char) i)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
@@ -39,10 +45,9 @@ public class CountingDuplicates {
                 .stream()
                 .filter(entry -> entry.getValue() > 1)
                 .count();
-
     }
 
-    public static int duplicateCountOld(String text) {
+    public static int duplicateCount(String text) {
         int result = 0;
         long[] ascii = new long[127];
 
@@ -55,8 +60,6 @@ public class CountingDuplicates {
                 result++;
             }
         }
-
         return result;
     }
-
 }

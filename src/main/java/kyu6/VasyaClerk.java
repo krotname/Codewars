@@ -1,6 +1,6 @@
 package kyu6;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class VasyaClerk {
     //6 https://www.codewars.com/kata/555615a77ebc7c2c8a0000b8/train/java

@@ -1,21 +1,21 @@
 package kyu4;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MorseCodeDecoder {
 
     //4 https://www.codewars.com/kata/54b72c16cd7f5154e9000457
     //6 https://www.codewars.com/kata/54b724efac3d5402db00065e
 
-    private static final LinkedHashMap<String, String> alphabetToMorse = new LinkedHashMap<>();
+    private static final LinkedHashMap<String, String> ALPHABET_TO_MORSE = new LinkedHashMap<>();
 
-    static Map<String, String> morseMap = new HashMap<>() {{
+    private static final Map<String, String> MORSE_MAP = new HashMap<>() {{
         put("a", "b");
         put("c", "d");
         put("-.-.-.", ";");
@@ -77,43 +77,43 @@ public class MorseCodeDecoder {
     }};
 
     static {
-        alphabetToMorse.put("a", ".-");
-        alphabetToMorse.put("b", "-...");
-        alphabetToMorse.put("c", "-.-.");
-        alphabetToMorse.put("d", "-..");
-        alphabetToMorse.put("e", ".");
-        alphabetToMorse.put("f", "..-.");
-        alphabetToMorse.put("g", "--.");
-        alphabetToMorse.put("h", "....");
-        alphabetToMorse.put("i", "..");
-        alphabetToMorse.put("j", ".---");
-        alphabetToMorse.put("k", "-.-");
-        alphabetToMorse.put("l", ".-..");
-        alphabetToMorse.put("m", "--");
-        alphabetToMorse.put("n", "-.");
-        alphabetToMorse.put("o", "---");
-        alphabetToMorse.put("p", ".--.");
-        alphabetToMorse.put("q", "--.-");
-        alphabetToMorse.put("r", ".-.");
-        alphabetToMorse.put("s", "...");
-        alphabetToMorse.put("t", "-");
-        alphabetToMorse.put("u", "..-");
-        alphabetToMorse.put("v", "...-");
-        alphabetToMorse.put("w", ".--");
-        alphabetToMorse.put("x", "-..-");
-        alphabetToMorse.put("y", "-.--");
-        alphabetToMorse.put("z", "--..");
-        alphabetToMorse.put("1", ".----");
-        alphabetToMorse.put("2", "..---");
-        alphabetToMorse.put("3", "...--");
-        alphabetToMorse.put("4", "....-");
-        alphabetToMorse.put("5", ".....");
-        alphabetToMorse.put("6", "-....");
-        alphabetToMorse.put("7", "--...");
-        alphabetToMorse.put("8", "---..");
-        alphabetToMorse.put("9", "----.");
-        alphabetToMorse.put("0", "-----");
-        alphabetToMorse.put(" ", "   ");
+        ALPHABET_TO_MORSE.put("a", ".-");
+        ALPHABET_TO_MORSE.put("b", "-...");
+        ALPHABET_TO_MORSE.put("c", "-.-.");
+        ALPHABET_TO_MORSE.put("d", "-..");
+        ALPHABET_TO_MORSE.put("e", ".");
+        ALPHABET_TO_MORSE.put("f", "..-.");
+        ALPHABET_TO_MORSE.put("g", "--.");
+        ALPHABET_TO_MORSE.put("h", "....");
+        ALPHABET_TO_MORSE.put("i", "..");
+        ALPHABET_TO_MORSE.put("j", ".---");
+        ALPHABET_TO_MORSE.put("k", "-.-");
+        ALPHABET_TO_MORSE.put("l", ".-..");
+        ALPHABET_TO_MORSE.put("m", "--");
+        ALPHABET_TO_MORSE.put("n", "-.");
+        ALPHABET_TO_MORSE.put("o", "---");
+        ALPHABET_TO_MORSE.put("p", ".--.");
+        ALPHABET_TO_MORSE.put("q", "--.-");
+        ALPHABET_TO_MORSE.put("r", ".-.");
+        ALPHABET_TO_MORSE.put("s", "...");
+        ALPHABET_TO_MORSE.put("t", "-");
+        ALPHABET_TO_MORSE.put("u", "..-");
+        ALPHABET_TO_MORSE.put("v", "...-");
+        ALPHABET_TO_MORSE.put("w", ".--");
+        ALPHABET_TO_MORSE.put("x", "-..-");
+        ALPHABET_TO_MORSE.put("y", "-.--");
+        ALPHABET_TO_MORSE.put("z", "--..");
+        ALPHABET_TO_MORSE.put("1", ".----");
+        ALPHABET_TO_MORSE.put("2", "..---");
+        ALPHABET_TO_MORSE.put("3", "...--");
+        ALPHABET_TO_MORSE.put("4", "....-");
+        ALPHABET_TO_MORSE.put("5", ".....");
+        ALPHABET_TO_MORSE.put("6", "-....");
+        ALPHABET_TO_MORSE.put("7", "--...");
+        ALPHABET_TO_MORSE.put("8", "---..");
+        ALPHABET_TO_MORSE.put("9", "----.");
+        ALPHABET_TO_MORSE.put("0", "-----");
+        ALPHABET_TO_MORSE.put(" ", "   ");
     }
 
     @Test
@@ -153,7 +153,7 @@ public class MorseCodeDecoder {
         StringBuilder result = new StringBuilder();
         for (String s : split
         ) {
-            String s1 = morseMap.get(s);
+            String s1 = MORSE_MAP.get(s);
             if (!s1.equals(" ") || !result.toString().endsWith(s1)) {
                 result.append(s1);
             }
@@ -167,7 +167,7 @@ public class MorseCodeDecoder {
         for (char s : chars
         ) {
             String s1 = String.valueOf(s).toLowerCase();
-            result.append(alphabetToMorse.get(s1)).append(" ");
+            result.append(ALPHABET_TO_MORSE.get(s1)).append(" ");
         }
         return result.toString().toUpperCase().trim();
     }

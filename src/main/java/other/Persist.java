@@ -2,7 +2,7 @@ package other;
 
 // Выводит результат умножения цифр положительного числа в циклепока не останется однозначное число
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class Persist {
 
