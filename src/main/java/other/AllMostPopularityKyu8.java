@@ -1,4 +1,4 @@
-package kyu8;
+package other;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,10 +8,10 @@ import java.util.Arrays;
 public class AllMostPopularityKyu8 {
 
     @Test
-    public void test() {
+    public void testAllMostPopularityKyu8() {
         System.out.println(Arrays.toString(digitize(35231)));
         System.out.println(past(0, 1, 1));
-        System.out.println(Liters(0.4));
+        System.out.println(liters(0.4));
         System.out.println(abbrevName("patrick fen"));
         System.out.println(getAverage(new int[]{1, 2, 3}));
         System.out.println(reverseWords("I like eating"));
@@ -19,6 +19,66 @@ public class AllMostPopularityKyu8 {
         System.out.println(Arrays.toString(countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
         System.out.println(sum(new int[]{6, 2, 1, 8, 10}));
         System.out.println(sum(new int[]{-1, -50, -100}));
+    }
+
+    @Test
+    public void test2() {
+        System.out.println(evenOrOdd(6));
+        System.out.println(evenOrOdd(7));
+    }
+
+    @Test
+    public void test3() {
+        System.out.println(opposite(1)); // -1
+        System.out.println(opposite(-2)); // 2
+        System.out.println(opposite(Integer.MAX_VALUE));
+    }
+
+    @Test
+    public void test4() {
+        System.out.println((sumR(new int[]{1, 2, 3, 4, 5}))); //15
+        System.out.println((sumR(new int[]{1, -2, 3, 4, 5}))); //13
+        System.out.println((sumR(new int[]{}))); //0
+        System.out.println((sumR(new int[]{-1, -2, -3, -4, -5}))); //0
+        System.out.println((sumR(new int[]{-1, 2, 3, 4, -5})));//9
+    }
+
+    public static int sumR(int[] arr) {
+        int rezult = 0;
+        if (arr == null || arr.length == 0) return rezult;
+        for (int num : arr
+        ) {
+            if (num > 0) rezult += num;
+        }
+        return rezult;
+    }
+
+    @Test
+    public void test5() {
+        System.out.println(repeatStr(6, "I")); // "IIIIII"
+        System.out.println(repeatStr(5, "Hello")); // "HelloHelloHelloHelloHello"
+    }
+
+    public static String repeatStr(final int repeat, final String string) {
+        return String.valueOf(string).repeat(Math.max(0, repeat));
+    }
+
+    @Test
+    public void test6() {
+        System.out.println(remove("country")); //ountr
+    }
+
+    public static String remove(String str) {
+        return str.substring(1, str.length() - 1);
+
+    }
+
+    public static int opposite(int number) {
+        return number * -1;
+    }
+
+    public static String evenOrOdd(int number) {
+        return number % 2 == 0 ? "Even" : "Odd";
     }
 
     public static int sum(int[] numbers) {
@@ -165,7 +225,7 @@ public class AllMostPopularityKyu8 {
     }
 
     public static String noSpace(final String x) {
-        return x.replaceAll(" ", "");
+        return x.replaceAll("\\s", "");
     }
 
     public static String numberToString(int num) {
@@ -210,8 +270,7 @@ public class AllMostPopularityKyu8 {
         return (number - 1) / 100 + 1;
     }
 
-    public static int Liters(double time) {
-
+    public static int liters(double time) {
         return (int) (time / 2);
     }
 
@@ -232,7 +291,6 @@ public class AllMostPopularityKyu8 {
         } else if (op.equals("/") && v2 != 0) {
             return v1 / v2;
         }
-
         return 0;
     }
 

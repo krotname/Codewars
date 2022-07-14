@@ -1,4 +1,4 @@
-package grokking_algorithms;
+package grokkingAlgorithms;
 
 import org.junit.jupiter.api.Test;
 

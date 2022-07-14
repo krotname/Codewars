@@ -1,4 +1,4 @@
-package leetcode;
+package other;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,5 +20,4 @@ public class ReverseInt {
             return Integer.parseInt(new StringBuilder(String.valueOf(x).substring(1)).reverse().toString()) * -1;
         }
     }
-
 }
