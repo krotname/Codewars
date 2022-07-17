@@ -13,6 +13,18 @@ public class Scrambles {
 
     // 5 https://www.codewars.com/kata/55c04b4cc56a697bb0000048/train/java
 
+    public static boolean scramble(String str1, String str2) {
+        ArrayList<Character> list1
+                = (ArrayList<Character>) str1.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
+        ArrayList<Character> list2
+                = (ArrayList<Character>) str2.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
+        for (Character c2 : list2
+        ) {
+            if (!list1.remove(c2)) return false;
+        }
+        return true;
+    }
+
     /**
      * Complete the function scramble(str1, str2) that returns true if a portion of str1 characters can be rearranged to match str2, otherwise returns false.
      * <p>
@@ -43,17 +55,5 @@ public class Scrambles {
         assertFalse(scramble("scriptjavx", "javascript"));
         assertFalse(scramble("javscripts", "javascript"));
         assertFalse(scramble("katas", "steak"));
-    }
-
-    public static boolean scramble(String str1, String str2) {
-        ArrayList<Character> list1
-                = (ArrayList<Character>) str1.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
-        ArrayList<Character> list2
-                = (ArrayList<Character>) str2.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
-        for (Character c2 : list2
-        ) {
-            if (!list1.remove(c2)) return false;
-        }
-        return true;
     }
 }

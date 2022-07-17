@@ -42,20 +42,6 @@ public class TimeFormatter {
     private static int currentYears;
     private static int currentCount;
 
-    @Test
-    public void test() {
-        assertEquals("now", formatDuration(0));
-        assertEquals("1 second", formatDuration(1));
-        assertEquals("44 seconds", formatDuration(44));
-        assertEquals("1 minute", formatDuration(60));
-        assertEquals("53 minutes and 20 seconds", formatDuration(3200));
-        assertEquals("20 minutes and 1 second", formatDuration(1201));
-        assertEquals("3 hours, 20 minutes and 1 second", formatDuration(12001));
-        assertEquals("18 days, 11 hours and 20 minutes", formatDuration(1596000));
-        assertEquals("1 year, 16 hours and 40 minutes", formatDuration(31596000));
-        assertEquals("4 years, 3 hours and 4 minutes", formatDuration(132030240));
-    }
-
     public static String formatDuration(int seconds) {
         if (seconds <= 0) return "now";
         calculate(seconds);
@@ -116,7 +102,6 @@ public class TimeFormatter {
         return result;
     }
 
-
     private static String addSeconds(String stringTime) {
         if (currentSeconds == 1) {
             stringTime = stringTime + currentSeconds + " second";
@@ -174,6 +159,20 @@ public class TimeFormatter {
             stringTime = stringTime + " and ";
         }
         return stringTime;
+    }
+
+    @Test
+    public void test() {
+        assertEquals("now", formatDuration(0));
+        assertEquals("1 second", formatDuration(1));
+        assertEquals("44 seconds", formatDuration(44));
+        assertEquals("1 minute", formatDuration(60));
+        assertEquals("53 minutes and 20 seconds", formatDuration(3200));
+        assertEquals("20 minutes and 1 second", formatDuration(1201));
+        assertEquals("3 hours, 20 minutes and 1 second", formatDuration(12001));
+        assertEquals("18 days, 11 hours and 20 minutes", formatDuration(1596000));
+        assertEquals("1 year, 16 hours and 40 minutes", formatDuration(31596000));
+        assertEquals("4 years, 3 hours and 4 minutes", formatDuration(132030240));
     }
 
 }

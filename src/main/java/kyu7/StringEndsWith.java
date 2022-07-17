@@ -2,11 +2,20 @@ package kyu7;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StringEndsWith {
 
     //7 https://www.codewars.com/kata/51f2d1cafc9c0f745c00037d
+
+    private static void check(String str, String ending, boolean expected) {
+        boolean result = solution(str, ending);
+        assertEquals(expected, result);
+    }
+
+    public static boolean solution(String str, String ending) {
+        return str.endsWith(ending);
+    }
 
     @Test
     public void staticTests() {
@@ -25,13 +34,5 @@ public class StringEndsWith {
         check(":-)", ":-(", false);
         check("!@#$%^&*() :-)", ":-)", true);
         check("abc\n", "abc", false);
-    }
-
-    private static void check(String str, String ending, boolean expected) {
-        boolean result = solution(str, ending);
-        assertEquals(expected, result);
-    }
-    public static boolean solution(String str, String ending) {
-        return str.endsWith(ending);
     }
 }

@@ -19,13 +19,7 @@ public class HumanReadableTime {
      * You can find some examples in the test fixtures.
      */
 
-    @Test
-    public void test() {
-        assertEquals("99:59:59", HumanReadableTime.makeReadable(359999));
-        assertEquals("23:59:59", HumanReadableTime.makeReadable(86399));
-        assertEquals("00:00:05", HumanReadableTime.makeReadable(5));
-        assertEquals("00:00:00", HumanReadableTime.makeReadable(0));
-    }
+    private static final int SIXTY = 60;
 
     public static String makeReadable(int seconds) {
         if (seconds > 359999) {
@@ -35,13 +29,13 @@ public class HumanReadableTime {
         int MM = 0;
         int SS = 0;
 
-        final int KOEF_MM = 60;
-        final int KOEF_HH = 60 * 60;
+        final int FACTOR_MM = SIXTY;
+        final int FACTOR_HH = SIXTY * SIXTY;
 
-        HH = seconds / KOEF_HH;
-        seconds = seconds % KOEF_HH;
-        MM = seconds / KOEF_MM;
-        SS = seconds % KOEF_MM;
+        HH = seconds / FACTOR_HH;
+        seconds = seconds % FACTOR_HH;
+        MM = seconds / FACTOR_MM;
+        SS = seconds % FACTOR_MM;
 
         return addZero(HH) + ":" + addZero(MM) + ":" + addZero(SS);
     }
@@ -52,5 +46,13 @@ public class HumanReadableTime {
         } else {
             return "0" + i;
         }
+    }
+
+    @Test
+    public void test() {
+        assertEquals("99:59:59", HumanReadableTime.makeReadable(359999));
+        assertEquals("23:59:59", HumanReadableTime.makeReadable(86399));
+        assertEquals("00:00:05", HumanReadableTime.makeReadable(5));
+        assertEquals("00:00:00", HumanReadableTime.makeReadable(0));
     }
 }

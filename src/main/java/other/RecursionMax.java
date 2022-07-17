@@ -1,4 +1,4 @@
-package grokkingAlgorithms;
+package other;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,16 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RecursionMax {
 
     private static final ArrayList<Integer> TEST_INTEGERS = new ArrayList<>(Arrays.asList(19, 2, 4, 5, 4));
-
-    @Test
-    public void testMax() {
-        assertEquals(19, max(TEST_INTEGERS));
-    }
-
-    @Test
-    public void testRecursionMax() {
-        assertEquals(19, recursionMax(TEST_INTEGERS));
-    }
 
     public static int recursionMax(List<Integer> array) {
         if (array == null) {
@@ -58,5 +48,15 @@ public class RecursionMax {
             }
         }
         return max;
+    }
+
+    @Test
+    public void testMax() {
+        assertEquals(19, max(TEST_INTEGERS));
+    }
+
+    @Test
+    public void testRecursionMax() {
+        assertEquals(19, recursionMax(TEST_INTEGERS));
     }
 }

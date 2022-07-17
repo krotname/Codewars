@@ -11,55 +11,6 @@ public class VINChecker {
 
     //6
 
-    /**
-     * In this Kata you should write a function to validate VINs, Vehicle Identification Numbers. Valid VINs are exactly 17 characters long, its composed of capital letters (except "I","O" and "Q") and digits. The 9th character is a MODULUS 11 check digit. Here is how it works:
-     * <p>
-     * 1. Letters are converted to numbers
-     * Following the table bellow, letters are converted to numbers. "I","O" and "Q" are invalid characters.
-     * <p>
-     * A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-     * 1 2 3 4 5 6 7 8   1 2 3 4 5   7   9 2 3 4 5 6 7 8 9
-     * Ex.: VIN 5YJ3E1EA7HF000337 becomes 58135151786000337.
-     * <p>
-     * 2. Each number is multiplied by a weight
-     * The weights are the following: [8,7,6,5,4,3,2,10,0,9,8,7,6,5,4,3,2].
-     * <p>
-     * Ex.:
-     * VIN:     5   Y   J   3   E   1   E   A   7   H   F   0   0   0   3   3   7
-     * DECODED: 5   8   1   3   5   1   5   1   7   8   6   0   0   0   3   3   7
-     * WEIGHTS: 8   7   6   5   4   3   2   10  0   9   8   7   6   5   4   3   2
-     * PRODUCT: 40  56  6   15  20  3   10  10  0   72  48  0   0   0   12  9   14
-     * 3. All products are summed up
-     * Ex.:
-     * 40+56+6+15+20+3+10+10+0+72+48+0+0+0+12+9+14 = 315
-     * 4. The modulus 11 of the sum is taken
-     * Ex.:
-     * 315 mod 11 = 7
-     * 5. Check 9th character
-     * If the 9th character matches the modulus 11, the VIN is valid.
-     * <p>
-     * Ex.:
-     * 5YJ3E1EA7HF000337 is a valid VIN, 9th character is 7
-     * Note
-     * If the modulus 11 of the sum is equal to 10, then the digit is "X".
-     * <p>
-     * Ex.:
-     * 5YJ3E1EAXHF000347 is a valid VIN.
-     * Input Validation
-     * Input validation is part of the Kata, VINs with lenghts different than 17 characters or containing invalid characters should return False as well.
-     */
-
-    @Test
-    public void test() {
-        assertTrue(checkVin("5YJ3E1EA7HF000337"));
-        assertTrue(checkVin("5YJ3E1EAXHF000347"));
-        assertTrue(checkVin("5VGYMVUX7JV764512"));
-        assertTrue(checkVin("3VN6WLZCXYF160649"));
-        assertFalse(checkVin("7WDMMTDV9TG739741"));
-        assertFalse(checkVin("7JTRH08L5EJ234829"));
-        assertFalse(checkVin("7%^&H08L5EJ234829"));
-    }
-
     private static final Map<Character, Integer> LETTERS = new HashMap<>();
 
     static {
@@ -126,5 +77,54 @@ public class VINChecker {
 
         if (sumProductMod == 10 && vinChars[8] == 'X') return true;
         return String.valueOf(sumProductMod).equalsIgnoreCase(String.valueOf(vinChars[8]));
+    }
+
+    /**
+     * In this Kata you should write a function to validate VINs, Vehicle Identification Numbers. Valid VINs are exactly 17 characters long, its composed of capital letters (except "I","O" and "Q") and digits. The 9th character is a MODULUS 11 check digit. Here is how it works:
+     * <p>
+     * 1. Letters are converted to numbers
+     * Following the table bellow, letters are converted to numbers. "I","O" and "Q" are invalid characters.
+     * <p>
+     * A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+     * 1 2 3 4 5 6 7 8   1 2 3 4 5   7   9 2 3 4 5 6 7 8 9
+     * Ex.: VIN 5YJ3E1EA7HF000337 becomes 58135151786000337.
+     * <p>
+     * 2. Each number is multiplied by a weight
+     * The weights are the following: [8,7,6,5,4,3,2,10,0,9,8,7,6,5,4,3,2].
+     * <p>
+     * Ex.:
+     * VIN:     5   Y   J   3   E   1   E   A   7   H   F   0   0   0   3   3   7
+     * DECODED: 5   8   1   3   5   1   5   1   7   8   6   0   0   0   3   3   7
+     * WEIGHTS: 8   7   6   5   4   3   2   10  0   9   8   7   6   5   4   3   2
+     * PRODUCT: 40  56  6   15  20  3   10  10  0   72  48  0   0   0   12  9   14
+     * 3. All products are summed up
+     * Ex.:
+     * 40+56+6+15+20+3+10+10+0+72+48+0+0+0+12+9+14 = 315
+     * 4. The modulus 11 of the sum is taken
+     * Ex.:
+     * 315 mod 11 = 7
+     * 5. Check 9th character
+     * If the 9th character matches the modulus 11, the VIN is valid.
+     * <p>
+     * Ex.:
+     * 5YJ3E1EA7HF000337 is a valid VIN, 9th character is 7
+     * Note
+     * If the modulus 11 of the sum is equal to 10, then the digit is "X".
+     * <p>
+     * Ex.:
+     * 5YJ3E1EAXHF000347 is a valid VIN.
+     * Input Validation
+     * Input validation is part of the Kata, VINs with lenghts different than 17 characters or containing invalid characters should return False as well.
+     */
+
+    @Test
+    public void test() {
+        assertTrue(checkVin("5YJ3E1EA7HF000337"));
+        assertTrue(checkVin("5YJ3E1EAXHF000347"));
+        assertTrue(checkVin("5VGYMVUX7JV764512"));
+        assertTrue(checkVin("3VN6WLZCXYF160649"));
+        assertFalse(checkVin("7WDMMTDV9TG739741"));
+        assertFalse(checkVin("7JTRH08L5EJ234829"));
+        assertFalse(checkVin("7%^&H08L5EJ234829"));
     }
 }

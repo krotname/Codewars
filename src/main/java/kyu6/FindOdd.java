@@ -11,6 +11,24 @@ public class FindOdd {
 
     //6
 
+    public static int findIt(int[] a) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : a
+        ) {
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
+
+            } else {
+                map.put(num, 1);
+            }
+        }
+        for (Map.Entry<Integer, Integer> e : map.entrySet()
+        ) {
+            if (e.getValue() % 2 != 0) return e.getKey();
+        }
+        return 0;
+    }
+
     /**
      * Given an array of integers, find the one that appears an odd number of times.
      * There will always be only one integer that appears an odd number of times.
@@ -30,24 +48,6 @@ public class FindOdd {
         assertEquals(10, FindOdd.findIt(new int[]{10}));
         assertEquals(10, FindOdd.findIt(new int[]{1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1}));
         assertEquals(1, FindOdd.findIt(new int[]{5, 4, 3, 2, 1, 5, 4, 3, 2, 10, 10}));
-    }
-
-    public static int findIt(int[] a) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int num : a
-        ) {
-            if (map.containsKey(num)) {
-                map.put(num, map.get(num) + 1);
-
-            } else {
-                map.put(num, 1);
-            }
-        }
-        for (Map.Entry<Integer, Integer> e : map.entrySet()
-        ) {
-            if (e.getValue() % 2 != 0) return e.getKey();
-        }
-        return 0;
     }
 
 }

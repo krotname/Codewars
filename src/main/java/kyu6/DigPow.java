@@ -8,13 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DigPow {
 
-    @Test
-    public void test() {
-        assertEquals(1, DigPow.digPow(89, 1));
-        assertEquals(-1, DigPow.digPow(92, 1));
-        assertEquals(51, DigPow.digPow(46288, 3));
-    }
-
     public static long digPow(int n, int p) {
         AtomicInteger pa = new AtomicInteger(p);
         int sum = String.valueOf(n)
@@ -23,5 +16,12 @@ public class DigPow {
                 .map(i -> (int) Math.pow(i, pa.getAndIncrement()))
                 .sum();
         return sum % n == 0 ? sum / n : -1;
+    }
+
+    @Test
+    public void test() {
+        assertEquals(1, DigPow.digPow(89, 1));
+        assertEquals(-1, DigPow.digPow(92, 1));
+        assertEquals(51, DigPow.digPow(46288, 3));
     }
 }

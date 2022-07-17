@@ -4,16 +4,16 @@ import org.junit.jupiter.api.Test;
 
 public class NumberFun {
 
+    public static long findNextSquare(long sq) {
+        double sqrt = Math.sqrt(sq);
+        if (sqrt % 1 != 0) return -1;
+        return (long) Math.pow(++sqrt, 2);
+    }
+
     @Test
     public void test() {
         System.out.println(findNextSquare(121));
         System.out.println(findNextSquare(625));
         System.out.println(findNextSquare(114));
-    }
-
-    public static long findNextSquare(long sq) {
-        double sqrt = Math.sqrt(sq);
-        if (sqrt % 1 != 0) return -1;
-        return (long) Math.pow(++sqrt, 2);
     }
 }

@@ -2,14 +2,11 @@ package kyu7;
 
 import org.junit.jupiter.api.Test;
 
-public class FindShort {
-    //7 https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9/train/java
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    @Test
-    public void test() {
-        System.out.println(findShort("bitcoin take over the world maybe who knows perhaps")); //3
-        System.out.println(findShort("bitcoin ")); //7
-    }
+public class FindShort {
+
+    //7 https://www.codewars.com/kata/57cebe1dc6fdc20c57000ac9/train/java
 
     public static int findShort(String s) {
         if (s == null || s.length() == 0) return 0;
@@ -19,5 +16,11 @@ public class FindShort {
             min = Math.min(min, s1.length());
         }
         return min;
+    }
+
+    @Test
+    public void test() {
+        assertEquals(3, findShort("bitcoin take over the world maybe who knows perhaps"));
+        assertEquals(7, findShort("bitcoin"));
     }
 }

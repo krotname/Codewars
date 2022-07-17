@@ -10,12 +10,6 @@ public class FindMissingLetter {
 
     //6 https://www.codewars.com/kata/5839edaa6754d6fec10000a2/solutions/java
 
-    @Test
-    public void test() {
-        assertEquals('e', FindMissingLetter.findMissingLetter(new char[]{'a', 'b', 'c', 'd', 'f'}));
-        assertEquals('P', FindMissingLetter.findMissingLetter(new char[]{'O', 'Q', 'R', 'S'}));
-    }
-
     private static final int A = 96;
     private static final ArrayList<Character> ALPHABET = new ArrayList<>();
 
@@ -33,6 +27,12 @@ public class FindMissingLetter {
                 return array[0] >= A ? ALPHABET.get(i + indexStart) : Character.toUpperCase(ALPHABET.get(i + indexStart));
         }
         return ' ';
+    }
+
+    @Test
+    public void test() {
+        assertEquals('e', FindMissingLetter.findMissingLetter(new char[]{'a', 'b', 'c', 'd', 'f'}));
+        assertEquals('P', FindMissingLetter.findMissingLetter(new char[]{'O', 'Q', 'R', 'S'}));
     }
 
 }

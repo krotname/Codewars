@@ -16,22 +16,6 @@ public class CamelCase {
     private static final int A = 65; // ASCII
     private static final int Z = 90; // ASCII
 
-    @Test
-    public void testsFromCamelCase() {
-        assertEquals("camel Casing", fromCamelCase("camelCasing"));
-        assertEquals("camel Casing Test", fromCamelCase("camelCasingTest"));
-        assertEquals("camelcasingtest", fromCamelCase("camelcasingtest"));
-    }
-
-    @Test
-    public void testToCamelCase() {
-        assertEquals("TestCase", toCamelCase("test case"));
-        assertEquals("CamelCaseMethod", toCamelCase("camel case method"));
-        assertEquals("CamelCaseWord", toCamelCase(" camel case word"));
-        assertEquals("SayHello", toCamelCase("say hello "));
-        assertEquals("Z", toCamelCase("z"));
-    }
-
     public static String fromCamelCase(String input) {
         if (input == null || input.isEmpty()) return "";
         char[] chars = input.toCharArray();
@@ -51,6 +35,22 @@ public class CamelCase {
                 .filter(s -> s.length() > 0)
                 .map(s -> s.replaceFirst(s.substring(0, 1), s.substring(0, 1).toUpperCase(Locale.ROOT)))
                 .collect(Collectors.joining()).trim();
+    }
+
+    @Test
+    public void testsFromCamelCase() {
+        assertEquals("camel Casing", fromCamelCase("camelCasing"));
+        assertEquals("camel Casing Test", fromCamelCase("camelCasingTest"));
+        assertEquals("camelcasingtest", fromCamelCase("camelcasingtest"));
+    }
+
+    @Test
+    public void testToCamelCase() {
+        assertEquals("TestCase", toCamelCase("test case"));
+        assertEquals("CamelCaseMethod", toCamelCase("camel case method"));
+        assertEquals("CamelCaseWord", toCamelCase(" camel case word"));
+        assertEquals("SayHello", toCamelCase("say hello "));
+        assertEquals("Z", toCamelCase("z"));
     }
 
 }

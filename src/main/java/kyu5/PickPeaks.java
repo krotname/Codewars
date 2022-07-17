@@ -14,32 +14,10 @@ public class PickPeaks {
     private static final String POS = "pos";
     private static final String PEAKS = "peaks";
 
-    @Test
-    public void test1() {
-        Map<String, List<Integer>> peaks = getPeaks(new int[]{3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 2, 2, 1});
-
-        assertEquals(List.of(3, 7, 10), peaks.get(POS));
-        assertEquals(List.of(6, 3, 2), peaks.get(PEAKS));
-    }
-
-    @Test
-    public void test2() {
-        Map<String, List<Integer>> peaks = getPeaks(new int[]{3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 3});
-        assertEquals(List.of(3, 7), peaks.get(POS));
-        assertEquals(List.of(6, 3), peaks.get(PEAKS));
-    }
-
-    @Test
-    public void test3() {
-        Map<String, List<Integer>> peaks = getPeaks(new int[]{1, 2, 3, 6, 4, 1, 2, 3, 2, 1});
-        assertEquals(List.of(3, 7), peaks.get(POS));
-        assertEquals(List.of(6, 3), peaks.get(PEAKS));
-    }
-
     /**
-     *     /\     /--\
+     * /\     /--\
      * \  /  \   /    \  вверх vector true, а вниз false
-     *  \/    \_/
+     * \/    \_/
      */
 
     public static Map<String, List<Integer>> getPeaks(int[] arr) {
@@ -67,5 +45,27 @@ public class PickPeaks {
             }
         }
         return peaks;
+    }
+
+    @Test
+    public void test1() {
+        Map<String, List<Integer>> peaks = getPeaks(new int[]{3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 2, 2, 1});
+
+        assertEquals(List.of(3, 7, 10), peaks.get(POS));
+        assertEquals(List.of(6, 3, 2), peaks.get(PEAKS));
+    }
+
+    @Test
+    public void test2() {
+        Map<String, List<Integer>> peaks = getPeaks(new int[]{3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 3});
+        assertEquals(List.of(3, 7), peaks.get(POS));
+        assertEquals(List.of(6, 3), peaks.get(PEAKS));
+    }
+
+    @Test
+    public void test3() {
+        Map<String, List<Integer>> peaks = getPeaks(new int[]{1, 2, 3, 6, 4, 1, 2, 3, 2, 1});
+        assertEquals(List.of(3, 7), peaks.get(POS));
+        assertEquals(List.of(6, 3), peaks.get(PEAKS));
     }
 }

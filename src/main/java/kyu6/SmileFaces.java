@@ -14,6 +14,10 @@ public class SmileFaces {
             ":)", ":D", ":-)", ":-D", ":~)", ":~D",
             ";)", ";D", ";-)", ";-D", ";~)", ";~D");
 
+    public static int countSmileys(List<String> arr) {
+        return (int) arr.stream().filter(SMILE_FACES::contains).count();
+    }
+
     @Test
     public void test1() {
         List<String> a = new ArrayList<>();
@@ -61,10 +65,6 @@ public class SmileFaces {
         a.add(";~(");
         a.add(":~D");
         assertEquals(4, SmileFaces.countSmileys(a));
-    }
-
-    public static int countSmileys(List<String> arr) {
-        return (int) arr.stream().filter(SMILE_FACES::contains).count();
     }
 
 }

@@ -12,6 +12,14 @@ public class OrderWeight {
 
     //5 https://www.codewars.com/kata/55c6126177c9441a570000cc/train/java
 
+    public static String orderWeight(String string) {
+        String[] s = string.trim().split("\\s");
+        Arrays.sort(s, new WeightComparator());
+        return Arrays.stream(s)
+                .map(String::valueOf)
+                .collect(Collectors.joining(" "));
+    }
+
     /**
      * My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with the weights of members is published and each month he is the last on the list which means he is the heaviest.
      * <p>
@@ -48,14 +56,6 @@ public class OrderWeight {
                 orderWeight("103 123 4444 99 2000"));
         assertEquals("11 11 2000 10003 22 123 1234000 44444444 9999",
                 orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
-    }
-
-    public static String orderWeight(String string) {
-        String[] s = string.trim().split("\\s");
-        Arrays.sort(s, new WeightComparator());
-        return Arrays.stream(s)
-                .map(String::valueOf)
-                .collect(Collectors.joining(" "));
     }
 
     private static class WeightComparator implements Comparator<String> {

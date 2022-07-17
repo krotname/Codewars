@@ -4,13 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-public class IsAnagram {
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-    @Test
-    public void test() {
-        System.out.println(isAnagram("foefet", "toffee"));
-        System.out.println(isAnagram("Buckethead", "DeathCubeK"));
-    }
+public class IsAnagram {
 
     public static boolean isAnagram(String test, String original) {
         char[] testChars = test.toLowerCase().toCharArray();
@@ -18,5 +15,12 @@ public class IsAnagram {
         Arrays.sort(testChars);
         Arrays.sort(originalChars);
         return Arrays.equals(testChars, originalChars);
+    }
+
+    @Test
+    public void test() {
+        assertTrue(isAnagram("foefet", "toffee"));
+        assertTrue(isAnagram("Buckethead", "DeathCubeK"));
+        assertFalse(isAnagram("ckethead", "DeathCubeK"));
     }
 }

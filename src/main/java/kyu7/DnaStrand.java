@@ -2,8 +2,23 @@ package kyu7;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class DnaStrand {
+
     //7
+
+    public static String makeComplement(String dna) {
+
+        String result = dna.replace("A", "*");
+        result = result.replace("T", "A");
+        result = result.replace("*", "T");
+
+        result = result.replace("C", "*");
+        result = result.replace("G", "C");
+        result = result.replace("*", "G");
+        return result;
+    }
 
     /**
      * Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries the "instructions" for the development and functioning of living organisms.
@@ -19,20 +34,8 @@ public class DnaStrand {
 
     @Test
     public void test() {
-        System.out.println(makeComplement("AAAA"));
-        System.out.println(makeComplement("ATTGC"));
-        System.out.println(makeComplement("GTAT"));
-    }
-
-    public static String makeComplement(String dna) {
-
-        String result = dna.replace("A", "*");
-        result = result.replace("T", "A");
-        result = result.replace("*", "T");
-
-        result = result.replace("C", "*");
-        result = result.replace("G", "C");
-        result = result.replace("*", "G");
-        return result;
+        assertEquals("TTTT", makeComplement("AAAA"));
+        assertEquals("TAACG", makeComplement("ATTGC"));
+        assertEquals("CATA", makeComplement("GTAT"));
     }
 }

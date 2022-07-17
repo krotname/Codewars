@@ -12,23 +12,6 @@ public class BraceChecker {
 
     // 6 https://www.codewars.com/kata/5277c8a221e209d3f6000b56/train/java
 
-
-    @Test
-    public void testValid() {
-        assertTrue(isValid("()"));
-        assertTrue(isValid("[()]"));
-        assertTrue(isValid("(({{[[]]}}))"));
-        assertTrue(isValid("{}({})[]"));
-    }
-
-    @Test
-    public void testInvalid() {
-        assertFalse(isValid("[(])"));
-        assertFalse(isValid("[(]))"));
-        assertFalse(isValid("][)("));
-        assertFalse(isValid("(})"));
-    }
-
     public static boolean isValid(String braces) {
         var bracketsStack = new LinkedList<Character>();
         for (Character c : braces.toCharArray()) {
@@ -53,5 +36,21 @@ public class BraceChecker {
 
         }
         return bracketsStack.isEmpty();
+    }
+
+    @Test
+    public void testValid() {
+        assertTrue(isValid("()"));
+        assertTrue(isValid("[()]"));
+        assertTrue(isValid("(({{[[]]}}))"));
+        assertTrue(isValid("{}({})[]"));
+    }
+
+    @Test
+    public void testInvalid() {
+        assertFalse(isValid("[(])"));
+        assertFalse(isValid("[(]))"));
+        assertFalse(isValid("][)("));
+        assertFalse(isValid("(})"));
     }
 }

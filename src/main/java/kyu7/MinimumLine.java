@@ -11,6 +11,14 @@ public class MinimumLine {
 
     // 7 https://www.codewars.com/kata/5ac6932b2f317b96980000ca/train/java
 
+    public static int minValue(int[] values) {
+        return Integer.parseInt(Arrays.stream(values)
+                .sorted()
+                .distinct()
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining()));
+    }
+
     @Test
     public void testSomething() {
         assertEquals(13, MinimumLine.minValue(new int[]{1, 3, 1}));
@@ -18,13 +26,5 @@ public class MinimumLine {
         assertEquals(148, MinimumLine.minValue(new int[]{4, 8, 1, 4}));
         assertEquals(579, MinimumLine.minValue(new int[]{5, 7, 9, 5, 7}));
         assertEquals(678, MinimumLine.minValue(new int[]{6, 7, 8, 7, 6, 6}));
-    }
-
-    public static int minValue(int[] values) {
-        return Integer.parseInt(Arrays.stream(values)
-                .sorted()
-                .distinct()
-                .mapToObj(String::valueOf)
-                .collect(Collectors.joining()));
     }
 }

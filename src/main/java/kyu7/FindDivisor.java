@@ -19,26 +19,9 @@ public class FindDivisor {
     @Test
     public void oneTest() {
         assertEquals(1, FindDivisor.numberOFindDivisorivisors(1));
-    }
-
-
-    @Test
-    public void fourTest() {
         assertEquals(3, FindDivisor.numberOFindDivisorivisors(4));
-    }
-
-    @Test
-    public void fiveTest() {
         assertEquals(2, FindDivisor.numberOFindDivisorivisors(5));
-    }
-
-    @Test
-    public void twelveTest() {
         assertEquals(6, FindDivisor.numberOFindDivisorivisors(12));
-    }
-
-    @Test
-    public void thirtyTest() {
         assertEquals(8, FindDivisor.numberOFindDivisorivisors(30));
     }
 }

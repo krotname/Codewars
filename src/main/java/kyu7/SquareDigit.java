@@ -8,13 +8,6 @@ public class SquareDigit {
 
     //7 https://www.codewars.com/kata/546e2562b03326a88e000020/train/java
 
-    @Test
-    public void test() {
-        assertEquals(811181, squareDigits(9119));
-        assertEquals(0, squareDigits(0));
-        assertEquals(1, squareDigits(-1));
-    }
-
     public static int squareDigits(int n) {
         if (n == 0) return 0;
         StringBuilder stringBuilder = new StringBuilder();
@@ -24,5 +17,12 @@ public class SquareDigit {
             stringBuilder.insert(0, i * i);
         }
         return Integer.parseInt(stringBuilder.toString());
+    }
+
+    @Test
+    public void test() {
+        assertEquals(811181, squareDigits(9119));
+        assertEquals(0, squareDigits(0));
+        assertEquals(1, squareDigits(-1));
     }
 }

@@ -5,16 +5,11 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class DescendingOrder {
-    //7 https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/java
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    @Test
-    public void test() {
-        System.out.println(sortDesc(0));
-        System.out.println(sortDesc(1));
-        System.out.println(sortDesc(42145)); //54421
-        System.out.println(sortDesc(123456789)); //987654321
-    }
+public class DescendingOrder {
+
+    //7 https://www.codewars.com/kata/5467e4d82edf8bbf40000155/train/java
 
     public static int sortDesc(int num) {
         if (num <= 0) return 0;
@@ -31,5 +26,13 @@ public class DescendingOrder {
             stringBuilder.append(i);
         }
         return Integer.parseInt(stringBuilder.toString());
+    }
+
+    @Test
+    public void test() {
+        assertEquals(0, sortDesc(0));
+        assertEquals(1, (sortDesc(1)));
+        assertEquals(54421, (sortDesc(42145)));
+        assertEquals(987654321, (sortDesc(123456789)));
     }
 }

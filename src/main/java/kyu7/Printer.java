@@ -10,12 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Printer {
     //7 https://www.codewars.com/kata/56541980fa08ab47a0000040/train/java
 
-    @Test
-    public void test() {
-        String s="aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz";
-        assertEquals("3/56", Printer.printerError(s));
-    }
-
     public static String printerError(String s) {
         Matcher matcher = Pattern.compile("[n-z]").matcher(s);
         int error = 0;
@@ -23,6 +17,12 @@ public class Printer {
             error++;
         }
         return error + "/" + s.length();
+    }
+
+    @Test
+    public void test() {
+        String s = "aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz";
+        assertEquals("3/56", Printer.printerError(s));
     }
 
 }

@@ -5,43 +5,10 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class AllMostPopularityKyu8 {
-
-    @Test
-    public void testAllMostPopularityKyu8() {
-        System.out.println(Arrays.toString(digitize(35231)));
-        System.out.println(past(0, 1, 1));
-        System.out.println(liters(0.4));
-        System.out.println(abbrevName("patrick fen"));
-        System.out.println(getAverage(new int[]{1, 2, 3}));
-        System.out.println(reverseWords("I like eating"));
-        System.out.println(fakeBin("45385593107843568"));
-        System.out.println(Arrays.toString(countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
-        System.out.println(sum(new int[]{6, 2, 1, 8, 10}));
-        System.out.println(sum(new int[]{-1, -50, -100}));
-    }
-
-    @Test
-    public void test2() {
-        System.out.println(evenOrOdd(6));
-        System.out.println(evenOrOdd(7));
-    }
-
-    @Test
-    public void test3() {
-        System.out.println(opposite(1)); // -1
-        System.out.println(opposite(-2)); // 2
-        System.out.println(opposite(Integer.MAX_VALUE));
-    }
-
-    @Test
-    public void test4() {
-        System.out.println((sumR(new int[]{1, 2, 3, 4, 5}))); //15
-        System.out.println((sumR(new int[]{1, -2, 3, 4, 5}))); //13
-        System.out.println((sumR(new int[]{}))); //0
-        System.out.println((sumR(new int[]{-1, -2, -3, -4, -5}))); //0
-        System.out.println((sumR(new int[]{-1, 2, 3, 4, -5})));//9
-    }
 
     public static int sumR(int[] arr) {
         int rezult = 0;
@@ -53,22 +20,11 @@ public class AllMostPopularityKyu8 {
         return rezult;
     }
 
-    @Test
-    public void test5() {
-        System.out.println(repeatStr(6, "I")); // "IIIIII"
-        System.out.println(repeatStr(5, "Hello")); // "HelloHelloHelloHelloHello"
-    }
-
     public static String repeatStr(final int repeat, final String string) {
         return String.valueOf(string).repeat(Math.max(0, repeat));
     }
 
-    @Test
-    public void test6() {
-        System.out.println(remove("country")); //ountr
-    }
-
-    public static String remove(String str) {
+    public static String removeFirstAndLastChar(String str) {
         return str.substring(1, str.length() - 1);
 
     }
@@ -81,8 +37,8 @@ public class AllMostPopularityKyu8 {
         return number % 2 == 0 ? "Even" : "Odd";
     }
 
-    public static int sum(int[] numbers) {
-        //сумма кроме самого большого и маленького 
+    public static int sumArray(int[] numbers) {
+        //сумма кроме самого большого и маленького
         if (numbers == null || numbers.length < 2) return 0;
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
@@ -96,7 +52,8 @@ public class AllMostPopularityKyu8 {
                 min = n;
             }
         }
-        boolean maxB = true, minB = true;
+        boolean maxB = true;
+        boolean minB = true;
         for (int n : numbers
         ) {
             if (maxB && n == max) {
@@ -110,7 +67,6 @@ public class AllMostPopularityKyu8 {
         return sum;
     }
 
-
     public static String fakeBin(String numberString) {
         StringBuilder stringBuilder = new StringBuilder();
         for (char c : numberString.toCharArray()) {
@@ -122,7 +78,6 @@ public class AllMostPopularityKyu8 {
         }
         return stringBuilder.toString();
     }
-
 
     public static int stringToNumber(String str) {
         return Integer.parseInt(str);
@@ -137,7 +92,7 @@ public class AllMostPopularityKyu8 {
         return stringBuilder.toString().trim();
     }
 
-    public static int[] map(int[] arr) {
+    public static int[] allTo2(int[] arr) {
         return Arrays.stream(arr).map(x -> x * 2).toArray();
     }
 
@@ -148,7 +103,6 @@ public class AllMostPopularityKyu8 {
     public static int getAverage(int[] marks) {
         return (int) Arrays.stream(marks).average().orElse(0);
     }
-
 
     public static int[] countPositivesSumNegatives(int[] input) {
         if (input == null || input.length == 0) return new int[0];
@@ -168,7 +122,6 @@ public class AllMostPopularityKyu8 {
         return result; //return an array with count of positives and sum of negatives
     }
 
-
     public static String findNeedle(Object[] haystack) {
         if (haystack == null || haystack.length == 0) return "not found";
         for (int i = 0; i < haystack.length; i++) {
@@ -178,7 +131,6 @@ public class AllMostPopularityKyu8 {
         }
         return "not found";
     }
-
 
     public static String abbrevName(String name) {
         String[] s = name.split(" ");
@@ -292,6 +244,53 @@ public class AllMostPopularityKyu8 {
             return v1 / v2;
         }
         return 0;
+    }
+
+    @Test
+    public void testAllMostPopularityKyu8() {
+        assertEquals("[1, 3, 2, 5, 3]", Arrays.toString(digitize(35231)));
+
+        assertEquals( 61000, past(0, 1, 1));
+
+        assertEquals( 0, liters(0.4));
+
+        assertEquals( "P.F", abbrevName("patrick fen"));
+
+        assertEquals( 2, getAverage(new int[]{1, 2, 3}));
+
+        assertEquals( "eating like I", reverseWords("I like eating"));
+
+        assertEquals( "01011110001100111", fakeBin("45385593107843568"));
+
+        assertEquals( "[10, -65]", Arrays.toString(countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
+
+        assertEquals( 16, sumArray(new int[]{6, 2, 1, 8, 10}));
+        assertEquals( -50, sumArray(new int[]{-1, -50, -100}));
+
+        assertEquals( "Even", evenOrOdd(6));
+        assertEquals( "Odd", evenOrOdd(7));
+
+        assertEquals( -1, opposite(1));
+        assertEquals( 2, opposite(-2));
+        assertEquals( -2147483647, opposite(Integer.MAX_VALUE));
+
+        assertEquals( 15, sumR(new int[]{1, 2, 3, 4, 5}));
+        assertEquals( 13, sumR(new int[]{1, -2, 3, 4, 5}));
+        assertEquals( 0, sumR(new int[]{}));
+        assertEquals( 0, sumR(new int[]{-1, -2, -3, -4, -5}));
+        assertEquals( 9, sumR(new int[]{-1, 2, 3, 4, -5}));
+
+        assertEquals( "IIIIII", repeatStr(6, "I"));
+        assertEquals( "HelloHelloHelloHelloHello", repeatStr(5, "Hello"));
+
+        assertEquals( "ountr", removeFirstAndLastChar("country"));
+
+        assertEquals( 68, stringToNumber("68"));
+        assertArrayEquals(new int[]{3, -2,}, invert(new int[]{-3, 2,}));
+        assertArrayEquals( new int[]{-6, 4,}, allTo2(new int[]{-3, 2,}));
+        assertEquals( 68, stringToNumber("68"));
+        assertEquals( 68, stringToNumber("68"));
+        assertEquals( 68, stringToNumber("68"));
     }
 
 

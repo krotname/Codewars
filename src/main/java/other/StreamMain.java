@@ -9,12 +9,6 @@ import java.util.stream.Collectors;
 
 public class StreamMain {
 
-    public record Trader(String name, String city) {
-    }
-
-    public record Transaction(Trader trader, int year, int value) {
-    }
-
     private static final String MILAN = "Milan";
     private static final String CAMBRIDGE = "Cambridge";
 
@@ -95,5 +89,11 @@ public class StreamMain {
                 .orElseThrow();
 
         System.out.println(transaction);
+    }
+
+    public record Trader(String name, String city) {
+    }
+
+    public record Transaction(Trader trader, int year, int value) {
     }
 }

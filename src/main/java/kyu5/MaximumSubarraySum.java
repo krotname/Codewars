@@ -10,6 +10,29 @@ public class MaximumSubarraySum {
 
     //5
 
+    public static int sequence(int[] arr) {
+        int maximumSubArraySum = arraySum(arr);
+        for (int i = 0; i <= arr.length; i++) {
+            for (int j = arr.length; j >= i; j--) {
+                int[] ints = Arrays.copyOfRange(arr, i, j);
+                int subArraySum = arraySum(ints);
+                if (subArraySum > maximumSubArraySum) {
+                    maximumSubArraySum = subArraySum;
+                }
+            }
+        }
+        return maximumSubArraySum;
+    }
+
+    private static int arraySum(int[] arr) {
+        int result = 0;
+        for (int i : arr
+        ) {
+            result += i;
+        }
+        return result;
+    }
+
     /**
      * The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
      * <p>
@@ -27,28 +50,5 @@ public class MaximumSubarraySum {
         assertEquals(7, sequence(new int[]{-2, 1, -3, 5, -1, 2, 1, -5, 4}));
         assertEquals(333, sequence(new int[]{333, -11, -3, 5, -1, 2, 1, -5, 4}));
         assertEquals(555, sequence(new int[]{3, 1, -3, 5, -1, 2, 1, -55, 555}));
-    }
-
-    public static int sequence(int[] arr) {
-        int maximumSubarraySum = arraySum(arr);
-        for (int i = 0; i <= arr.length; i++) {
-            for (int j = arr.length; j >= i; j--) {
-                int[] ints = Arrays.copyOfRange(arr, i, j);
-                int subarraySum = arraySum(ints);
-                if (subarraySum > maximumSubarraySum) {
-                    maximumSubarraySum = subarraySum;
-                }
-            }
-        }
-        return maximumSubarraySum;
-    }
-
-    private static int arraySum(int[] arr) {
-        int result = 0;
-        for (int i : arr
-        ) {
-            result += i;
-        }
-        return result;
     }
 }

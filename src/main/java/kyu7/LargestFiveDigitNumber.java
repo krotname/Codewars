@@ -15,13 +15,6 @@ public class LargestFiveDigitNumber {
 
     private static final int SEQUENCE = 5;
 
-    @Test
-    public void exampleTests() {
-        assertEquals(83910, LargestFiveDigitNumber.solve("283910"));
-        assertEquals(67890, LargestFiveDigitNumber.solve("1234567890"));
-        assertEquals(74765, LargestFiveDigitNumber.solve("731674765"));
-    }
-
     public static int solve(final String digits) {
         int max = 0;
 
@@ -56,5 +49,12 @@ public class LargestFiveDigitNumber {
                 .limit(5)
                 .map(String::valueOf)
                 .collect(Collectors.joining("")));
+    }
+
+    @Test
+    public void exampleTests() {
+        assertEquals(83910, LargestFiveDigitNumber.solve("283910"));
+        assertEquals(67890, LargestFiveDigitNumber.solve("1234567890"));
+        assertEquals(74765, LargestFiveDigitNumber.solve("731674765"));
     }
 }

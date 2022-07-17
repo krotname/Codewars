@@ -40,30 +40,6 @@ public class RomanNumerals {
         MAP_FROM.put('M', 1000);
     }
 
-    @Test
-    public void testToRoman() {
-        assertEquals("XL", toRoman(40));
-        assertEquals("MCMXC", toRoman(1990));
-        assertEquals("MMCMVI", toRoman(2906));
-        assertEquals("IV", toRoman(4));
-        assertEquals("CDIV", toRoman(404));
-        assertEquals("MMMMIV", toRoman(4004));
-        assertEquals("MMIX", toRoman(2009));
-        assertEquals("II", toRoman(2));
-        assertEquals("XCIX", toRoman(99));
-    }
-
-    @Test
-    public void testFromRoman() {
-        assertEquals(2, fromRoman("II"));
-        assertEquals(1990, fromRoman("MCMXC"));
-        assertEquals(2008, fromRoman("MMVIII"));
-        assertEquals(6, fromRoman("VI"));
-        assertEquals(4, fromRoman("IV"));
-        assertEquals(2906, fromRoman("MMCMVI"));
-        assertEquals(3406, fromRoman("MMCMDVI"));
-    }
-
     public static String toRoman(int n) {
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -121,6 +97,30 @@ public class RomanNumerals {
         }
 
         return result;
+    }
+
+    @Test
+    public void testToRoman() {
+        assertEquals("XL", toRoman(40));
+        assertEquals("MCMXC", toRoman(1990));
+        assertEquals("MMCMVI", toRoman(2906));
+        assertEquals("IV", toRoman(4));
+        assertEquals("CDIV", toRoman(404));
+        assertEquals("MMMMIV", toRoman(4004));
+        assertEquals("MMIX", toRoman(2009));
+        assertEquals("II", toRoman(2));
+        assertEquals("XCIX", toRoman(99));
+    }
+
+    @Test
+    public void testFromRoman() {
+        assertEquals(2, fromRoman("II"));
+        assertEquals(1990, fromRoman("MCMXC"));
+        assertEquals(2008, fromRoman("MMVIII"));
+        assertEquals(6, fromRoman("VI"));
+        assertEquals(4, fromRoman("IV"));
+        assertEquals(2906, fromRoman("MMCMVI"));
+        assertEquals(3406, fromRoman("MMCMDVI"));
     }
 
 

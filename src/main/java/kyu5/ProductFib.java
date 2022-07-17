@@ -9,6 +9,22 @@ public class ProductFib {
 
     //5
 
+    public static long[] productFib(long prod) {
+        long n = 0, i = 1;
+        while (n < prod) {
+            n = getFibonacciValue(i) * getFibonacciValue(i + 1);
+            i++;
+        }
+        return new long[]{getFibonacciValue(i - 1), getFibonacciValue(i), n == prod ? 1 : 0};
+    }
+
+    public static long getFibonacciValue(final long n) {
+        // https://ru.stackoverflow.com/questions/39229/Последовательности-чисел-Фибоначчи
+        double p = (1 + Math.sqrt(5)) / 2;
+        double q = 1 / p;
+        return (long) ((Math.pow(p, n) + Math.pow(q, n)) / Math.sqrt(5));
+    }
+
     /**
      * The Fibonacci numbers are the numbers in the following integer sequence (Fn):
      * <p>
@@ -57,22 +73,6 @@ public class ProductFib {
     public void test() {
         assertArrayEquals(new long[]{55, 89, 1}, productFib(4895));
         assertArrayEquals(new long[]{89, 144, 0}, productFib(5895));
-    }
-
-    public static long[] productFib(long prod) {
-        long n = 0, i = 1;
-        while (n < prod) {
-            n = getFibonacciValue(i) * getFibonacciValue(i + 1);
-            i++;
-        }
-        return new long[]{getFibonacciValue(i - 1), getFibonacciValue(i), n == prod ? 1 : 0};
-    }
-
-    public static long getFibonacciValue(final long n) {
-        // https://ru.stackoverflow.com/questions/39229/Последовательности-чисел-Фибоначчи
-        double p = (1 + Math.sqrt(5)) / 2;
-        double q = 1 / p;
-        return (long) ((Math.pow(p, n) + Math.pow(q, n)) / Math.sqrt(5));
     }
 
 }

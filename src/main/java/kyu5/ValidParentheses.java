@@ -9,6 +9,26 @@ public class ValidParentheses {
 
     //5
 
+    private static boolean validParentheses(String parens) {
+        if (parens == null || parens.isEmpty()) {
+            return false;
+        }
+        int check = 0;
+        for (char c : parens.toCharArray()
+        ) {
+            if (c == '(') {
+                check++;
+            }
+            if (c == ')') {
+                check--;
+            }
+            if (check < 0) {
+                return false;
+            }
+        }
+        return check == 0;
+    }
+
     /**
      * Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid. The function should return true if the string is valid, and false if it's invalid.
      * <p>
@@ -36,29 +56,9 @@ public class ValidParentheses {
 
     @Test
     public void testTrue() {
-        assertTrue(validParentheses("(())((34()())())"));// true
-        assertTrue(validParentheses("()")); // true
-        assertTrue(validParentheses("((((()))))")); // true
-        assertTrue(validParentheses("(())((()))")); // true
-    }
-
-    private static boolean validParentheses(String parens) {
-        if (parens == null || parens.isEmpty()) {
-            return false;
-        }
-        int check = 0;
-        for (char c : parens.toCharArray()
-        ) {
-            if (c == '(') {
-                check++;
-            }
-            if (c == ')') {
-                check--;
-            }
-            if (check < 0) {
-                return false;
-            }
-        }
-        return check == 0;
+        assertTrue(validParentheses("(())((34()())())"));
+        assertTrue(validParentheses("()"));
+        assertTrue(validParentheses("((((()))))"));
+        assertTrue(validParentheses("(())((()))"));
     }
 }

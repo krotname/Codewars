@@ -8,22 +8,6 @@ public class VasyaClerk {
 
     //6 https://www.codewars.com/kata/555615a77ebc7c2c8a0000b8/train/java
 
-    /**
-     * The new "Avengers" movie has just been released! There are a lot of people at the cinema box office standing in a huge line. Each of them has a single 100, 50 or 25 dollar bill. An "Avengers" ticket costs 25 dollars.
-     * <p>
-     * Vasya is currently working as a clerk. He wants to sell a ticket to every single person in this line.
-     * <p>
-     * Can Vasya sell a ticket to every person and give change if he initially has no money and sells the tickets strictly in the order people queue?
-     * <p>
-     * Return YES, if Vasya can sell a ticket to every person and give change with the bills he has at hand at that moment. Otherwise return NO.
-     */
-
-    @Test
-    public void test() {
-        assertEquals("YES", Tickets(new int[]{25, 25, 50}));
-        assertEquals("NO", Tickets(new int[]{25, 100}));
-    }
-
     public static String Tickets(int[] peopleInLine) {
         if (peopleInLine == null || peopleInLine.length == 0) return "YES";
 
@@ -54,5 +38,21 @@ public class VasyaClerk {
             }
         }
         return "YES";
+    }
+
+    /**
+     * The new "Avengers" movie has just been released! There are a lot of people at the cinema box office standing in a huge line. Each of them has a single 100, 50 or 25 dollar bill. An "Avengers" ticket costs 25 dollars.
+     * <p>
+     * Vasya is currently working as a clerk. He wants to sell a ticket to every single person in this line.
+     * <p>
+     * Can Vasya sell a ticket to every person and give change if he initially has no money and sells the tickets strictly in the order people queue?
+     * <p>
+     * Return YES, if Vasya can sell a ticket to every person and give change with the bills he has at hand at that moment. Otherwise return NO.
+     */
+
+    @Test
+    public void test() {
+        assertEquals("YES", Tickets(new int[]{25, 25, 50}));
+        assertEquals("NO", Tickets(new int[]{25, 100}));
     }
 }

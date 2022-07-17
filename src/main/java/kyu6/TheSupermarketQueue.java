@@ -11,15 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TheSupermarketQueue {
 
-    @Test
-    public void testNormalCondition() {
-        assertEquals(9, solveSuperMarketQueue(new int[]{2, 2, 3, 3, 4, 4}, 2));
-        assertEquals(0, solveSuperMarketQueue(new int[]{}, 1));
-        assertEquals(15, solveSuperMarketQueue(new int[]{1, 2, 3, 4, 5}, 1));
-        assertEquals(5, solveSuperMarketQueue(new int[]{1, 2, 3, 4, 5}, 100));
-        assertEquals(19, solveSuperMarketQueue(new int[]{5, 7, 4, 5, 6, 5, 3, 1, 3, 1, 2, 1, 5, 5}, 3));
-    }
-
     public static int solveSuperMarketQueue(int[] customers, int n) {
 
         if (customers.length == 0) return 0;
@@ -68,5 +59,14 @@ public class TheSupermarketQueue {
         }
 
         return count;
+    }
+
+    @Test
+    public void testNormalCondition() {
+        assertEquals(9, solveSuperMarketQueue(new int[]{2, 2, 3, 3, 4, 4}, 2));
+        assertEquals(0, solveSuperMarketQueue(new int[]{}, 1));
+        assertEquals(15, solveSuperMarketQueue(new int[]{1, 2, 3, 4, 5}, 1));
+        assertEquals(5, solveSuperMarketQueue(new int[]{1, 2, 3, 4, 5}, 100));
+        assertEquals(19, solveSuperMarketQueue(new int[]{5, 7, 4, 5, 6, 5, 3, 1, 3, 1, 2, 1, 5, 5}, 3));
     }
 }

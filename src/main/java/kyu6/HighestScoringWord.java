@@ -13,6 +13,12 @@ public class HighestScoringWord {
 
     private static final int ASCII_INT = 96;
 
+    public static String high(String s) {
+        return Arrays.stream(s.split("\\s"))
+                .max(Comparator.comparingInt(word -> word.chars().map(c -> Character.toLowerCase(c) - ASCII_INT).sum()))
+                .orElseThrow();
+    }
+
     @Test
     public void sampleTests() {
         assertEquals("taxi", HighestScoringWord.high("man i need a taxi up to ubud"));
@@ -27,11 +33,5 @@ public class HighestScoringWord {
         assertEquals("bb", HighestScoringWord.high("bb d"));
         assertEquals("d", HighestScoringWord.high("d bb"));
         assertEquals("aaa", HighestScoringWord.high("aaa b"));
-    }
-
-    public static String high(String s) {
-        return Arrays.stream(s.split("\\s"))
-                .max(Comparator.comparingInt(word -> word.chars().map(c -> Character.toLowerCase(c) - ASCII_INT).sum()))
-                .orElseThrow();
     }
 }

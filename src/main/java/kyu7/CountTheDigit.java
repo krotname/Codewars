@@ -2,14 +2,9 @@ package kyu7;
 
 import org.junit.jupiter.api.Test;
 
-public class CountTheDigit {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-    @Test
-    public void test() {
-        System.out.println(nbDig(11011, 2)); // 9481
-        System.out.println(nbDig(5750, 0)); // 4700
-        System.out.println(nbDig(10, 0)); // 3
-    }
+public class CountTheDigit {
 
     public static int nbDig(int n, int d) {
         long count = 0;
@@ -18,5 +13,12 @@ public class CountTheDigit {
             count += s.chars().filter(ch -> ch == Character.forDigit(d, 10)).count();
         }
         return (int) count;
+    }
+
+    @Test
+    public void test() {
+        assertEquals(9481, nbDig(11011, 2));
+        assertEquals(4700, (nbDig(5750, 0)));
+        assertEquals(3, (nbDig(10, 0)));
     }
 }
