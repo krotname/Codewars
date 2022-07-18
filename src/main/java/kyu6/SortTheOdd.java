@@ -29,6 +29,7 @@ public class SortTheOdd {
         return array;
     }
 
+
     public static int[] sortArrayStream(int[] array) {
         LinkedList<Integer> oddSorted = IntStream
                 .range(0, array.length)
