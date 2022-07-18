@@ -14,8 +14,8 @@ public class SpinWords {
         for (String curentWord : arrWords
         ) {
             if (curentWord.length() >= 5) {
-                StringBuilder curentSb = new StringBuilder(curentWord);
-                resultSb.append(curentSb.reverse());
+                StringBuilder currentSb = new StringBuilder(curentWord);
+                resultSb.append(currentSb.reverse());
             } else {
                 resultSb.append(curentWord);
             }

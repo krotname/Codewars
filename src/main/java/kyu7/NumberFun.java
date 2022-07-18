@@ -2,6 +2,8 @@ package kyu7;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class NumberFun {
 
     public static long findNextSquare(long sq) {
@@ -12,8 +14,8 @@ public class NumberFun {
 
     @Test
     public void test() {
-        System.out.println(findNextSquare(121));
-        System.out.println(findNextSquare(625));
-        System.out.println(findNextSquare(114));
+        assertEquals(144, findNextSquare(121));
+        assertEquals(676, findNextSquare(625));
+        assertEquals(-1, findNextSquare(114));
     }
 }

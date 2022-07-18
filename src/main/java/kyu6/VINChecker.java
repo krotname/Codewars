@@ -80,7 +80,9 @@ public class VINChecker {
     }
 
     /**
-     * In this Kata you should write a function to validate VINs, Vehicle Identification Numbers. Valid VINs are exactly 17 characters long, its composed of capital letters (except "I","O" and "Q") and digits. The 9th character is a MODULUS 11 check digit. Here is how it works:
+     * In this Kata you should write a function to validate VINs, Vehicle Identification Numbers. Valid VINs
+     * are exactly 17 characters long, its composed of capital letters (except "I","O" and "Q") and digits.
+     * The 9th character is a MODULUS 11 check digit. Here is how it works:
      * <p>
      * 1. Letters are converted to numbers
      * Following the table bellow, letters are converted to numbers. "I","O" and "Q" are invalid characters.
@@ -114,7 +116,8 @@ public class VINChecker {
      * Ex.:
      * 5YJ3E1EAXHF000347 is a valid VIN.
      * Input Validation
-     * Input validation is part of the Kata, VINs with lenghts different than 17 characters or containing invalid characters should return False as well.
+     * Input validation is part of the Kata, VINs with lenghts different than 17 characters or containing
+     * invalid characters should return False as well.
      */
 
     @Test

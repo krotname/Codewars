@@ -2,11 +2,11 @@ package other;
 
 import org.junit.jupiter.api.Test;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AllMostPopularityKyu8 {
 
@@ -122,22 +122,12 @@ public class AllMostPopularityKyu8 {
         return result; //return an array with count of positives and sum of negatives
     }
 
-    public static String findNeedle(Object[] haystack) {
-        if (haystack == null || haystack.length == 0) return "not found";
-        for (int i = 0; i < haystack.length; i++) {
-            if (haystack[i] != null && haystack[i].equals("needle")) {
-                return "found the needle at position " + i;
-            }
-        }
-        return "not found";
-    }
-
     public static String abbrevName(String name) {
         String[] s = name.split(" ");
         return s[0].substring(0, 1).toUpperCase() + "." + s[1].substring(0, 1).toUpperCase();
     }
 
-    public static int past(int h, int m, int s) {
+    public static int timeInSeconds(int h, int m, int s) {
         return s * 1000 + m * 60 * 1000 + h * 60 * 60 * 1000;
     }
 
@@ -180,11 +170,17 @@ public class AllMostPopularityKyu8 {
         return x.replaceAll("\\s", "");
     }
 
-    public static String numberToString(int num) {
-        return String.valueOf(num);
+    public static String numberToString(Number num) {
+        DecimalFormat format = new DecimalFormat();
+        format.setDecimalSeparatorAlwaysShown(false);
+        return format.format(num);
     }
 
     public static int findSmallestInt(int[] args) {
+        return Arrays.stream(args).sorted().findFirst().orElseThrow();
+    }
+
+    public static int findSmallestIntBadO(int[] args) {
         if (args == null || args.length == 0) return 0;
         if (args.length == 1) return args[0];
         int min = args[0];
@@ -196,10 +192,10 @@ public class AllMostPopularityKyu8 {
         return min;
     }
 
-    public static int countSheeps(Boolean[] arrayOfSheeps) {
-        if (arrayOfSheeps == null || arrayOfSheeps.length == 0) return 0;
+    public static int countSheep(Boolean[] arrayOfSheep) {
+        if (arrayOfSheep == null || arrayOfSheep.length == 0) return 0;
         int count = 0;
-        for (Boolean b : arrayOfSheeps
+        for (Boolean b : arrayOfSheep
         ) {
             if (b != null && b) {
                 count++;
@@ -219,7 +215,7 @@ public class AllMostPopularityKyu8 {
     }
 
     public static int century(int number) {
-        return (number - 1) / 100 + 1;
+        return (number) / 100 + 1;
     }
 
     public static int liters(double time) {
@@ -243,55 +239,91 @@ public class AllMostPopularityKyu8 {
         } else if (op.equals("/") && v2 != 0) {
             return v1 / v2;
         }
-        return 0;
+        throw new IllegalArgumentException();
     }
 
     @Test
     public void testAllMostPopularityKyu8() {
         assertEquals("[1, 3, 2, 5, 3]", Arrays.toString(digitize(35231)));
 
-        assertEquals( 61000, past(0, 1, 1));
+        assertEquals(61000, timeInSeconds(0, 1, 1));
 
-        assertEquals( 0, liters(0.4));
+        assertEquals(0, liters(0.4));
 
-        assertEquals( "P.F", abbrevName("patrick fen"));
+        assertEquals("P.F", abbrevName("patrick fen"));
 
-        assertEquals( 2, getAverage(new int[]{1, 2, 3}));
+        assertEquals(2, getAverage(new int[]{1, 2, 3}));
 
-        assertEquals( "eating like I", reverseWords("I like eating"));
+        assertEquals("eating like I", reverseWords("I like eating"));
 
-        assertEquals( "01011110001100111", fakeBin("45385593107843568"));
+        assertEquals("01011110001100111", fakeBin("45385593107843568"));
 
-        assertEquals( "[10, -65]", Arrays.toString(countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
+        assertEquals("[10, -65]",
+                Arrays.toString(
+                        countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})));
 
-        assertEquals( 16, sumArray(new int[]{6, 2, 1, 8, 10}));
-        assertEquals( -50, sumArray(new int[]{-1, -50, -100}));
+        assertEquals(16, sumArray(new int[]{6, 2, 1, 8, 10}));
+        assertEquals(-50, sumArray(new int[]{-1, -50, -100}));
 
-        assertEquals( "Even", evenOrOdd(6));
-        assertEquals( "Odd", evenOrOdd(7));
+        assertEquals("Even", evenOrOdd(6));
+        assertEquals("Odd", evenOrOdd(7));
 
-        assertEquals( -1, opposite(1));
-        assertEquals( 2, opposite(-2));
-        assertEquals( -2147483647, opposite(Integer.MAX_VALUE));
+        assertEquals(-1, opposite(1));
+        assertEquals(2, opposite(-2));
+        assertEquals(-2147483647, opposite(Integer.MAX_VALUE));
 
-        assertEquals( 15, sumR(new int[]{1, 2, 3, 4, 5}));
-        assertEquals( 13, sumR(new int[]{1, -2, 3, 4, 5}));
-        assertEquals( 0, sumR(new int[]{}));
-        assertEquals( 0, sumR(new int[]{-1, -2, -3, -4, -5}));
-        assertEquals( 9, sumR(new int[]{-1, 2, 3, 4, -5}));
+        assertEquals(15, sumR(new int[]{1, 2, 3, 4, 5}));
+        assertEquals(13, sumR(new int[]{1, -2, 3, 4, 5}));
+        assertEquals(0, sumR(new int[]{}));
+        assertEquals(0, sumR(new int[]{-1, -2, -3, -4, -5}));
+        assertEquals(9, sumR(new int[]{-1, 2, 3, 4, -5}));
 
-        assertEquals( "IIIIII", repeatStr(6, "I"));
-        assertEquals( "HelloHelloHelloHelloHello", repeatStr(5, "Hello"));
+        assertEquals("IIIIII", repeatStr(6, "I"));
+        assertEquals("HelloHelloHelloHelloHello", repeatStr(5, "Hello"));
 
-        assertEquals( "ountr", removeFirstAndLastChar("country"));
+        assertEquals("ountr", removeFirstAndLastChar("country"));
 
-        assertEquals( 68, stringToNumber("68"));
+        assertEquals("Yes", boolToWord(true));
+        assertEquals("No", boolToWord(false));
+
+        assertEquals("No", reversedStrings("oN"));
+
+        assertEquals(15, summation(5));
+
+        assertEquals("iampatrickfen", noSpace("i am patrick fen"));
+
+        assertEquals("5", numberToString(5L));
+        assertEquals("5", numberToString(5.0));
+
+        assertEquals(1, findSmallestInt(new int[]{5, 1, 9}));
+
+        assertEquals(1, findSmallestIntBadO(new int[]{5, 1, 9}));
+
+        assertEquals(1, countSheep(new Boolean[]{false, true, false}));
+
+        assertEquals(107, squareSum(new int[]{5, 1, 9}));
+
+        assertEquals(68, stringToNumber("68"));
+
+        assertEquals(20, century(1995));
+        assertEquals(20, century(1999));
+        assertEquals(21, century(2000));
+
+
+        assertEquals(4, basicMath("+", 2, 2));
+        assertEquals(4, basicMath("*", 2, 2));
+        assertEquals(0, basicMath("-", 2, 2));
+        assertEquals(1, basicMath("/", 2, 2));
+
+
+        assertTrue(isDivisible(10, 5, 2));
+        assertFalse(isDivisible(10, 5, 3));
+
         assertArrayEquals(new int[]{3, -2,}, invert(new int[]{-3, 2,}));
-        assertArrayEquals( new int[]{-6, 4,}, allTo2(new int[]{-3, 2,}));
-        assertEquals( 68, stringToNumber("68"));
-        assertEquals( 68, stringToNumber("68"));
-        assertEquals( 68, stringToNumber("68"));
+        assertArrayEquals(new int[]{-6, 4,}, allTo2(new int[]{-3, 2,}));
+
+        assertEquals(68, stringToNumber("68"));
+        assertEquals(68, stringToNumber("68"));
+        assertEquals(68, stringToNumber("68"));
     }
-
-
 }

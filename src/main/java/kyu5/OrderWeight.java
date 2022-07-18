@@ -21,9 +21,11 @@ public class OrderWeight {
     }
 
     /**
-     * My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with the weights of members is published and each month he is the last on the list which means he is the heaviest.
+     * My friend John and I are members of the "Fat to Fit Club (FFC)". John is worried because each month a list with
+     * the weights of members is published and each month he is the last on the list which means he is the heaviest.
      * <p>
-     * I am the one who establishes the list so I told him: "Don't worry any more, I will modify the order of the list". It was decided to attribute a "weight" to numbers. The weight of a number will be from now on the sum of its digits.
+     * I am the one who establishes the list so I told him: "Don't worry any more, I will modify the order of the list".
+     * It was decided to attribute a "weight" to numbers. The weight of a number will be from now on the sum of its digits.
      * <p>
      * For example 99 will have "weight" 18, 100 will have "weight" 1 so in the list 100 will come before 99.
      * <p>
@@ -40,7 +42,8 @@ public class OrderWeight {
      * All numbers in the list are positive numbers and the list can be empty.
      * <p>
      * Notes
-     * it may happen that the input string have leading, trailing whitespaces and more than a unique whitespace between two consecutive numbers
+     * it may happen that the input string have leading, trailing whitespaces and more than a unique whitespace
+     * between two consecutive numbers
      * For C: The result is freed.
      */
 

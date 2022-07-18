@@ -24,7 +24,9 @@ public class FindMissingLetter {
         int indexStart = ALPHABET.indexOf(Character.toLowerCase(array[0]));
         for (int i = 0; i < array.length; i++) {
             if (!ALPHABET.get(i + indexStart).equals(Character.toLowerCase(array[i])))
-                return array[0] >= A ? ALPHABET.get(i + indexStart) : Character.toUpperCase(ALPHABET.get(i + indexStart));
+                return array[0] >= A ?
+                        ALPHABET.get(i + indexStart) :
+                        Character.toUpperCase(ALPHABET.get(i + indexStart));
         }
         return ' ';
     }

@@ -40,7 +40,8 @@ public class ArrayDiff {
     }
 
     /**
-     * Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+     * Your goal in this kata is to implement a difference function, which subtracts one
+     * list from another and returns the result.
      * <p>
      * It should remove all values from list a, which are present in list b keeping their order.
      * <p>
@@ -52,14 +53,16 @@ public class ArrayDiff {
 
     @Test
     public void arrayDiffTest() {
-        assertArrayEquals(arrayDiff(new int[]{1, 2, 3, 4, 4, 5, 6, 7, 7, 7}, new int[]{7, 1}), new int[]{2, 3, 4, 4, 5, 6});
+        assertArrayEquals(arrayDiff(new int[]{1, 2, 3, 4, 4, 5, 6, 7, 7, 7},
+                new int[]{7, 1}), new int[]{2, 3, 4, 4, 5, 6});
         assertArrayEquals(arrayDiff(new int[]{1, 2}, new int[]{1}), new int[]{2});
         assertArrayEquals(arrayDiff(new int[]{1, 2, 2}, new int[]{1}), new int[]{2, 2});
     }
 
     @Test
     public void arrayDiffImperativeTest() {
-        assertArrayEquals(arrayDiffImperative(new int[]{1, 2, 3, 4, 4, 5, 6, 7, 7, 7}, new int[]{7, 1}), new int[]{2, 3, 4, 4, 5, 6});
+        assertArrayEquals(arrayDiffImperative(new int[]{1, 2, 3, 4, 4, 5, 6, 7, 7, 7}, new int[]{7, 1}),
+                new int[]{2, 3, 4, 4, 5, 6});
         assertArrayEquals(arrayDiffImperative(new int[]{1, 2}, new int[]{1}), new int[]{2});
         assertArrayEquals(arrayDiffImperative(new int[]{1, 2, 2}, new int[]{1}), new int[]{2, 2});
     }

@@ -34,9 +34,11 @@ public class MaximumSubarraySum {
     }
 
     /**
-     * The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
+     * The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence
+     * in an array or list of integers:
      * <p>
-     * Easy case is when the list is made up of only positive numbers and the maximum sum is the sum of the whole array. If the list is made up of only negative numbers, return 0 instead.
+     * Easy case is when the list is made up of only positive numbers and the maximum sum is the sum of the whole array.
+     * If the list is made up of only negative numbers, return 0 instead.
      * <p>
      * Empty list is considered to have zero greatest sum. Note that the empty list or array is also a valid sublist/subarray.
      */

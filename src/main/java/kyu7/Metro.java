@@ -19,7 +19,7 @@ public class Metro {
 
     @Test
     public void test1() {
-        ArrayList<int[]> list = new ArrayList<int[]>();
+        ArrayList<int[]> list = new ArrayList<>();
         list.add(new int[]{10, 0});
         list.add(new int[]{3, 5});
         list.add(new int[]{2, 5});

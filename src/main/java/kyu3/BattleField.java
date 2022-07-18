@@ -34,16 +34,6 @@ public class BattleField {
                     {0, 0, 0, 0, 0, 0, 0, 1, 0, 0},
                     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
-    @Test
-    public void testGood() {
-        assertTrue(fieldValidator(BATTLE_FIELD));
-    }
-
-    @Test
-    public void testBad() {
-        assertFalse(fieldValidator(BAD_BATTLE_FIELD));
-    }
-
     public static boolean fieldValidator(int[][] field) {
         int battleshipCount = 0;
         int cruisersCount = 0;
@@ -93,7 +83,8 @@ public class BattleField {
                     destroyersCount++;
                 }
 
-                if (fieldWithEdges[i][j] == 1 && fieldWithEdges[i][j + 1] == 1 && fieldWithEdges[i][j + 2] == 1 &&
+                if (fieldWithEdges[i][j] == 1 && fieldWithEdges[i][j + 1] == 1 &&
+                        fieldWithEdges[i][j + 2] == 1 &&
                         fieldWithEdges[i - 1][j - 1] == 0 &&
                         fieldWithEdges[i - 1][j] == 0 &&
                         fieldWithEdges[i - 1][j + 3] == 0 &&
@@ -106,7 +97,8 @@ public class BattleField {
                     cruisersCount++;
                 }
 
-                if (fieldWithEdges[i][j] == 1 && fieldWithEdges[i + 1][j] == 1 && fieldWithEdges[i + 2][j] == 1 &&
+                if (fieldWithEdges[i][j] == 1 && fieldWithEdges[i + 1][j] == 1 &&
+                        fieldWithEdges[i + 2][j] == 1 &&
                         fieldWithEdges[i - 1][j - 1] == 0 &&
                         fieldWithEdges[i - 1][j] == 0 &&
                         fieldWithEdges[i - 1][j + 1] == 0 &&
@@ -118,7 +110,8 @@ public class BattleField {
                 ) {
                     cruisersCount++;
                 }
-                if (fieldWithEdges[i][j] == 1 && fieldWithEdges[i][j + 1] == 1 && fieldWithEdges[i][j + 2] == 1 && fieldWithEdges[i][j + 3] == 1 &&
+                if (fieldWithEdges[i][j] == 1 && fieldWithEdges[i][j + 1] == 1 &&
+                        fieldWithEdges[i][j + 2] == 1 && fieldWithEdges[i][j + 3] == 1 &&
                         fieldWithEdges[i - 1][j - 1] == 0 &&
                         fieldWithEdges[i - 1][j] == 0 &&
                         fieldWithEdges[i - 1][j + 4] == 0 &&
@@ -130,7 +123,8 @@ public class BattleField {
                 ) {
                     battleshipCount++;
                 }
-                if (fieldWithEdges[i][j] == 1 && fieldWithEdges[i + 1][j] == 1 && fieldWithEdges[i + 2][j] == 1 && fieldWithEdges[i + 3][j] == 1 &&
+                if (fieldWithEdges[i][j] == 1 && fieldWithEdges[i + 1][j] == 1 &&
+                        fieldWithEdges[i + 2][j] == 1 && fieldWithEdges[i + 3][j] == 1 &&
                         fieldWithEdges[i - 1][j - 1] == 0 &&
                         fieldWithEdges[i - 1][j] == 0 &&
                         fieldWithEdges[i - 1][j + 1] == 0 &&
@@ -145,7 +139,8 @@ public class BattleField {
             }
         }
 
-        if (battleshipCount == 1 && cruisersCount == 2 && destroyersCount == 3 && submarinesCount == 4) {
+        if (battleshipCount == 1 && cruisersCount == 2 && destroyersCount == 3 &&
+                submarinesCount == 4) {
             result = true;
         }
         return result;
@@ -161,5 +156,15 @@ public class BattleField {
             for (int j = 1; j < fieldWithEdges[i].length - 1; j++)
                 fieldWithEdges[i][j] = field[i - 1][j - 1];
         return fieldWithEdges;
+    }
+
+    @Test
+    public void testGood() {
+        assertTrue(fieldValidator(BATTLE_FIELD));
+    }
+
+    @Test
+    public void testBad() {
+        assertFalse(fieldValidator(BAD_BATTLE_FIELD));
     }
 }

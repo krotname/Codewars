@@ -20,8 +20,9 @@ public class Maskify {
         assertEquals("1", Maskify.maskify("1"));
         assertEquals("", Maskify.maskify(""));
 
-        // "What was the name of your first pet?"
-        assertEquals("##ippy", Maskify.maskify("Skippy"));
-        assertEquals("####################################man!", Maskify.maskify("Nananananananananananananananana Batman!"));
+        assertEquals("##ippy",
+                Maskify.maskify("Skippy"));
+        assertEquals("####################################man!",
+                Maskify.maskify("Nananananananananananananananana Batman!"));
     }
 }

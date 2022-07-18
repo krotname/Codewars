@@ -18,7 +18,7 @@ public class DontGiveMeFive {
 
     @Test
     public void test() {
-        assertEquals(8, dontGiveMeFive(1, 9)); //8
-        assertEquals(12, dontGiveMeFive(4, 17)); //8
+        assertEquals(8, dontGiveMeFive(1, 9));
+        assertEquals(12, dontGiveMeFive(4, 17));
     }
 }

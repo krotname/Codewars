@@ -161,7 +161,8 @@ public class MorseCodeDecoder {
                 }
             }
             if (chars1digits[i] == ASCII_0) {
-                if (chars1digits[i + 1] == ASCII_0 && chars1digits[i + 2] == ASCII_0 && chars1digits[i + 3] == ASCII_0 && chars1digits[i + 4] == ASCII_0 && chars1digits[i + 5] == ASCII_0 && chars1digits[i + 6] == ASCII_0) {
+                if (chars1digits[i + 1] == ASCII_0 && chars1digits[i + 2] == ASCII_0 && chars1digits[i + 3] == ASCII_0 &&
+                        chars1digits[i + 4] == ASCII_0 && chars1digits[i + 5] == ASCII_0 && chars1digits[i + 6] == ASCII_0) {
                     result.append("   ");
                     i += 6;
                 } else if (chars1digits[i + 1] == ASCII_0 && chars1digits[i + 2] == ASCII_0) {

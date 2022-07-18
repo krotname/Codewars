@@ -2,7 +2,7 @@ package kyu7;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class MinMax {
 
@@ -23,7 +23,7 @@ public class MinMax {
 
     @Test
     public void test() {
-        System.out.println(Arrays.toString(minMax(new int[]{1, 2, 3, 4, 5})));
-        System.out.println(Arrays.toString(minMax(new int[]{2334454, 5})));
+        assertArrayEquals(new int[]{1, 5}, minMax(new int[]{1, 2, 3, 4, 5}));
+        assertArrayEquals(new int[]{5, 2334454}, minMax(new int[]{2334454, 5}));
     }
 }

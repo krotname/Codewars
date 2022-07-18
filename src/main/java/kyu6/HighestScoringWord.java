@@ -15,7 +15,9 @@ public class HighestScoringWord {
 
     public static String high(String s) {
         return Arrays.stream(s.split("\\s"))
-                .max(Comparator.comparingInt(word -> word.chars().map(c -> Character.toLowerCase(c) - ASCII_INT).sum()))
+                .max(Comparator.comparingInt(word -> word.chars()
+                        .map(c -> Character.toLowerCase(c) - ASCII_INT)
+                        .sum()))
                 .orElseThrow();
     }
 

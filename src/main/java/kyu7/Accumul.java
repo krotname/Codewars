@@ -2,6 +2,8 @@ package kyu7;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class Accumul {
 
     //7
@@ -36,6 +38,7 @@ public class Accumul {
 
     @Test
     public void test() {
-        System.out.println(accum("ZpglnRxqenU"));
+        assertEquals("Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu",
+                accum("ZpglnRxqenU"));
     }
 }

@@ -37,7 +37,6 @@ public class OtusInterview {
         int[] arr = {1, 2, 3, 3};
         OptionalInt firstDuplicate = findFirstDuplicateStream(arr);
         assertEquals(firstDuplicate, OptionalInt.of(3));
-        firstDuplicate.ifPresentOrElse(System.out::println, () -> System.out.println(NOT_FOUND));
     }
 
     @Test
@@ -45,7 +44,6 @@ public class OtusInterview {
         int[] arr = {1, 2, 3, 4};
         OptionalInt firstDuplicate = findFirstDuplicateStream(arr);
         assertEquals(firstDuplicate, OptionalInt.empty());
-        firstDuplicate.ifPresentOrElse(System.out::println, () -> System.out.println(NOT_FOUND));
     }
 
     @Test
@@ -53,7 +51,6 @@ public class OtusInterview {
         int[] arr = {1, 2, 3, 3};
         OptionalInt firstDuplicate = findFirstDuplicate(arr);
         assertEquals(firstDuplicate, OptionalInt.of(3));
-        firstDuplicate.ifPresentOrElse(System.out::println, () -> System.out.println(NOT_FOUND));
     }
 
     @Test
@@ -61,7 +58,6 @@ public class OtusInterview {
         int[] arr = {-1, -1, 2, 3};
         OptionalInt firstDuplicate = findFirstDuplicate(arr);
         assertEquals(firstDuplicate, OptionalInt.of(-1));
-        firstDuplicate.ifPresentOrElse(System.out::println, () -> System.out.println(NOT_FOUND));
     }
 
     @Test
@@ -69,6 +65,5 @@ public class OtusInterview {
         int[] arr = {1, 2, 3, 4};
         OptionalInt firstDuplicate = findFirstDuplicate(arr);
         assertEquals(firstDuplicate, OptionalInt.empty());
-        firstDuplicate.ifPresentOrElse(System.out::println, () -> System.out.println(NOT_FOUND));
     }
 }

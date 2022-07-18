@@ -30,15 +30,17 @@ public class SortTheOdd {
     }
 
     public static int[] sortArrayStream(int[] array) {
-        LinkedList<Integer> oddSorted = Arrays.stream(array)
-                .filter(x -> x % 2 != 0)
+        LinkedList<Integer> oddSorted = IntStream
+                .range(0, array.length)
+                .filter(x -> x % 2 == 0)
+                .map(x -> array[x])
                 .sorted()
                 .boxed()
                 .collect(Collectors.toCollection(LinkedList::new));
 
         IntStream.range(0, array.length).forEach(
                 x -> {
-                    if (array[x] % 2 != 0) {
+                    if (x % 2 == 0) {
                         array[x] = oddSorted.poll();
                     }
                 });
@@ -48,15 +50,15 @@ public class SortTheOdd {
 
     @Test
     public void exampleTestStream() {
+        assertArrayEquals(new int[]{0, 3, 1, 8, 5}, sortArrayStream(new int[]{5, 3, 1, 8, 0}));
         assertArrayEquals(new int[]{1, 3, 2, 8, 5, 4}, sortArrayStream(new int[]{5, 3, 2, 8, 1, 4}));
-        assertArrayEquals(new int[]{1, 3, 5, 8, 0}, sortArrayStream(new int[]{5, 3, 1, 8, 0}));
         assertArrayEquals(new int[]{}, sortArrayStream(new int[]{}));
     }
 
     @Test
     public void exampleTest() {
+        assertArrayEquals(new int[]{0, 3, 1, 8, 5}, sortArray(new int[]{5, 3, 1, 8, 0}));
         assertArrayEquals(new int[]{1, 3, 2, 8, 5, 4}, sortArray(new int[]{5, 3, 2, 8, 1, 4}));
-        // assertArrayEquals(new int[]{1, 3, 5, 8, 0}, sortArray(new int[]{5, 3, 1, 8, 0})); // todo check that
         assertArrayEquals(new int[]{}, sortArray(new int[]{}));
     }
 }

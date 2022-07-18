@@ -22,9 +22,12 @@ public class TowerBuilder {
 
     @Test
     public void basicTests() {
-        assertEquals(String.join(",", "*"), String.join(",", towerBuilder(1)));
-        assertEquals(String.join(",", " * ", "***"), String.join(",", towerBuilder(2)));
-        assertEquals(String.join(",", "  *  ", " *** ", "*****"), String.join(",", towerBuilder(3)));
+        assertEquals(String.join(",", "*"),
+                String.join(",", towerBuilder(1)));
+        assertEquals(String.join(",", " * ", "***"),
+                String.join(",", towerBuilder(2)));
+        assertEquals(String.join(",", "  *  ", " *** ", "*****"),
+                String.join(",", towerBuilder(3)));
     }
 
     @Test

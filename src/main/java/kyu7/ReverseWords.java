@@ -19,7 +19,9 @@ public class ReverseWords {
 
     @Test
     public void test() {
-        assertEquals("ehT kciuq nworb xof spmuj revo eht yzal .god", reverseWords("The quick brown fox jumps over the lazy dog."));
-        assertEquals("   ", reverseWords("   "));
+        assertEquals("ehT kciuq nworb xof spmuj revo eht yzal .god",
+                reverseWords("The quick brown fox jumps over the lazy dog."));
+        assertEquals("   ",
+                reverseWords("   "));
     }
 }

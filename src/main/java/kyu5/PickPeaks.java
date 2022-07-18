@@ -15,9 +15,9 @@ public class PickPeaks {
     private static final String PEAKS = "peaks";
 
     /**
-     * /\     /--\
+     *     /\     /--\
      * \  /  \   /    \  вверх vector true, а вниз false
-     * \/    \_/
+     *  \/    \_/
      */
 
     public static Map<String, List<Integer>> getPeaks(int[] arr) {
