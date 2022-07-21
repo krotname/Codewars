@@ -2,10 +2,7 @@ package kyu6;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -21,10 +18,11 @@ public class SortTheOdd {
         for (int i = 0; i < array.length; i += 2) {
             odd.add(array[i]);
         }
-        List<Integer> sortedOdd = odd.stream().sorted().toList();
+
+        Collections.sort(odd);
 
         for (int i = 0; i < array.length; i += 2) {
-            array[i] = sortedOdd.get((int) (i / 2.0 + 0.5));
+            array[i] = odd.get((int) (i / 2.0 + 0.5));
         }
         return array;
     }
@@ -41,7 +39,7 @@ public class SortTheOdd {
         IntStream.range(0, array.length).forEach(
                 x -> {
                     if (x % 2 == 0) {
-                        array[x] = oddSorted.poll();
+                        array[x] = oddSorted.pollFirst();
                     }
                 });
 
