@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,7 +14,7 @@ public class MaximumSequenceWithOneZero {
      * что она может быть разделена только одним 0. Пример вывода: 1,0,1,1,1,0,0,1,1,1 -> 4.
      */
     public static int maximumSequenceWithOneZero(List<Integer> b) {
-        if (b.size() == 0) return 0;
+        if (Objects.isNull(b) || b.isEmpty()) return 0;
         if (b.size() == 1 && b.get(0) == 1) return 1;
         if (b.size() == 1 && b.get(0) == 0) return 0;
 
