@@ -38,19 +38,19 @@ public class MaximumSequenceWithOneZero {
     }
 
     @Test
-    void algorithm2Test() {
+    void testMaximumSequenceWithOneZero1() {
         List<Integer> bytes = List.of(1, 0, 1, 1, 1, 0, 0, 1, 1, 1);
         assertEquals(4, maximumSequenceWithOneZero(bytes));
     }
 
     @Test
-    void algorithm2Test2() {
+    void testMaximumSequenceWithOneZero2() {
         List<Integer> bytes = List.of(1, 1, 1, 1, 1, 0, 1, 1, 1, 1);
         assertEquals(9, maximumSequenceWithOneZero(bytes));
     }
 
     @Test
-    void algorithm2Test3() {
+    void testMaximumSequenceWithOneZero3() {
         List<Integer> bytes = List.of(1, 1, 1, 1, 1, 0, 1, 1, 0, 0);
         assertEquals(7, maximumSequenceWithOneZero(bytes));
     }
