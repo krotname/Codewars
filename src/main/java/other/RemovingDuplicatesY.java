@@ -5,16 +5,17 @@ import org.junit.jupiter.api.Test;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
 public class RemovingDuplicatesY {
-    private static int currentInt = Integer.MIN_VALUE;
+    private static double currentInt = Double.MIN_VALUE;
 
     public static void main(String[] args) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             String inputLine;
             while (!(inputLine = br.readLine()).trim().equals("")) {
-                var inputInt = Integer.parseInt(inputLine);
+                var inputInt = Double.parseDouble(inputLine);
                 calc(inputInt).ifPresent(System.out::println);
             }
         } catch (IOException e) {
@@ -22,12 +23,12 @@ public class RemovingDuplicatesY {
         }
     }
 
-    public static OptionalInt calc(int input) {
+    public static OptionalDouble calc(double input) {
         if (input != currentInt) {
             currentInt = input;
-            return OptionalInt.of(currentInt);
+            return OptionalDouble.of(currentInt);
         }
-        return OptionalInt.empty();
+        return OptionalDouble.empty();
     }
 
     @Test
