@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.OptionalDouble;
-import java.util.OptionalInt;
 
 public class RemovingDuplicatesY {
     private static double currentInt = Double.MIN_VALUE;
