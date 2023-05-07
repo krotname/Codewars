@@ -2,9 +2,6 @@ package leetcode;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BestTimeToBuyAndSellStock {
@@ -20,17 +17,19 @@ public class BestTimeToBuyAndSellStock {
      */
 
     public static int maxProfit1(int[] prices) {
-        var profits = new ArrayList<Integer>();
+        var maxProfits = 0;
         for (int i = 0; i < prices.length; i++) {
             var currentMax = 0;
             for (int j = i + 1; j < prices.length; j++) {
                 if (prices[j] > prices[i]) {
                     currentMax = Math.max(currentMax, (prices[j] - prices[i]));
+                } else {
+                    break;
                 }
             }
-            profits.add(currentMax);
+            maxProfits = Math.max(currentMax, maxProfits);
         }
-        return profits.stream().max(Comparator.naturalOrder()).orElse(0);
+        return maxProfits;
     }
 
     @Test
