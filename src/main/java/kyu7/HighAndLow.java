@@ -24,8 +24,6 @@ public class HighAndLow {
     public static Integer high(String numbers) {
         return Arrays.stream(numbers.split("\\s"))
                 .map(Integer::valueOf)
-                .toList()
-                .stream()
                 .max(Comparator.naturalOrder())
                 .orElseThrow();
     }
