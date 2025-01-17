@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,11 +12,12 @@ public class OrderWeight {
     //5 https://www.codewars.com/kata/55c6126177c9441a570000cc/train/java
 
     public static String orderWeight(String string) {
-        String[] s = string.trim().split("\\s");
+        if (string == null || string.trim().isEmpty()) {
+            return "";
+        }
+        String[] s = string.trim().split("\\s+"); // Изменено на "\\s+"
         Arrays.sort(s, new WeightComparator());
-        return Arrays.stream(s)
-                .map(String::valueOf)
-                .collect(Collectors.joining(" "));
+        return String.join(" ", s);
     }
 
     /**
@@ -65,18 +65,18 @@ public class OrderWeight {
         public static int weight(String string) {
             int r = 0;
             for (char c : string.toCharArray()) {
-                r += Integer.parseInt(String.valueOf(c));
+                r += c - '0';
             }
             return r;
         }
 
         @Override
         public int compare(String s, String t1) {
-            int i = weight(s) - weight(t1);
-            if (i == 0) {
-                i = s.compareTo(t1);
+            int weightDifference = Integer.compare(weight(s), weight(t1));
+            if (weightDifference != 0) {
+                return weightDifference;
             }
-            return i;
+            return s.compareTo(t1);
         }
     }
 }
