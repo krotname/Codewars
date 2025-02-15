@@ -2,6 +2,9 @@ package kyu7;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Accumul {
@@ -36,9 +39,23 @@ public class Accumul {
         return result.substring(0, result.length() - 1);
     }
 
+    public static String streamAccum(String s) {
+        return s == null || s.isEmpty() ? "" :
+                IntStream.range(0, s.length())
+                        .mapToObj(i -> Character.toUpperCase(s.charAt(i)) +
+                                String.valueOf(Character.toLowerCase(s.charAt(i))).repeat(i))
+                        .collect(Collectors.joining("-"));
+    }
+
     @Test
     public void test() {
         assertEquals("Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu",
                 accum("ZpglnRxqenU"));
+    }
+
+    @Test
+    public void testStreamAccum() {
+        assertEquals("Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu",
+                streamAccum("ZpglnRxqenU"));
     }
 }
