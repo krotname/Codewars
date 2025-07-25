@@ -22,10 +22,12 @@ public class Anagrams {
         if (string1 == null ||
                 string2 == null ||
                 string1.length() != string2.length()) return 0;
-        Set<Character> characters1 = string1.trim().chars().mapToObj(o -> (char) o).collect(Collectors.toSet());
-        Set<Character> characters2 = string2.trim().chars().mapToObj(o -> (char) o).collect(Collectors.toSet());
-        for (Character character : characters2) {
-            if (!characters1.contains(character)) {
+        int[] counts = new int[Character.MAX_VALUE + 1];
+        for (char c : string1.toCharArray()) {
+            counts[c]++;
+        }
+        for (char c : string2.toCharArray()) {
+            if (--counts[c] < 0) {
                 return 0;
             }
         }
@@ -44,5 +46,7 @@ public class Anagrams {
         assertEquals(1, check("", ""));
         assertEquals(0, check("", "fff"));
         assertEquals(0, check("ddd", ""));
+        assertEquals(1, check("aab", "aba"));
+        assertEquals(0, check("aab", "abb"));
     }
 }
