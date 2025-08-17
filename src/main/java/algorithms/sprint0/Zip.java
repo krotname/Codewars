@@ -6,9 +6,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static algorithms.sprint0.Utils.printList;
+import static algorithms.sprint0.Utils.readList;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class Zip {
 
@@ -34,39 +35,63 @@ public class Zip {
         }
     }
 
-    private static List<Integer> readList(BufferedReader reader) throws IOException {
-        return Arrays.stream(reader.readLine().trim().split("\\s+"))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
-    }
-
-    private static <T> void printList(List<T> list, Writer writer) {
-        for (T elem : list) {
-            try {
-                writer.write(String.valueOf(elem));
-                writer.write(" ");
-            } catch (IOException ignored) {
-            }
-        }
+    @Test
+    void equalLength_nEqualsSize() {
+        List<Integer> a = Arrays.asList(1, 3, 5);
+        List<Integer> b = Arrays.asList(2, 4, 6);
+        assertEquals(Arrays.asList(1, 2, 3, 4, 5, 6), zip(a, b, 3));
     }
 
     @Test
-    void test1() {
-        List<Integer> integers1 = List.of(1, 5, 6);
-        List<Integer> integers2 = List.of(7, 8, 9);
-        List<Integer> actualZip = zip(integers1, integers2, 3);
-
-        List<Integer> expected = List.of(1, 7, 5, 8, 6, 9);
-        assertEquals(expected, actualZip);
+    void nSmallerThanSizes() {
+        List<Integer> a = Arrays.asList(10, 30, 50);
+        List<Integer> b = Arrays.asList(20, 40, 60);
+        assertEquals(Arrays.asList(10, 20, 30, 40), zip(a, b, 2));
     }
 
     @Test
-    void test2() {
-        List<Integer> integers1 = List.of(1, 5, 6);
-        List<Integer> integers2 = List.of(7, 8, 9);
-        List<Integer> actualZip = zip(integers1, integers2, 0);
+    void nZero_returnsEmpty() {
+        List<Integer> a = Arrays.asList(1, 3, 5);
+        List<Integer> b = Arrays.asList(2, 4, 6);
+        assertTrue(zip(a, b, 0).isEmpty());
+    }
 
-        List<Integer> expected = List.of();
-        assertEquals(expected, actualZip);
+    @Test
+    void nGreaterThanSizes_clampedToMin() {
+        List<Integer> a = Arrays.asList(1, 3, 5);
+        List<Integer> b = Arrays.asList(2, 4, 6);
+        assertEquals(Arrays.asList(1, 2, 3, 4, 5, 6), zip(a, b, 10));
+    }
+
+    @Test
+    void oneListShorter_minByShorter() {
+        List<Integer> a = List.of(1);
+        List<Integer> b = Arrays.asList(2, 4, 6);
+        assertEquals(Arrays.asList(1, 2), zip(a, b, 3));
+    }
+
+    @Test
+    void emptyLists_anyN_returnsEmpty() {
+        List<Integer> a = List.of();
+        List<Integer> b = List.of();
+        assertTrue(zip(a, b, 5).isEmpty());
+    }
+
+    @Test
+    void negativeN_throwsIAE_withMessage() {
+        IllegalArgumentException ex =
+                assertThrows(IllegalArgumentException.class,
+                        () -> zip(List.of(1), List.of(2), -1));
+        assertTrue(ex.getMessage().contains("n >= 0"));
+    }
+
+    @Test
+    void nullA_throwsNPE() {
+        assertThrows(NullPointerException.class, () -> zip(null, List.of(2), 1));
+    }
+
+    @Test
+    void nullB_throwsNPE() {
+        assertThrows(NullPointerException.class, () -> zip(List.of(1), null, 1));
     }
 }

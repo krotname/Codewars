@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
+import static algorithms.sprint0.Utils.readInt;
+import static algorithms.sprint0.Utils.readList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SlidingAverage {
@@ -40,18 +40,6 @@ public class SlidingAverage {
         }
     }
 
-
-    private static int readInt(BufferedReader reader) throws IOException {
-        return Integer.parseInt(reader.readLine());
-    }
-
-    private static List<Integer> readList(BufferedReader reader) throws IOException {
-        return Arrays.asList(reader.readLine().split(" "))
-                .stream()
-                .map(elem -> Integer.parseInt(elem))
-                .collect(Collectors.toList());
-    }
-
     private static void assertListDoubles(List<Double> actual, double... expected) {
         assertEquals(expected.length, actual.size(), "size");
         for (int i = 0; i < expected.length; i++) {
@@ -67,31 +55,31 @@ public class SlidingAverage {
 
     @Test
     void w1_returnsOriginalValues() {
-        List<Double> actual = movingAverage(7, List.of(1,2,3,4,5,6,7), 1);
-        assertListDoubles(actual, 1,2,3,4,5,6,7);
+        List<Double> actual = movingAverage(7, List.of(1, 2, 3, 4, 5, 6, 7), 1);
+        assertListDoubles(actual, 1, 2, 3, 4, 5, 6, 7);
     }
 
     @Test
     void wEqMin_singleAverage() {
-        List<Double> actual = movingAverage(7, List.of(1,2,3,4,5,6,7), 7);
+        List<Double> actual = movingAverage(7, List.of(1, 2, 3, 4, 5, 6, 7), 7);
         assertListDoubles(actual, 4.0);
     }
 
     @Test
     void wGreaterThanMin_empty() {
-        List<Double> actual = movingAverage(5, List.of(1,2,3,4,5,6,7), 6);
+        List<Double> actual = movingAverage(5, List.of(1, 2, 3, 4, 5, 6, 7), 6);
         assertEquals(List.of(), actual);
     }
 
     @Test
     void wZeroOrNegative_empty() {
-        assertEquals(List.of(), movingAverage(5, List.of(1,2,3,4,5), 0));
-        assertEquals(List.of(), movingAverage(5, List.of(1,2,3,4,5), -3));
+        assertEquals(List.of(), movingAverage(5, List.of(1, 2, 3, 4, 5), 0));
+        assertEquals(List.of(), movingAverage(5, List.of(1, 2, 3, 4, 5), -3));
     }
 
     @Test
     void cutByN_truncatesAndAverages() {
-        List<Double> actual = movingAverage(5, List.of(1,2,3,4,5,6,7), 3);
+        List<Double> actual = movingAverage(5, List.of(1, 2, 3, 4, 5, 6, 7), 3);
         // окна по первым 5 элементам: [1,2,3],[2,3,4],[3,4,5]
         assertListDoubles(actual, 2.0, 3.0, 4.0);
     }
