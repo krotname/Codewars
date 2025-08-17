@@ -41,7 +41,7 @@ class InMemoryValidationServiceTest {
         ValidationResult result = service.validate(transactions, 100);
         List<TransactionStatus> statuses = result.getTransactions();
         assertEquals(1, statuses.size(), "There should be one transaction status");
-        assertTrue(statuses.getFirst().status(), "BET transaction should be valid when balance is sufficient");
+        assertTrue(statuses.get(0).status(), "BET transaction should be valid when balance is sufficient");
     }
 
     @Test
@@ -50,7 +50,7 @@ class InMemoryValidationServiceTest {
         ValidationResult result = service.validate(transactions, 100);
         List<TransactionStatus> statuses = result.getTransactions();
         assertEquals(1, statuses.size(), "There should be one transaction status");
-        assertFalse(statuses.getFirst().status(), "BET transaction should be invalid due to insufficient balance");
+        assertFalse(statuses.get(0).status(), "BET transaction should be invalid due to insufficient balance");
     }
 
     @Test
