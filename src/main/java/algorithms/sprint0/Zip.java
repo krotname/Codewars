@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Zip {
 
     private static List<Integer> zip(List<Integer> a, List<Integer> b, int n) {
+        if (n < 0) throw new IllegalArgumentException("n >= 0 required");
         int min = Math.min(n, Math.min(a.size(), b.size()));
         ArrayList<Integer> integers = new ArrayList<>(min * 2);
 
@@ -26,7 +27,7 @@ public class Zip {
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
              BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out))) {
-            int n = Integer.parseInt(reader.readLine());
+            int n = Integer.parseInt(reader.readLine().trim());
             List<Integer> a = readList(reader);
             List<Integer> b = readList(reader);
             printList(zip(a, b, n), writer);
@@ -34,7 +35,7 @@ public class Zip {
     }
 
     private static List<Integer> readList(BufferedReader reader) throws IOException {
-        return Arrays.stream(reader.readLine().split("\\s+"))
+        return Arrays.stream(reader.readLine().trim().split("\\s+"))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
     }
