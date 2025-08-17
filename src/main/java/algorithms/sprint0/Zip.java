@@ -13,9 +13,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Zip {
 
     private static List<Integer> zip(List<Integer> a, List<Integer> b, int n) {
-        ArrayList<Integer> integers = new ArrayList<>();
+        int min = Math.min(n, Math.min(a.size(), b.size()));
+        ArrayList<Integer> integers = new ArrayList<>(min * 2);
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < min; i++) {
             integers.add(a.get(i));
             integers.add(b.get(i));
         }
@@ -33,21 +34,19 @@ public class Zip {
     }
 
     private static List<Integer> readList(BufferedReader reader) throws IOException {
-        return Arrays.stream(reader.readLine().split(" "))
+        return Arrays.stream(reader.readLine().split("\\s+"))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
     }
 
     private static <T> void printList(List<T> list, Writer writer) {
-        list.forEach(elem -> {
-                    try {
-                        writer.write(String.valueOf(elem));
-                        writer.write(" ");
-                    } catch (IOException ignored) {
-
-                    }
-                }
-        );
+        for (T elem : list) {
+            try {
+                writer.write(String.valueOf(elem));
+                writer.write(" ");
+            } catch (IOException ignored) {
+            }
+        }
     }
 
     @Test
@@ -57,6 +56,16 @@ public class Zip {
         List<Integer> actualZip = zip(integers1, integers2, 3);
 
         List<Integer> expected = List.of(1, 7, 5, 8, 6, 9);
+        assertEquals(expected, actualZip);
+    }
+
+    @Test
+    void test2() {
+        List<Integer> integers1 = List.of(1, 5, 6);
+        List<Integer> integers2 = List.of(7, 8, 9);
+        List<Integer> actualZip = zip(integers1, integers2, 0);
+
+        List<Integer> expected = List.of();
         assertEquals(expected, actualZip);
     }
 }
